@@ -3,11 +3,6 @@ layout: default
 title: Integrated Value Architecture
 ---
 
----
-layout: default
-title: Integrated Value Architecture
----
-
 <div style="background: #1F2A44; padding: 48px; border-radius: 8px; margin-bottom: 48px;">
   <h1 style="color: white; margin-top: 0;">Integrated Value Architecture</h1>
   <p style="color: white; font-size: 20px; max-width: 700px;">
