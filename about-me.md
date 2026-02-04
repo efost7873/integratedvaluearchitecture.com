@@ -10,7 +10,7 @@ title: About Me
 
     <!-- PHOTO -->
     <div style="flex: 0 0 260px;">
-      <img src="/assets/images/evan.jpg" alt="Evan Foster" style="width: 100%; border-radius: 8px;">
+      <img src="{{ site.baseurl }}/assets/images/evan.jpg" alt="Evan Foster" style="width: 100%; border-radius: 8px;">
     </div>
 
     <!-- INTRO -->
@@ -47,7 +47,7 @@ title: About Me
   <section style="margin-top: 48px;">
     <h2>Thank You</h2>
     <p>Thank you for taking the time to learn about IVA.</p>
-    <img src="/assets/images/signature.png" alt="Signature" style="width: 240px; margin-top: 16px;">
+    <img src="{{ site.baseurl }}/assets/images/signature.png" alt="Signature" style="width: 240px; margin-top: 16px;">
   </section>
 
 </section>
