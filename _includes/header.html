@@ -1,4 +1,16 @@
-<header style="background: #1F2A44; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.15);">
+<!-- Identity Bar -->
+<div style="background: #4A5673; color: white; font-size: 0.85rem; padding: 6px 32px; text-align: center; letter-spacing: 0.3px;">
+  A structural governance standard | Advisory, diagnostics, and implementation
+</div>
+
+<!-- Main Header -->
+<header style="
+  background: linear-gradient(180deg, #1F2A44 0%, #1F2A44 70%, #1F2A44EE 100%);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+">
 
   <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 32px; flex-wrap: wrap; gap: 16px;">
 
@@ -21,15 +33,23 @@
 
     <!-- Navigation -->
     <nav id="iva-nav" style="display: flex; gap: 32px; font-size: 1.05rem; font-weight: 400;">
-      <a href="{{ site.baseurl }}/" style="color: white; text-decoration: none;">Home</a>
-      <a href="{{ site.baseurl }}/standard" style="color: white; text-decoration: none;">IVA Standard</a>
-      <a href="{{ site.baseurl }}/diagnostic" style="color: white; text-decoration: none;">Diagnostic</a>
-      <a href="{{ site.baseurl }}/about-me" style="color: white; text-decoration: none;">About Me</a>
-      <a href="{{ site.baseurl }}/about" style="color: white; text-decoration: none;">About</a>
-      <a href="{{ site.baseurl }}/contact" style="color: white; text-decoration: none;">Contact</a>
+      <a href="{{ site.baseurl }}/" style="color: white; text-decoration: none; transition: opacity 0.2s;">Home</a>
+      <a href="{{ site.baseurl }}/standard" style="color: white; text-decoration: none; transition: opacity 0.2s;">IVA Standard</a>
+      <a href="{{ site.baseurl }}/diagnostic" style="color: white; text-decoration: none; transition: opacity 0.2s;">Diagnostic</a>
+      <a href="{{ site.baseurl }}/about-me" style="color: white; text-decoration: none; transition: opacity 0.2s;">About Me</a>
+      <a href="{{ site.baseurl }}/about" style="color: white; text-decoration: none; transition: opacity 0.2s;">About</a>
+      <a href="{{ site.baseurl }}/contact" style="color: white; text-decoration: none; transition: opacity 0.2s;">Contact</a>
     </nav>
 
   </div>
+
+  <!-- Hover Animation Script -->
+  <script>
+    document.querySelectorAll('#iva-nav a').forEach(link => {
+      link.addEventListener('mouseover', () => link.style.opacity = '0.65');
+      link.addEventListener('mouseout', () => link.style.opacity = '1');
+    });
+  </script>
 
   <!-- Mobile behavior -->
   <script>
@@ -61,3 +81,19 @@
   </script>
 
 </header>
+
+<!-- Hero Band -->
+<div style="
+  background: linear-gradient(180deg, #F5F6FA 0%, #FFFFFF 100%);
+  padding: 56px 32px;
+  border-bottom: 1px solid #E0E0E0;
+">
+  <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+    <h2 style="margin: 0; font-size: 1.9rem; color: #1F2A44; font-weight: 600;">
+      A structural framework for modern governance, clarity, and execution
+    </h2>
+    <p style="margin-top: 16px; font-size: 1.1rem; color: #4A5673; line-height: 1.6;">
+      IVA realigns incentives, reporting, and decision‑making by replacing inherited industrial‑era patterns with a coherent, governance‑first architecture.
+    </p>
+  </div>
+</div>
