@@ -18,7 +18,10 @@ title: Contact
     <h1>How to Reach Me</h1>
 
     <p>
-      <strong>Email:</strong> <a href="mailto:evan.foster@integratedvaluearchitecture.com">evan.foster@integratedvaluearchitecture.com</a>
+      <strong>Email:</strong>
+      <a href="mailto:evan.foster@integratedvaluearchitecture.com">
+        evan.foster@integratedvaluearchitecture.com
+      </a>
     </p>
 
     <p>
@@ -35,7 +38,7 @@ title: Contact
     </p>
 
     <ul>
-      <li>an initial response within a reasonable timeframe</li>
+      <li>a timely response based on the nature of your inquiry</li>
       <li>follow up questions if more context is needed</li>
       <li>clear next steps if your inquiry relates to the IVA Diagnostic</li>
       <li>guidance on whether IVA is the right fit for your organization or research</li>
