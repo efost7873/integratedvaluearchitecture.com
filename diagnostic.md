@@ -9,10 +9,10 @@ title: IVA Diagnostic
   <section style="margin-bottom: 48px;">
     <h1>The IVA Diagnostic</h1>
     <p>
-      The IVA Diagnostic is the entry point into Integrated Value Architecture. It provides a clear, evidence based understanding of how your organization is structured, how decisions move, and where performance pressures originate. It does not implement change. It establishes the structural baseline needed to make informed decisions about governance and performance.
+      The IVA Diagnostic is the entry point into Integrated Value Architecture. It provides a clear understanding of how your organization is structured, how decisions move, and where performance pressures originate. It does not implement change. It establishes the structural baseline needed to make informed decisions about governance and performance.
     </p>
     <p>
-      IVA is grounded in the history of management accounting and organizational behavior. For more than a century, financial accounting systems shaped internal performance even though they were created for external reporting. The Diagnostic helps you see how this history shapes your daily work and where structural conditions may be creating friction.
+      IVA is grounded in the history of management accounting and organizational behavior. For more than a century, financial accounting systems shaped internal performance even though they were created for external reporting. The Diagnostic helps you see how this history shapes your daily work.
     </p>
   </section>
 
@@ -43,11 +43,11 @@ title: IVA Diagnostic
     <h1>What the Diagnostic Reveals</h1>
 
     <p>
-      The IVA Diagnostic maps the structure of your organization. It examines how decisions flow, how authority is distributed, how work moves, and how the organization is designed to function. It identifies early indicators of structural risk, governance failures, and decision rights misalignment.
+      The IVA Diagnostic maps the structure of your organization. It examines how decisions flow, how authority is distributed, how work moves, and how the organization is designed to function. It identifies early indicators of structural risk and governance misalignment.
     </p>
 
     <p>
-      The Diagnostic uses the five IVA ledgers as an analytical lens, not as an implementation framework. It does not align your organization with the ledgers. It identifies where the ledgers are already signaling dominance, neglect, or distortion.
+      The Diagnostic uses the five IVA ledgers as an analytical lens. It does not align your organization with the ledgers. It identifies where structural conditions may be influencing performance.
     </p>
 
     <div class="grid grid-2">
@@ -55,21 +55,21 @@ title: IVA Diagnostic
       <div class="card">
         <h3>Financial Structure</h3>
         <p>
-          How financial incentives, reporting pathways, and constraints shape decisions long before strategy enters the room.
+          How financial incentives, reporting pathways, and constraints shape decisions.
         </p>
       </div>
 
       <div class="card">
         <h3>Operational Structure</h3>
         <p>
-          How workflows, handoffs, and real world behaviors reveal the actual movement of work.
+          How workflows, handoffs, and real world behaviors reveal the movement of work.
         </p>
       </div>
 
       <div class="card">
         <h3>Capacity Structure</h3>
         <p>
-          How load is distributed across people, roles, systems, and infrastructure, including the invisible work leaders absorb.
+          How load is distributed across people, roles, systems, and infrastructure.
         </p>
       </div>
 
@@ -83,7 +83,7 @@ title: IVA Diagnostic
       <div class="card">
         <h3>Learning and Adaptation Structure</h3>
         <p>
-          How the organization integrates new tools, learns from experience, and adapts without destabilizing the system.
+          How the organization integrates new tools, learns from experience, and adapts over time.
         </p>
       </div>
 
@@ -99,7 +99,7 @@ title: IVA Diagnostic
     <h1>Why the Diagnostic Matters</h1>
 
     <p>
-      Most tools measure symptoms. The Diagnostic measures structure. It provides a factual, evidence based foundation for understanding how the organization functions and where structural conditions support or constrain performance.
+      Most tools measure symptoms. The Diagnostic measures structure. It provides a factual foundation for understanding how the organization functions and where structural conditions support or constrain performance.
     </p>
 
     <p>
@@ -121,19 +121,11 @@ title: IVA Diagnostic
       <li>where capacity is strained or unsupported</li>
       <li>how external forces shape internal behavior</li>
       <li>how learning and adaptation occur in practice</li>
-      <li>where structural risks and governance failures may be emerging</li>
+      <li>where structural risks may be emerging</li>
     </ul>
 
     <p>
       This map becomes the basis for informed decisions about governance, structure, and long term performance.
-    </p>
-  </section>
-
-  <!-- IP PROTECTION -->
-  <section style="margin-bottom: 48px;">
-    <h1>Intellectual Property Protection</h1>
-    <p>
-      The IVA Diagnostic, the Document Matrix, and all structural analysis methods are proprietary to Integrated Value Architecture, LLC. The diagnostic sequence, structural mapping approach, and governance analysis framework may not be copied, adapted, or used to create derivative systems. The diagnostic report is provided for client use only and remains IVA property until all contractual obligations are met.
     </p>
   </section>
 
@@ -155,10 +147,10 @@ title: IVA Diagnostic
     </p>
   </section>
 
-  <!-- PAGE-LEVEL IP NOTICE -->
+  <!-- LIGHT IP NOTICE (NON-BLUNT, NON-REVEALING) -->
   <section style="margin-top: 48px; font-size: 14px; color: #555;">
     <p>
-      © 2026 Integrated Value Architecture, LLC. All rights reserved. IVA, the IVA Standard, the IVA Diagnostic, the Document Matrix, Structural Value Units, and all related governance concepts are proprietary intellectual property. No reproduction, adaptation, or derivative use is permitted without written authorization.
+      © 2026 Integrated Value Architecture, LLC. All rights reserved. IVA is a proprietary governance system. The concepts described on this page are provided for informational purposes and do not include the methods, tools, or processes used in IVA diagnostics or implementation.
     </p>
   </section>
 
