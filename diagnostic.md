@@ -129,6 +129,13 @@ title: IVA Diagnostic
     </p>
   </section>
 
+  <!-- LIGHT IP NOTICE (NO "ALL RIGHTS RESERVED") -->
+  <section style="margin-top: 48px; font-size: 14px; color: #555;">
+    <p>
+      IVA is a proprietary governance system. The concepts described on this page are provided for informational purposes and do not include the methods, tools, or processes used in IVA diagnostics or implementation.
+    </p>
+  </section>
+
   <!-- CTA -->
   <section style="margin-bottom: 48px;">
     <h1>Begin the IVA Diagnostic</h1>
@@ -144,13 +151,6 @@ title: IVA Diagnostic
          style="display: inline-block; padding: 16px 24px; background: #1F2A44; color: white; border-radius: 6px; text-decoration: none; font-size: 18px;">
         Begin the IVA Diagnostic
       </a>
-    </p>
-  </section>
-
-  <!-- LIGHT IP NOTICE (NON-BLUNT, NON-REVEALING) -->
-  <section style="margin-top: 48px; font-size: 14px; color: #555;">
-    <p>
-      © 2026 Integrated Value Architecture, LLC. All rights reserved. IVA is a proprietary governance system. The concepts described on this page are provided for informational purposes and do not include the methods, tools, or processes used in IVA diagnostics or implementation.
     </p>
   </section>
 
