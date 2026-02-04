@@ -49,6 +49,18 @@ a:hover {
   text-decoration: underline;
 }
 
+.card {
+  background: white;
+  padding: $space-4;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+  border: 1px solid #e5e5e5;
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
 .grid {
   display: grid;
   gap: $space-4;
