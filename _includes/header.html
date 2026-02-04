@@ -1,5 +1,5 @@
 <!-- Identity Bar -->
-<div style="background: #4A5673; color: white; font-size: 0.85rem; padding: 6px 32px; text-align: center; letter-spacing: 0.3px;">
+<div style="background: #4A5673; color: white; font-size: 0.82rem; padding: 4px 32px; text-align: center; letter-spacing: 0.3px;">
   A structural governance standard | Advisory, diagnostics, and implementation
 </div>
 
@@ -12,14 +12,14 @@
   border-bottom: 1px solid rgba(255,255,255,0.15);
 ">
 
-  <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px 32px; flex-wrap: wrap; gap: 16px;">
+  <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 32px; flex-wrap: wrap; gap: 16px;">
 
     <!-- Logo + Identity -->
     <div style="display: flex; align-items: center; gap: 14px;">
       <img 
         src="{{ site.baseurl }}/assets/images/tmlogo.png" 
         alt="IVA Logo" 
-        style="height: 44px; background: white; padding: 6px 8px; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.25);"
+        style="height: 44px; background: white; padding: 6px 8px; border-radius: 6px; border: 1px solid #4A5673; box-shadow: 0 1px 3px rgba(0,0,0,0.25);"
       >
       <div style="color: white; font-size: 1.45rem; font-weight: 600; letter-spacing: 0.5px;">
         Integrated Value Architecture
@@ -32,24 +32,33 @@
     </div>
 
     <!-- Navigation -->
-    <nav id="iva-nav" style="display: flex; gap: 32px; font-size: 1.05rem; font-weight: 400;">
-      <a href="{{ site.baseurl }}/" style="color: white; text-decoration: none; transition: opacity 0.2s;">Home</a>
-      <a href="{{ site.baseurl }}/standard" style="color: white; text-decoration: none; transition: opacity 0.2s;">IVA Standard</a>
-      <a href="{{ site.baseurl }}/diagnostic" style="color: white; text-decoration: none; transition: opacity 0.2s;">Diagnostic</a>
-      <a href="{{ site.baseurl }}/about-me" style="color: white; text-decoration: none; transition: opacity 0.2s;">About Me</a>
-      <a href="{{ site.baseurl }}/about" style="color: white; text-decoration: none; transition: opacity 0.2s;">About</a>
-      <a href="{{ site.baseurl }}/contact" style="color: white; text-decoration: none; transition: opacity 0.2s;">Contact</a>
+    <nav id="iva-nav" style="display: flex; gap: 28px; font-size: 1.05rem; font-weight: 400;">
+      <a class="iva-link" href="{{ site.baseurl }}/" style="color: white; text-decoration: none; position: relative;">Home</a>
+      <a class="iva-link" href="{{ site.baseurl }}/standard" style="color: white; text-decoration: none; position: relative;">IVA Standard</a>
+      <a class="iva-link" href="{{ site.baseurl }}/diagnostic" style="color: white; text-decoration: none; position: relative;">Diagnostic</a>
+      <a class="iva-link" href="{{ site.baseurl }}/about-me" style="color: white; text-decoration: none; position: relative;">About Me</a>
+      <a class="iva-link" href="{{ site.baseurl }}/about" style="color: white; text-decoration: none; position: relative;">About</a>
+      <a class="iva-link" href="{{ site.baseurl }}/contact" style="color: white; text-decoration: none; position: relative;">Contact</a>
     </nav>
 
   </div>
 
-  <!-- Hover Animation Script -->
-  <script>
-    document.querySelectorAll('#iva-nav a').forEach(link => {
-      link.addEventListener('mouseover', () => link.style.opacity = '0.65');
-      link.addEventListener('mouseout', () => link.style.opacity = '1');
-    });
-  </script>
+  <!-- Hover underline animation -->
+  <style>
+    .iva-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: white;
+      transition: width 0.25s ease;
+    }
+    .iva-link:hover::after {
+      width: 100%;
+    }
+  </style>
 
   <!-- Mobile behavior -->
   <script>
@@ -68,7 +77,7 @@
         nav.style.display = 'flex';
         nav.style.flexDirection = 'row';
         nav.style.padding = '0';
-        nav.style.gap = '32px';
+        nav.style.gap = '28px';
       }
     }
 
@@ -82,17 +91,17 @@
 
 </header>
 
-<!-- Hero Band -->
+<!-- Hero Band (left-aligned, modern) -->
 <div style="
   background: linear-gradient(180deg, #F5F6FA 0%, #FFFFFF 100%);
-  padding: 56px 32px;
+  padding: 32px 32px 40px;
   border-bottom: 1px solid #E0E0E0;
 ">
-  <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-    <h2 style="margin: 0; font-size: 1.9rem; color: #1F2A44; font-weight: 600;">
+  <div style="max-width: 900px; margin: 0 auto; text-align: left;">
+    <h2 style="margin: 0; font-size: 2rem; color: #1F2A44; font-weight: 600;">
       A structural framework for modern governance, clarity, and execution
     </h2>
-    <p style="margin-top: 16px; font-size: 1.1rem; color: #4A5673; line-height: 1.6;">
+    <p style="margin-top: 12px; font-size: 1.1rem; color: #4A5673; line-height: 1.6; max-width: 700px;">
       IVA realigns incentives, reporting, and decision‑making by replacing inherited industrial‑era patterns with a coherent, governance‑first architecture.
     </p>
   </div>
