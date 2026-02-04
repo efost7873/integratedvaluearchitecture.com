@@ -4,24 +4,26 @@
 </div>
 
 <!-- Main Header -->
-<header style="
+<header id="iva-header" style="
   background: linear-gradient(180deg, #1F2A44 0%, #1F2A44 70%, #1F2A44EE 100%);
   position: sticky;
   top: 0;
   z-index: 1000;
   border-bottom: 1px solid rgba(255,255,255,0.15);
+  transition: padding 0.25s ease, box-shadow 0.25s ease;
 ">
 
-  <div style="display: flex; justify-content: space-between; align-items: center; padding: 18px 32px; flex-wrap: wrap; gap: 16px;">
+  <div id="iva-header-inner" style="display: flex; justify-content: space-between; align-items: center; padding: 18px 32px; flex-wrap: wrap; gap: 16px; transition: padding 0.25s ease;">
 
     <!-- Logo + Identity -->
     <div style="display: flex; align-items: center; gap: 14px;">
       <img 
         src="{{ site.baseurl }}/assets/images/tmlogo.png" 
         alt="IVA Logo" 
-        style="height: 44px; background: white; padding: 6px 8px; border-radius: 6px; border: 1px solid #4A5673; box-shadow: 0 1px 3px rgba(0,0,0,0.25);"
+        style="height: 44px; background: white; padding: 6px 8px; border-radius: 6px; border: 1px solid #4A5673; box-shadow: 0 1px 3px rgba(0,0,0,0.25); transition: height 0.25s ease;"
+        id="iva-logo"
       >
-      <div style="color: white; font-size: 1.45rem; font-weight: 600; letter-spacing: 0.5px;">
+      <div id="iva-title" style="color: white; font-size: 1.45rem; font-weight: 600; letter-spacing: 0.5px; transition: font-size 0.25s ease;">
         Integrated Value Architecture
       </div>
     </div>
@@ -60,8 +62,12 @@
     }
   </style>
 
-  <!-- Mobile behavior -->
+  <!-- Scroll shrink + mobile behavior -->
   <script>
+    const header = document.getElementById('iva-header');
+    const headerInner = document.getElementById('iva-header-inner');
+    const logo = document.getElementById('iva-logo');
+    const title = document.getElementById('iva-title');
     const toggle = document.getElementById('iva-menu-toggle');
     const nav = document.getElementById('iva-nav');
 
@@ -87,15 +93,31 @@
 
     window.addEventListener('resize', updateMenu);
     updateMenu();
+
+    // Scroll shrink
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        header.style.boxShadow = '0 2px 6px rgba(0,0,0,0.15)';
+        headerInner.style.padding = '10px 32px';
+        logo.style.height = '36px';
+        title.style.fontSize = '1.25rem';
+      } else {
+        header.style.boxShadow = 'none';
+        headerInner.style.padding = '18px 32px';
+        logo.style.height = '44px';
+        title.style.fontSize = '1.45rem';
+      }
+    });
   </script>
 
 </header>
 
-<!-- Hero Band (left-aligned, modern) -->
-<div style="
+<!-- Hero Band (left-aligned, micro-fade) -->
+<div id="iva-hero" style="
   background: linear-gradient(180deg, #F5F6FA 0%, #FFFFFF 100%);
   padding: 32px 32px 40px;
   border-bottom: 1px solid #E0E0E0;
+  transition: opacity 0.3s ease;
 ">
   <div style="max-width: 900px; margin: 0 auto; text-align: left;">
     <h2 style="margin: 0; font-size: 2rem; color: #1F2A44; font-weight: 600;">
@@ -106,3 +128,15 @@
     </p>
   </div>
 </div>
+
+<script>
+  // Micro fade on scroll
+  const hero = document.getElementById('iva-hero');
+  window.addEventListener('scroll', () => {
+    const fadeStart = 0;
+    const fadeEnd = 200;
+    const scroll = window.scrollY;
+    const opacity = Math.max(0, 1 - scroll / fadeEnd);
+    hero.style.opacity = opacity;
+  });
+</script>
