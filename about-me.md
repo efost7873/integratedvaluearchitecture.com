@@ -44,12 +44,10 @@ title: About Me
   </section>
 
   <!-- SIGNATURE -->
-  {% raw %}
   <section style="margin-top: 48px;">
     <h2>Thank You</h2>
     <p>Thank you for taking the time to learn about IVA.</p>
     <img src="{{ site.baseurl }}/assets/images/signature.png" alt="Signature" style="width: 240px; margin-top: 16px;">
   </section>
-  {% endraw %}
 
 </section>
