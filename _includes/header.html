@@ -1,15 +1,57 @@
-<header style="background: #1F2A44; padding: 16px;">
-  <div class="container">
-    <h1 style="color: white; margin: 0;">Integrated Value Architecture</h1>
+<header style="background: #1F2A44; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.15);">
 
-    <nav style="margin-top: 12px;">
-      <a href="{{ site.baseurl }}/" style="color: white; margin-right: 24px;">Home</a>
-      <a href="{{ site.baseurl }}/standard" style="color: white; margin-right: 24px;">IVA Standard</a>
-      <a href="{{ site.baseurl }}/diagnostic" style="color: white; margin-right: 24px;">Diagnostic</a>
-      <a href="{{ site.baseurl }}/about-me" style="color: white; margin-right: 24px;">About Me</a>
-      <a href="{{ site.baseurl }}/about" style="color: white; margin-right: 24px;">About</a>
-      <a href="{{ site.baseurl }}/contact" style="color: white;">Contact</a>
+  <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 32px; flex-wrap: wrap; gap: 16px;">
+
+    <!-- Logo + Identity -->
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <img src="{{ site.baseurl }}/assets/images/tmlogo.png" alt="IVA Logo" style="height: 40px;">
+      <div style="color: white; font-size: 1.35rem; font-weight: 600; letter-spacing: 0.5px;">
+        Integrated Value Architecture
+      </div>
+    </div>
+
+    <!-- Hamburger (mobile only) -->
+    <div id="iva-menu-toggle" style="display: none; font-size: 1.8rem; color: white; cursor: pointer;">
+      ☰
+    </div>
+
+    <!-- Navigation -->
+    <nav id="iva-nav" style="display: flex; gap: 28px; font-size: 1rem;">
+      <a href="{{ site.baseurl }}/" style="color: white; text-decoration: none;">Home</a>
+      <a href="{{ site.baseurl }}/standard" style="color: white; text-decoration: none;">IVA Standard</a>
+      <a href="{{ site.baseurl }}/diagnostic" style="color: white; text-decoration: none;">Diagnostic</a>
+      <a href="{{ site.baseurl }}/about-me" style="color: white; text-decoration: none;">About Me</a>
+      <a href="{{ site.baseurl }}/about" style="color: white; text-decoration: none;">About</a>
+      <a href="{{ site.baseurl }}/contact" style="color: white; text-decoration: none;">Contact</a>
     </nav>
 
   </div>
+
+  <!-- Mobile behavior -->
+  <script>
+    const toggle = document.getElementById('iva-menu-toggle');
+    const nav = document.getElementById('iva-nav');
+
+    function updateMenu() {
+      if (window.innerWidth < 720) {
+        toggle.style.display = 'block';
+        nav.style.display = 'none';
+        nav.style.flexDirection = 'column';
+        nav.style.padding = '0 32px 16px';
+      } else {
+        toggle.style.display = 'none';
+        nav.style.display = 'flex';
+        nav.style.flexDirection = 'row';
+        nav.style.padding = '0';
+      }
+    }
+
+    toggle.addEventListener('click', () => {
+      nav.style.display = nav.style.display === 'none' ? 'flex' : 'none';
+    });
+
+    window.addEventListener('resize', updateMenu);
+    updateMenu();
+  </script>
+
 </header>
