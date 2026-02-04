@@ -12,11 +12,11 @@ title: Integrated Value Architecture
       Integrated Value Architecture is a multi ledger governance system that identifies and measures the structural conditions that shape organizational behavior. It replaces the single ledger financial model that has dominated organizations since the industrial era. IVA distributes decision authority across functions and creates a coherent architecture for long term performance and legitimacy.
     </p>
     <p>
-      IVA is grounded in research across management accounting, organizational behavior, and financialization studies. For more than a century, financial accounting systems shaped internal performance regimes even though they were created for external reporting. IVA corrects this imbalance by introducing a structural accounting system that reflects how modern organizations create value.
+      IVA is grounded in research across management accounting, organizational behavior, and financialization studies. For more than a century, financial accounting systems shaped internal performance even though they were created for external reporting. IVA corrects this imbalance by introducing a structural accounting system that reflects how modern organizations create value.
     </p>
   </section>
 
-  <!-- OMG MOMENTS -->
+  <!-- WHAT PEOPLE REALIZE -->
   <section style="margin-bottom: 48px;">
     <h1>What People Realize When They See IVA</h1>
 
@@ -24,28 +24,28 @@ title: Integrated Value Architecture
       <div class="card">
         <h3>You have been treating symptoms, not structure.</h3>
         <p>
-          Plans, dashboards, and retreats fail because the underlying structure resets the moment the consultants leave. IVA makes the structure visible and changeable.
+          Plans and dashboards fail because the underlying structure resets the moment the consultants leave. IVA makes the structure visible and changeable.
         </p>
       </div>
 
       <div class="card">
         <h3>Finance has been defining performance for everyone.</h3>
         <p>
-          Not by intent, but by architecture. When a single ledger defines success, financial metrics dominate every conversation. IVA corrects this imbalance by giving other domains formal standing.
+          When a single ledger defines success, financial metrics dominate every conversation. IVA corrects this imbalance by giving other domains formal standing.
         </p>
       </div>
 
       <div class="card">
         <h3>Your capacity problems were never just people problems.</h3>
         <p>
-          Vacancies, burnout, skill gaps, system failures, and data unreliability are structural liabilities. IVA treats them as ledger positions, not as individual shortcomings.
+          Vacancies, burnout, system failures, and data unreliability are structural liabilities. IVA treats them as structural positions, not individual shortcomings.
         </p>
       </div>
 
       <div class="card">
         <h3>Decisions get stuck because decision rights are misaligned.</h3>
         <p>
-          Authority is concentrated in the wrong places, and cross functional work has no structural support. IVA maps decision pathways and realigns them with the work.
+          Authority is concentrated in the wrong places, and cross functional work has no structural support. IVA maps decision pathways and reveals where misalignment occurs.
         </p>
       </div>
 
@@ -91,21 +91,21 @@ title: Integrated Value Architecture
       <div class="card">
         <h3>Capacity Ledger</h3>
         <p>
-          Measures staffing, skills, systems, data quality, and infrastructure using Structural Value Units. Defines the structural ability of the organization to support its work.
+          Measures staffing, skills, systems, data quality, and infrastructure using Structural Value Units.
         </p>
       </div>
 
       <div class="card">
         <h3>Externalities and Equity Ledger</h3>
         <p>
-          Measures legitimacy and distributional structure using Structural Value Units. Captures community impact, fairness, stakeholder burden, and environmental effects.
+          Measures legitimacy and distributional structure using Structural Value Units.
         </p>
       </div>
 
       <div class="card">
         <h3>Learning and Innovation Ledger</h3>
         <p>
-          Measures learning and adaptation structure using Structural Value Units. Captures experimentation, knowledge creation, and organizational resilience.
+          Measures learning and adaptation structure using Structural Value Units.
         </p>
       </div>
 
@@ -121,14 +121,14 @@ title: Integrated Value Architecture
       <div class="card">
         <h3>Structural Diagnostics</h3>
         <p>
-          IVA exposes the hidden patterns that shape incentives, reporting, authority, and workload. It reveals structural distortions that no dashboard can show.
+          IVA exposes the hidden patterns that shape incentives, reporting, authority, and workload. It reveals structural conditions that no dashboard can show.
         </p>
       </div>
 
       <div class="card">
         <h3>The IVA Standard</h3>
         <p>
-          A governance first, multi ledger architecture with formal valuation rules, evidence requirements, and audit procedures. A structural accounting standard for modern organizations.
+          A governance first, multi ledger architecture with formal definitions, evidence expectations, and structural rules. A modern accounting standard for organizational structure.
         </p>
       </div>
 
@@ -151,21 +151,21 @@ title: Integrated Value Architecture
       <div class="card">
         <h3>Step 1. Diagnostic</h3>
         <p>
-          IVA maps the existing structure. It identifies distortions created by financial dominance, fragmented data, misaligned authority, and unmanaged externalities.
+          IVA maps the existing structure. It identifies how decisions move, how authority is distributed, and where structural risks may be emerging.
         </p>
       </div>
 
       <div class="card">
         <h3>Step 2. Implementation</h3>
         <p>
-          The five ledgers are defined for your organization. Metrics, evidence requirements, decision rights, and reporting pathways are designed as a single governance system.
+          The five ledgers are defined for your organization. Governance, reporting pathways, and structural roles are designed as a single system.
         </p>
       </div>
 
       <div class="card">
         <h3>Step 3. Evaluation and Ongoing Support</h3>
         <p>
-          Structural waste is removed. Authority, incentives, and capacity are realigned with strategy. IVA provides ongoing support to maintain structural integrity over time.
+          IVA provides continued support to maintain structural integrity and ensure the architecture holds under pressure.
         </p>
       </div>
 
