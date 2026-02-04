@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+</head>
+<body>
+
+  {% include header.html %}
+
+  <div class="container" style="display: flex; gap: 32px;">
+
+    <aside style="width: 240px; background: #f0f2f5; padding: 16px; border-radius: 8px;">
+      <h3 style="margin-top: 0; color: #1F2A44;">Sections</h3>
+      <ul style="list-style: none; padding-left: 0;">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#patterns">Structural Patterns</a></li>
+        <li><a href="#governance">Governance Alignment</a></li>
+        <li><a href="#operations">Operational Coherence</a></li>
+        <li><a href="#compliance">Compliance Load</a></li>
+        <li><a href="#documents">Document Architecture</a></li>
+        <li><a href="#diagnostic">Diagnostic Sequence</a></li>
+      </ul>
+    </aside>
+
+    <main style="flex: 1;">
+      {{ content }}
+    </main>
+
+  </div>
+
+  {% include footer.html %}
+
+</body>
+</html>
