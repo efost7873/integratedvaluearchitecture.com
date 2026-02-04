@@ -2,6 +2,7 @@
 layout: standard
 title: IVA Standard
 ---
+
 # The IVA Standard
 
 IVA reveals the structural patterns that organizations inherit from industrial‑era financial dominance. These patterns shape incentives, reporting, governance, and decision‑making long before strategy or culture ever enter the picture.
