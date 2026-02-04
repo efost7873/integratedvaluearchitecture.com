@@ -8,10 +8,32 @@ body {
   color: $iva-dark-gray;
 }
 
-h1, h2, h3, h4 {
+h1 {
+  font-size: $h1-size;
+  color: $iva-deep-governance-blue;
+  margin-top: $space-5;
+  margin-bottom: $space-3;
+}
+
+h2 {
+  font-size: $h2-size;
   color: $iva-deep-governance-blue;
   margin-top: $space-4;
   margin-bottom: $space-2;
+}
+
+h3 {
+  font-size: $h3-size;
+  color: $iva-governance-slate;
+  margin-top: $space-3;
+  margin-bottom: $space-2;
+}
+
+h4 {
+  font-size: $h4-size;
+  color: $iva-governance-slate;
+  margin-top: $space-2;
+  margin-bottom: $space-1;
 }
 
 p {
