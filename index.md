@@ -45,3 +45,10 @@ title: Integrated Value Architecture
 
   <p>By revealing those structures, IVA gives leaders the ability to see — and change — the real system.</p>
 </section>
+
+<!-- CTA SECTION -->
+<section style="margin-top: 48px;">
+  <a href="{{ site.baseurl }}/diagnostic" class="card" style="display: inline-block; padding: 16px 24px; background: #1F2A44; color: white; border-radius: 6px; text-decoration: none; font-size: 18px;">
+    Begin the IVA Diagnostic
+  </a>
+</section>
