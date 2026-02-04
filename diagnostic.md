@@ -8,7 +8,7 @@ title: IVA Diagnostic
   <p>
     Every organization feels the same pressure, even if the context looks different.  
     The friction, the load, the slow decisions, the heroic effort that keeps everything moving — none of it is personal and none of it is unique.  
-    It is structural.  
+    It is structural.
   </p>
 
   <p>
@@ -32,12 +32,13 @@ title: IVA Diagnostic
   </p>
 
   <ul>
-    <li>decisions that should be simple getting stuck</li>
+    <li>decisions that should be simple taking longer than they should</li>
     <li>work bouncing between people because ownership is unclear</li>
     <li>teams stretched thin even when performance is high</li>
-    <li>coordination that relies on the right people being in the right place at the right time</li>
+    <li>coordination that relies on the right people being in the right place</li>
     <li>problems that disappear and then return in a new form</li>
-    <li>a sense that you are carrying more than your role should require</li>
+    <li>leaders carrying work the system should absorb</li>
+    <li>success depending on individual effort rather than structure</li>
   </ul>
 
   <p>
@@ -130,4 +131,16 @@ title: IVA Diagnostic
   <h1>Begin the Diagnostic</h1>
 
   <p>
-    If you read this page and felt recognized — if you saw your organization in these patterns — the Diagnostic is
+    If you read this page and felt recognized — if you saw your organization in these patterns — the Diagnostic is the next step.
+  </p>
+
+  <p>
+    It begins with a brief intake form. I’ll review your submission and follow up with next steps.
+  </p>
+
+  <p>
+    <a href="https://forms.office.com/r/MBD3cfM2mG" target="_blank" class="card" style="display: inline-block; padding: 16px 24px; background: #1F2A44; color: white; border-radius: 6px; text-decoration: none; font-size: 18px;">
+      Begin the IVA Diagnostic
+    </a>
+  </p>
+</section>
