@@ -1,8 +1,18 @@
 ---
 layout: default
-title: IVA Website Setup
+title: Integrated Value Architecture
 ---
 
-# IVA Website Setup
+# Welcome to Integrated Value Architecture
 
-This is the initial placeholder for the Integrated Value Architecture website. More content will be added as the custom theme is developed.
+IVA helps leaders, students, and organizations understand the deep structural patterns inherited from industrial‑era financial dominance — patterns that still shape modern systems, incentives, and decision‑making.
+
+This site will serve as the home for:
+
+- The IVA Standard  
+- Research and academic contributions  
+- Diagnostic tools  
+- Implementation guidance  
+- Teaching and learning resources  
+
+More content will be added as the framework continues to evolve.
