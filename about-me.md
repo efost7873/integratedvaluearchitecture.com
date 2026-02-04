@@ -23,7 +23,7 @@ title: About Me
         <h2>The Architect Who Repairs the Structure</h2>
 
         <p>
-          I build systems that repair what organizations cannot see. My work sits at the point where governance, structure, and performance meet. I created Integrated Value Architecture to solve the problems that return no matter how many plans, dashboards, or initiatives leaders attempt. I built IVA because the structure has never been repaired.
+          I build systems that repair what organizations cannot see. My work sits at the point where governance, structure, and performance meet. I created Integrated Value Architecture to address the structural problems that return no matter how many plans or tools leaders attempt. I built IVA because the structure has never been repaired.
         </p>
 
         <p>
@@ -39,11 +39,11 @@ title: About Me
     <h1>Why I Built IVA</h1>
 
     <p>
-      IVA is grounded in the history of management accounting, organizational behavior, and financialization research. For more than a century, financial accounting systems shaped internal performance regimes even though they were created for external reporting. This produced predictable distortions. Financial indicators became the primary signals of success. Capacity, learning, legitimacy, and operational structure were pushed to the margins.
+      IVA is grounded in the history of management accounting, organizational behavior, and financialization research. For more than a century, financial accounting systems shaped internal performance even though they were created for external reporting. This produced predictable distortions. IVA responds to this history by introducing a structural accounting system that reflects how modern organizations create value.
     </p>
 
     <p>
-      I built IVA to correct this imbalance. IVA is a structural accounting system that replaces the single financial lens with a multi ledger architecture. It gives leaders a clear view of the conditions that support performance. It shows where the system creates friction, waste, and burnout. It gives organizations a method for strengthening structure so strategy holds under pressure.
+      IVA gives leaders a clear view of the conditions that support performance. It shows where the system creates friction, waste, and burnout. It provides a structural foundation for decisions that hold under pressure.
     </p>
   </section>
 
@@ -56,7 +56,7 @@ title: About Me
     </p>
 
     <p>
-      I founded Integrated Value Architecture in 2026 to formalize the system I developed and to establish IVA as a modern accounting standard. My work focuses on structural integrity, organizational reliability, and long term performance. I build systems that strengthen decisions, clarify authority, and reduce unnecessary work. I help leaders see the structure that has been shaping their outcomes for years.
+      I founded Integrated Value Architecture in 2026 to formalize the system I developed and to establish IVA as a modern accounting standard. My work focuses on structural integrity, organizational reliability, and long term performance. I help leaders see the structure that has been shaping their outcomes for years.
     </p>
   </section>
 
