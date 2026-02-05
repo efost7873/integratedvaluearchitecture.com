@@ -1,0 +1,5 @@
+Contact: mailto:evan.foster@integratedvaluearchitecture.com
+Preferred-Languages: en
+Canonical: https://integratedvaluearchitecture.com/.well-known/security.txt
+Policy: https://integratedvaluearchitecture.com/terms
+Hiring: https://integratedvaluearchitecture.com/contact
