@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://integratedvaluearchitecture.com/</loc>
+    <priority>1.0</priority>
+  </url>
+  {% for page in site.pages %}
+  {% if page.url != "/404.html" %}
+  <url>
+    <loc>https://integratedvaluearchitecture.com{{ page.url }}</loc>
+    <priority>0.8</priority>
+  </url>
+  {% endif %}
+  {% endfor %}
+</urlset>
