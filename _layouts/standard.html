@@ -2,10 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>{{ page.title }}</title>
+
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
-  <link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/images/tmlogo.png">
+
+  <!-- Favicon and Icons -->
+  <link rel="icon" type="image/png" href="https://integratedvaluearchitecture.com/assets/images/tmlogo.png">
+  <link rel="apple-touch-icon" href="https://integratedvaluearchitecture.com/assets/images/tmlogo.png">
+  <link rel="icon" sizes="192x192" href="https://integratedvaluearchitecture.com/assets/images/tmlogo.png">
+  <link rel="icon" sizes="512x512" href="https://integratedvaluearchitecture.com/assets/images/tmlogo.png">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://integratedvaluearchitecture.com{{ page.url }}">
+
+  <!-- Basic SEO -->
+  <meta name="description" content="Integrated Value Architecture reveals the structural patterns organizations cannot see.">
+  <meta name="keywords" content="organizational structure, governance, systems thinking, institutional design, structural analysis, value architecture, operational coherence, diagnostic mapping, organizational performance, structural constraints">
+  <meta name="author" content="Integrated Value Architecture">
+
+  <!-- Open Graph (LinkedIn, Slack, Discord, Facebook, iMessage) -->
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:description" content="A structural diagnostic that reveals the patterns organizations cannot see.">
+  <meta property="og:image" content="https://integratedvaluearchitecture.com/assets/images/tmlogo.png">
+  <meta property="og:url" content="https://integratedvaluearchitecture.com{{ page.url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Integrated Value Architecture">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ page.title }}">
+  <meta name="twitter:description" content="A structural diagnostic that reveals the patterns organizations cannot see.">
+  <meta name="twitter:image" content="https://integratedvaluearchitecture.com/assets/images/tmlogo.png">
+
+  <!-- Search Engine Hints -->
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="bingbot" content="index, follow">
+
+  <!-- Structured Data (JSON-LD for SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Integrated Value Architecture",
+    "url": "https://integratedvaluearchitecture.com",
+    "logo": "https://integratedvaluearchitecture.com/assets/images/tmlogo.png",
+    "description": "A structural diagnostic that reveals the patterns organizations cannot see.",
+    "founder": "Evan M. Foster"
+  }
+  </script>
+
 </head>
+
 <body>
 
   {% include header.html %}
@@ -31,8 +82,6 @@
 
   </div>
 
-</body>
-</html>
   {% include footer.html %}
 
 </body>
