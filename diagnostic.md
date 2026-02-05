@@ -1,28 +1,23 @@
 ---
 layout: default
 title: IVA Diagnostic
+seo_title: IVA Diagnostic | Integrated Value Architecture
+seo_description: The IVA Diagnostic reveals the structural conditions shaping organizational performance, mapping decision flow, authority, capacity, externalities, and learning without implementing change.
+# og_image: https://integratedvaluearchitecture.com/assets/images/diagnostic-preview.png
 ---
 
 <main>
 
-  <!-- INTRO -->
   <section style="margin-bottom: 48px;">
     <h1>The IVA Diagnostic</h1>
-    <p>
-      The IVA Diagnostic is the entry point into Integrated Value Architecture. It provides a clear understanding of how your organization is structured, how decisions move, and where performance pressures originate. It does not implement change. It establishes the structural baseline needed to make informed decisions about governance and performance.
-    </p>
-    <p>
-      IVA is grounded in the history of management accounting and organizational behavior. For more than a century, financial accounting systems shaped internal performance even though they were created for external reporting. The Diagnostic helps you see how this history shapes your daily work.
-    </p>
+    <p>The IVA Diagnostic is the entry point into Integrated Value Architecture. It provides a clear understanding of how your organization is structured, how decisions move, and where performance pressures originate. It does not implement change. It establishes the structural baseline needed to make informed decisions about governance and performance.</p>
+    <p>IVA is grounded in the history of management accounting and organizational behavior. For more than a century, financial accounting systems shaped internal performance even though they were created for external reporting. The Diagnostic helps you see how this history shapes your daily work.</p>
   </section>
 
-  <!-- WHAT YOU ARE EXPERIENCING -->
   <section style="margin-bottom: 48px;">
     <h1>What You Are Experiencing</h1>
 
-    <p>
-      Most organizations feel the same structural patterns even when the context is different. These patterns are not signs of poor management or weak culture. They are signals that the organization has outgrown the structure it inherited.
-    </p>
+    <p>Most organizations feel the same structural patterns even when the context is different. These patterns are not signs of poor management or weak culture. They are signals that the organization has outgrown the structure it inherited.</p>
 
     <ul>
       <li>decisions that take longer than they should</li>
@@ -33,87 +28,60 @@ title: IVA Diagnostic
       <li>leaders absorbing work the system should carry</li>
     </ul>
 
-    <p>
-      The Diagnostic helps you understand why these signals appear and what they reveal about your governance architecture.
-    </p>
+    <p>The Diagnostic helps you understand why these signals appear and what they reveal about your governance architecture.</p>
   </section>
 
-  <!-- WHAT THE DIAGNOSTIC REVEALS -->
   <section style="margin-bottom: 48px;">
     <h1>What the Diagnostic Reveals</h1>
 
-    <p>
-      The IVA Diagnostic maps the structure of your organization. It examines how decisions flow, how authority is distributed, how work moves, and how the organization is designed to function. It identifies early indicators of structural risk and governance misalignment.
-    </p>
+    <p>The IVA Diagnostic maps the structure of your organization. It examines how decisions flow, how authority is distributed, how work moves, and how the organization is designed to function. It identifies early indicators of structural risk and governance misalignment.</p>
 
-    <p>
-      The Diagnostic uses the five IVA ledgers as an analytical lens. It does not align your organization with the ledgers. It identifies where structural conditions may be influencing performance.
-    </p>
+    <p>The Diagnostic uses the five IVA ledgers as an analytical lens. It does not align your organization with the ledgers. It identifies where structural conditions may be influencing performance.</p>
 
     <div class="grid grid-2">
 
       <div class="card">
         <h3>Financial Structure</h3>
-        <p>
-          How financial incentives, reporting pathways, and constraints shape decisions.
-        </p>
+        <p>How financial incentives, reporting pathways, and constraints shape decisions.</p>
       </div>
 
       <div class="card">
         <h3>Operational Structure</h3>
-        <p>
-          How workflows, handoffs, and real world behaviors reveal the movement of work.
-        </p>
+        <p>How workflows, handoffs, and real world behaviors reveal the movement of work.</p>
       </div>
 
       <div class="card">
         <h3>Capacity Structure</h3>
-        <p>
-          How load is distributed across people, roles, systems, and infrastructure.
-        </p>
+        <p>How load is distributed across people, roles, systems, and infrastructure.</p>
       </div>
 
       <div class="card">
         <h3>Externalities and Equity Structure</h3>
-        <p>
-          How community, regulatory, environmental, and distributional forces shape legitimacy and risk.
-        </p>
+        <p>How community, regulatory, environmental, and distributional forces shape legitimacy and risk.</p>
       </div>
 
       <div class="card">
         <h3>Learning and Adaptation Structure</h3>
-        <p>
-          How the organization integrates new tools, learns from experience, and adapts over time.
-        </p>
+        <p>How the organization integrates new tools, learns from experience, and adapts over time.</p>
       </div>
 
     </div>
 
-    <p>
-      The Diagnostic does not prescribe solutions. It reveals the structure that has been shaping outcomes, often for years, without being visible.
-    </p>
+    <p>The Diagnostic does not prescribe solutions. It reveals the structure that has been shaping outcomes, often for years, without being visible.</p>
   </section>
 
-  <!-- WHY IT MATTERS -->
   <section style="margin-bottom: 48px;">
     <h1>Why the Diagnostic Matters</h1>
 
-    <p>
-      Most tools measure symptoms. The Diagnostic measures structure. It provides a factual foundation for understanding how the organization functions and where structural conditions support or constrain performance.
-    </p>
+    <p>Most tools measure symptoms. The Diagnostic measures structure. It provides a factual foundation for understanding how the organization functions and where structural conditions support or constrain performance.</p>
 
-    <p>
-      This clarity is the foundation for Step 2 of IVA, which is implementation. The Diagnostic does not implement change. It prepares the ground for it.
-    </p>
+    <p>This clarity is the foundation for Step 2 of IVA, which is implementation. The Diagnostic does not implement change. It prepares the ground for it.</p>
   </section>
 
-  <!-- WHAT YOU GAIN -->
   <section style="margin-bottom: 48px;">
     <h1>What You Gain</h1>
 
-    <p>
-      The Diagnostic produces a single output: the diagnostic report. This report provides a structural map of your organization and helps you understand:
-    </p>
+    <p>The Diagnostic produces a single output: the diagnostic report. This report provides a structural map of your organization and helps you understand:</p>
 
     <ul>
       <li>where decisions slow down and why</li>
@@ -124,25 +92,17 @@ title: IVA Diagnostic
       <li>where structural risks may be emerging</li>
     </ul>
 
-    <p>
-      This map becomes the basis for informed decisions about governance, structure, and long term performance.
-    </p>
+    <p>This map becomes the basis for informed decisions about governance, structure, and long term performance.</p>
   </section>
 
-  <!-- LIGHT IP NOTICE (NO "ALL RIGHTS RESERVED") -->
   <section style="margin-top: 48px; font-size: 14px; color: #555;">
-    <p>
-      IVA is a proprietary governance system. The concepts described on this page are provided for informational purposes and do not include the methods, tools, or processes used in IVA diagnostics or implementation.
-    </p>
+    <p>IVA is a proprietary governance system. The concepts described on this page are provided for informational purposes and do not include the methods, tools, or processes used in IVA diagnostics or implementation.</p>
   </section>
 
-  <!-- CTA -->
   <section style="margin-bottom: 48px;">
     <h1>Begin the IVA Diagnostic</h1>
 
-    <p>
-      If you recognize these structural patterns in your organization, the Diagnostic is the right place to begin.
-    </p>
+    <p>If you recognize these structural patterns in your organization, the Diagnostic is the right place to begin.</p>
 
     <p>
       <a href="https://forms.office.com/r/MBD3cfM2mG"
