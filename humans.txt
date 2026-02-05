@@ -1,0 +1,16 @@
+/* TEAM */
+Founder and Principal Architect: Evan M. Foster
+Organization: Integrated Value Architecture, LLC
+Website: https://integratedvaluearchitecture.com
+
+/* ABOUT */
+Integrated Value Architecture is a structural governance standard and advisory practice.
+This site presents public-facing information only and does not include IVA methods,
+tools, or implementation processes.
+
+/* CONTACT */
+General Contact: https://integratedvaluearchitecture.com/contact
+Security Contact: https://integratedvaluearchitecture.com/.well-known/security.txt
+
+/* LAST UPDATED */
+2026-02-04
