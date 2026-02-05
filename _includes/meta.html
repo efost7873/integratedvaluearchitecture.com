@@ -1,0 +1,64 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>
+  {% if page.seo_title %}
+    {{ page.seo_title }}
+  {% else %}
+    {{ page.title }} | Integrated Value Architecture
+  {% endif %}
+</title>
+
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+
+<link rel="icon" type="image/png" href="https://integratedvaluearchitecture.com/assets/images/tmlogo.png">
+<link rel="apple-touch-icon" href="https://integratedvaluearchitecture.com/assets/images/tmlogo.png">
+<link rel="icon" sizes="192x192" href="https://integratedvaluearchitecture.com/assets/images/tmlogo.png">
+<link rel="icon" sizes="512x512" href="https://integratedvaluearchitecture.com/assets/images/tmlogo.png">
+
+<link rel="canonical" href="https://integratedvaluearchitecture.com{{ page.url }}">
+
+{% if page.seo_description %}
+  <meta name="description" content="{{ page.seo_description }}">
+{% else %}
+  <meta name="description" content="Integrated Value Architecture reveals the structural patterns organizations cannot see.">
+{% endif %}
+
+<meta name="keywords" content="organizational structure, governance, systems thinking, institutional design, structural analysis, value architecture, operational coherence, diagnostic mapping, organizational performance, structural constraints">
+<meta name="author" content="Integrated Value Architecture">
+
+{% if page.og_image %}
+  {% assign og_image = page.og_image %}
+{% else %}
+  {% assign og_image = "https://integratedvaluearchitecture.com/assets/images/social-preview.png" %}
+{% endif %}
+
+<meta property="og:title" content="{% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }} | Integrated Value Architecture{% endif %}">
+<meta property="og:description" content="{% if page.seo_description %}{{ page.seo_description }}{% else %}A structural diagnostic that reveals the patterns organizations cannot see.{% endif %}">
+<meta property="og:image" content="{{ og_image }}">
+<meta property="og:url" content="https://integratedvaluearchitecture.com{{ page.url }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Integrated Value Architecture">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }} | Integrated Value Architecture{% endif %}">
+<meta name="twitter:description" content="{% if page.seo_description %}{{ page.seo_description }}{% else %}A structural diagnostic that reveals the patterns organizations cannot see.{% endif %}">
+<meta name="twitter:image" content="{{ og_image }}">
+
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="bingbot" content="index, follow">
+
+<link rel="manifest" href="/manifest.json">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Integrated Value Architecture",
+  "url": "https://integratedvaluearchitecture.com",
+  "logo": "https://integratedvaluearchitecture.com/assets/images/tmlogo.png",
+  "description": "A structural diagnostic that reveals the patterns organizations cannot see.",
+  "founder": "Evan M. Foster"
+}
+</script>
