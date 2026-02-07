@@ -1,6 +1,6 @@
-/* === HOMEPAGE STYLES: EXTRACTED FROM INLINE CSS === */
+/* === HOMEPAGE STYLES: GLOBAL === */
 
-/* Variables merged into global system */
+/* Variables */
 :root {
   --iva-blue: #1F2A44;
   --iva-slate: #4A5673;
@@ -174,9 +174,25 @@
 }
 
 /* ============================================================
-   STRUCTURAL ENGINE (FINAL, CLEANED, DEDUPLICATED)
-   top: 140px (your choice M)
-   hides only on mobile (E)
+   HEADER VISIBILITY (CSS SIDE)
+============================================================ */
+
+.iva-header,
+.iva-identity-bar {
+  display: block;
+  opacity: 1;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+html.header-hidden .iva-header,
+html.header-hidden .iva-identity-bar {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+
+/* ============================================================
+   STRUCTURAL ENGINE (CLEANED + FINAL)
 ============================================================ */
 
 #iva-structural-engine {
@@ -196,8 +212,15 @@
   font-size: 13px;
   color: var(--iva-text-soft);
 
+  opacity: 0;
   pointer-events: none;
-  transition: right 0.25s ease, opacity 0.25s ease;
+  transition: opacity 0.25s ease, right 0.25s ease;
+}
+
+/* Engine visible when JS adds .engine-visible */
+html.engine-visible #iva-structural-engine {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* Peek mode */
@@ -327,7 +350,7 @@
   pointer-events: none;
 }
 
-#iva-structural-engine.flyout-open .iva-structural-flyout {
+html.engine-visible #iva-structural-engine.flyout-open .iva-structural-flyout {
   display: block;
 }
 
@@ -412,6 +435,6 @@
 /* Mobile: hide engine */
 @media (max-width: 780px) {
   #iva-structural-engine {
-    display: none;
+    display: none !important;
   }
 }
