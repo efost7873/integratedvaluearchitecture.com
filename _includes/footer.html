@@ -1,118 +1,60 @@
-<footer id="iva-footer" style="
-  background: #1F2A44;
-  color: white;
-  padding: 32px;
-  border-top: 1px solid rgba(255,255,255,0.15);
-  transition: opacity 0.3s ease, background 0.3s ease;
-">
+<footer class="iva-footer" role="contentinfo">
+  <div class="iva-footer-wrapper">
 
-  <div style="max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 32px;">
+    <div class="iva-footer-grid">
 
-    <!-- Left Column: Identity -->
-    <div style="max-width: 500px; display: flex; flex-direction: column; gap: 12px;">
-
-      <!-- Mini Logo Badge -->
-      <div style="display: flex; align-items: center; gap: 10px;">
-        <img 
-          src="{{ site.baseurl }}/assets/images/tmlogo.png"
-          alt="IVA Logo"
-          style="height: 32px; background: white; padding: 4px 6px; border-radius: 6px; border: 1px solid #4A5673; box-shadow: 0 1px 3px rgba(0,0,0,0.25);"
-        >
-        <div style="font-size: 1.1rem; font-weight: 600;">
-          Integrated Value Architecture
+      <!-- Identity Column -->
+      <div class="iva-footer-col">
+        <div class="iva-footer-brand">
+          <img 
+            src="{{ site.baseurl }}/assets/images/tmlogo.png"
+            alt="IVA Logo"
+            class="iva-footer-logo"
+          >
+          <div class="iva-footer-title">Integrated Value Architecture</div>
         </div>
+
+        <p class="iva-footer-desc">
+          A structural governance standard and advisory practice focused on clarity, coherence, and modern execution.
+        </p>
       </div>
 
-      <p style="margin: 0; font-size: 0.95rem; line-height: 1.5; color: #D9DCE5;">
-        A structural governance standard and advisory practice focused on clarity, coherence, and modern execution.
-      </p>
+      <!-- Navigation Column -->
+      <div class="iva-footer-col">
+        <h4 class="iva-footer-heading">Navigation</h4>
+        <a class="iva-footer-link" href="{{ site.baseurl }}/">Home</a>
+        <a class="iva-footer-link" href="{{ site.baseurl }}/standard">IVA Standard</a>
+        <a class="iva-footer-link" href="{{ site.baseurl }}/diagnostic">Diagnostic</a>
+        <a class="iva-footer-link" href="{{ site.baseurl }}/about-me">About Me</a>
+        <a class="iva-footer-link" href="{{ site.baseurl }}/contact">Contact</a>
+      </div>
+
+      <!-- Legal Column -->
+      <div class="iva-footer-col">
+        <h4 class="iva-footer-heading">Organization</h4>
+        <p class="iva-footer-text">Integrated Value Architecture LLC</p>
+        <p class="iva-footer-text">Springfield, Illinois</p>
+        <p class="iva-footer-text">All rights reserved</p>
+      </div>
+
     </div>
 
-    <!-- Right Column: Navigation -->
-    <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.95rem;">
-      <a class="iva-footer-link" href="{{ site.baseurl }}/" style="color: white; text-decoration: none; position: relative;">Home</a>
-      <a class="iva-footer-link" href="{{ site.baseurl }}/standard" style="color: white; text-decoration: none; position: relative;">IVA Standard</a>
-      <a class="iva-footer-link" href="{{ site.baseurl }}/diagnostic" style="color: white; text-decoration: none; position: relative;">Diagnostic</a>
-      <a class="iva-footer-link" href="{{ site.baseurl }}/about-me" style="color: white; text-decoration: none; position: relative;">About Me</a>
-      <a class="iva-footer-link" href="{{ site.baseurl }}/contact" style="color: white; text-decoration: none; position: relative;">Contact</a>
+    <!-- Legal Row -->
+    <div class="iva-footer-bottom">
+      <div class="iva-footer-legal">
+        © 2026 Integrated Value Architecture, LLC.
+        <span class="iva-footer-ip">
+          IVA Standard, IVA Diagnostic, and all structural concepts are proprietary intellectual property of Integrated Value Architecture, LLC. 
+          Content on this site is informational and does not include IVA methods, tools, or implementation processes.
+        </span>
+      </div>
+
+      <div class="iva-footer-bottom-links">
+        <a class="iva-footer-link" href="{{ site.baseurl }}/privacy">Privacy</a>
+        <a class="iva-footer-link" href="{{ site.baseurl }}/terms">Terms</a>
+        <a class="iva-footer-link" href="{{ site.baseurl }}/license">License</a>
+      </div>
     </div>
 
   </div>
-
-  <!-- Micro-row -->
-  <div style="
-    margin-top: 28px;
-    padding-top: 16px;
-    border-top: 1px solid rgba(255,255,255,0.15);
-    font-size: 0.8rem;
-    color: #BFC4D1;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-  ">
-    <div>
-      © 2026 Integrated Value Architecture, LLC.
-      <span style="margin-left: 12px;">
-        IVA Standard, IVA Diagnostic, and all structural concepts are proprietary intellectual property of Integrated Value Architecture, LLC. 
-        Content on this site is informational and does not include IVA methods, tools, or implementation processes.
-      </span>
-    </div>
-
-    <div style="display: flex; gap: 16px;">
-      <a class="iva-footer-link" href="{{ site.baseurl }}/privacy" style="color: #BFC4D1; text-decoration: none; position: relative;">Privacy</a>
-      <a class="iva-footer-link" href="{{ site.baseurl }}/terms" style="color: #BFC4D1; text-decoration: none; position: relative;">Terms</a>
-      <a class="iva-footer-link" href="{{ site.baseurl }}/license" style="color: #BFC4D1; text-decoration: none; position: relative;">License</a>
-    </div>
-  </div>
-
-  <!-- Hover underline animation -->
-  <style>
-    .iva-footer-link::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-      width: 0;
-      height: 2px;
-      background: white;
-      transition: width 0.25s ease;
-    }
-    .iva-footer-link:hover::after {
-      width: 100%;
-    }
-
-    /* Dark-mode awareness */
-    @media (prefers-color-scheme: dark) {
-      #iva-footer {
-        background: #141A28;
-        color: #E6E8EF;
-      }
-      #iva-footer a {
-        color: #E6E8EF;
-      }
-      #iva-footer .iva-footer-link::after {
-        background: #E6E8EF;
-      }
-    }
-  </style>
-
 </footer>
-
-<!-- Micro fade on scroll-up -->
-<script>
-  const footer = document.getElementById('iva-footer');
-  let lastScroll = 0;
-
-  window.addEventListener('scroll', () => {
-    const current = window.scrollY;
-
-    if (current < lastScroll) {
-      footer.style.opacity = '1';
-    } else {
-      footer.style.opacity = '0.92';
-    }
-
-    lastScroll = current;
-  });
-</script>
