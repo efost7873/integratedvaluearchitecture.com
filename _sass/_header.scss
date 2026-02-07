@@ -1,0 +1,122 @@
+/* Identity Bar */
+.iva-identity-bar {
+  background: $iva-slate;
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  padding: 6px 32px;
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
+/* Glass Header */
+.iva-header {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  backdrop-filter: blur(14px);
+  background: rgba(247, 248, 252, 0.82);
+  border-bottom: 1px solid rgba(198, 203, 220, 0.7);
+  transition:
+    background-color $iva-transition-med,
+    backdrop-filter $iva-transition-med,
+    box-shadow $iva-transition-med,
+    border-color $iva-transition-med;
+}
+
+.iva-header.scrolled {
+  background: rgba(242, 244, 250, 0.92);
+  box-shadow: $iva-shadow-header;
+  border-color: rgba(184, 190, 210, 0.9);
+}
+
+.iva-header-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 18px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  transition: padding $iva-transition-med;
+}
+
+/* Brand */
+.iva-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.iva-header-logo {
+  height: 44px;
+  background: #FFFFFF;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid $iva-slate;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.18);
+  transition: height $iva-transition-med;
+}
+
+.iva-header-title {
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: $iva-blue;
+  letter-spacing: 0.4px;
+  transition: font-size $iva-transition-med;
+}
+
+/* Navigation */
+.iva-header-nav {
+  display: flex;
+  gap: 28px;
+  font-size: 1.05rem;
+}
+
+.iva-header-link {
+  color: $iva-text-soft;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+  transition: color $iva-transition-fast;
+
+  &:hover {
+    color: $iva-blue;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background: $iva-blue;
+    transition: width 0.25s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+/* Mobile Toggle */
+.iva-header-toggle {
+  display: none;
+  font-size: 1.9rem;
+  color: $iva-blue;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 780px) {
+  .iva-header-toggle {
+    display: block;
+  }
+
+  .iva-header-nav {
+    display: none;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 32px 16px;
+  }
+}
