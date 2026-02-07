@@ -17,8 +17,8 @@
   backdrop-filter: blur(22px);
   -webkit-backdrop-filter: blur(22px);
 
-  /* Dark Blue Glass */
-  background: rgba(31, 42, 68, 0.55); /* Deep Governance Blue @ 55% */
+  /* Dark Blue Glass (slightly more transparent) */
+  background: rgba(31, 42, 68, 0.48);
   border-bottom: 1px solid rgba(31, 42, 68, 0.35);
 
   transition:
@@ -29,7 +29,7 @@
 }
 
 .iva-header.scrolled {
-  background: rgba(31, 42, 68, 0.72); /* Slightly stronger glass on scroll */
+  background: rgba(31, 42, 68, 0.62);
   box-shadow: $iva-shadow-header;
   border-color: rgba(31, 42, 68, 0.45);
 }
@@ -65,7 +65,7 @@
 .iva-header-title {
   font-size: 1.45rem;
   font-weight: 600;
-  color: #FFFFFF; /* White text on dark glass */
+  color: #FFFFFF;
   letter-spacing: 0.4px;
   transition: font-size $iva-transition-med;
 }
@@ -101,6 +101,22 @@
 
   &:hover::after {
     width: 100%;
+  }
+}
+
+/* Tablet Fix: Prevent nav wrapping ugliness */
+@media (max-width: 980px) {
+  .iva-header-inner {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .iva-header-nav {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 18px 28px;
+    margin-top: 12px;
   }
 }
 
