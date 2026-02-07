@@ -1,0 +1,120 @@
+/* Footer */
+.iva-footer {
+  background: linear-gradient(180deg, $iva-neutral-2, $iva-neutral-3);
+  padding: 56px 28px 40px;
+  border-top: 1px solid rgba(184, 190, 210, 0.7);
+  box-shadow: $iva-shadow-footer;
+}
+
+.iva-footer-wrapper {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.iva-footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 36px;
+  margin-bottom: 36px;
+}
+
+.iva-footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.iva-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.iva-footer-logo {
+  height: 36px;
+  background: white;
+  padding: 4px 6px;
+  border-radius: 6px;
+  border: 1px solid $iva-slate;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.18);
+}
+
+.iva-footer-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: $iva-blue;
+}
+
+.iva-footer-desc {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: $iva-text-soft;
+  max-width: 420px;
+}
+
+.iva-footer-heading {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: $iva-blue;
+}
+
+.iva-footer-text {
+  font-size: 0.95rem;
+  color: $iva-text-soft;
+  margin: 0;
+}
+
+.iva-footer-link {
+  font-size: 0.95rem;
+  color: $iva-text-soft;
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+  transition: color $iva-transition-fast;
+
+  &:hover {
+    color: $iva-blue;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: $iva-blue;
+    transition: width 0.25s ease;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+.iva-footer-bottom {
+  border-top: 1px solid rgba(184, 190, 210, 0.6);
+  padding-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.iva-footer-legal {
+  font-size: 0.85rem;
+  color: $iva-text-soft;
+  max-width: 720px;
+}
+
+.iva-footer-bottom-links {
+  display: flex;
+  gap: 18px;
+}
+
+@media (max-width: 780px) {
+  .iva-footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
