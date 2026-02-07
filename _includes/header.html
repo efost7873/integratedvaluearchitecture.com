@@ -1,162 +1,43 @@
 <!-- Identity Bar -->
-<div style="
-  background: #4A5673;
-  color: white;
-  font-size: 0.82rem;
-  padding: 4px 32px;
-  text-align: center;
-  letter-spacing: 0.3px;
-">
+<div class="iva-identity-bar">
   A structural governance standard | Diagnostic mapping, implementation architecture, and ongoing support
 </div>
 
-<!-- Main Header -->
-<header id="iva-header" style="
-  background: linear-gradient(180deg, #1F2A44 0%, #1F2A44 70%, #1F2A44EE 100%);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  border-bottom: 1px solid rgba(255,255,255,0.15);
-  transition: padding 0.25s ease, box-shadow 0.25s ease;
-">
+<!-- Premium Glass Header -->
+<header class="iva-header" role="banner">
+  <div class="iva-header-inner">
 
-  <div id="iva-header-inner" style="
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 32px;
-    flex-wrap: wrap;
-    gap: 16px;
-    transition: padding 0.25s ease;
-  ">
-
-    <!-- Logo + Identity -->
-    <div style="display: flex; align-items: center; gap: 14px;">
+    <!-- Logo + Title -->
+    <div class="iva-header-brand">
       <img 
         src="{{ site.baseurl }}/assets/images/tmlogo.png"
         alt="IVA Logo"
-        style="height: 44px; background: white; padding: 6px 8px; border-radius: 6px; border: 1px solid #4A5673; box-shadow: 0 1px 3px rgba(0,0,0,0.25); transition: height 0.25s ease;"
-        id="iva-logo"
+        class="iva-header-logo"
       >
-      <div id="iva-title" style="
-        color: white;
-        font-size: 1.45rem;
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        transition: font-size 0.25s ease;
-      ">
-        Integrated Value Architecture
-      </div>
+      <div class="iva-header-title">Integrated Value Architecture</div>
     </div>
 
-    <!-- Hamburger (mobile only) -->
-    <div id="iva-menu-toggle" style="display: none; font-size: 1.9rem; color: white; cursor: pointer;">
-      ☰
-    </div>
+    <!-- Mobile Toggle -->
+    <div class="iva-header-toggle" id="iva-menu-toggle">☰</div>
 
     <!-- Navigation -->
-    <nav id="iva-nav" style="display: flex; gap: 28px; font-size: 1.05rem; font-weight: 400;">
-      <a class="iva-link" href="{{ site.baseurl }}/" style="color: white; text-decoration: none; position: relative;">Home</a>
-      <a class="iva-link" href="{{ site.baseurl }}/standard" style="color: white; text-decoration: none; position: relative;">IVA Standard</a>
-      <a class="iva-link" href="{{ site.baseurl }}/diagnostic" style="color: white; text-decoration: none; position: relative;">Diagnostic</a>
-      <a class="iva-link" href="{{ site.baseurl }}/about-me" style="color: white; text-decoration: none; position: relative;">About Me</a>
-      <a class="iva-link" href="{{ site.baseurl }}/contact" style="color: white; text-decoration: none; position: relative;">Contact</a>
+    <nav class="iva-header-nav" id="iva-nav" aria-label="Primary navigation">
+      <a class="iva-header-link" href="{{ site.baseurl }}/">Home</a>
+      <a class="iva-header-link" href="{{ site.baseurl }}/standard">IVA Standard</a>
+      <a class="iva-header-link" href="{{ site.baseurl }}/diagnostic">Diagnostic</a>
+      <a class="iva-header-link" href="{{ site.baseurl }}/about-me">About Me</a>
+      <a class="iva-header-link" href="{{ site.baseurl }}/contact">Contact</a>
     </nav>
 
   </div>
-
-  <!-- Hover underline animation -->
-  <style>
-    .iva-link::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0;
-      height: 2px;
-      background: white;
-      transition: width 0.25s ease;
-    }
-    .iva-link:hover::after {
-      width: 100%;
-    }
-  </style>
-
-  <!-- Scroll shrink + mobile behavior -->
-  <script>
-    const header = document.getElementById('iva-header');
-    const headerInner = document.getElementById('iva-header-inner');
-    const logo = document.getElementById('iva-logo');
-    const title = document.getElementById('iva-title');
-    const toggle = document.getElementById('iva-menu-toggle');
-    const nav = document.getElementById('iva-nav');
-
-    function updateMenu() {
-      if (window.innerWidth < 780) {
-        toggle.style.display = 'block';
-        nav.style.display = 'none';
-        nav.style.flexDirection = 'column';
-        nav.style.padding = '0 32px 16px';
-        nav.style.gap = '16px';
-      } else {
-        toggle.style.display = 'none';
-        nav.style.display = 'flex';
-        nav.style.flexDirection = 'row';
-        nav.style.padding = '0';
-        nav.style.gap = '28px';
-      }
-    }
-
-    toggle.addEventListener('click', () => {
-      nav.style.display = nav.style.display === 'none' ? 'flex' : 'none';
-    });
-
-    window.addEventListener('resize', updateMenu);
-    updateMenu();
-
-    // Scroll shrink
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 20) {
-        header.style.boxShadow = '0 2px 6px rgba(0,0,0,0.15)';
-        headerInner.style.padding = '10px 32px';
-        logo.style.height = '36px';
-        title.style.fontSize = '1.25rem';
-      } else {
-        header.style.boxShadow = 'none';
-        headerInner.style.padding = '18px 32px';
-        logo.style.height = '44px';
-        title.style.fontSize = '1.45rem';
-      }
-    });
-  </script>
-
 </header>
 
 <!-- Hero Band -->
-<div id="iva-hero" style="
-  background: linear-gradient(180deg, #F5F6FA 0%, #FFFFFF 100%);
-  padding: 32px 32px 40px;
-  border-bottom: 1px solid #E0E0E0;
-  transition: opacity 0.3s ease;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
-">
-  <div style="max-width: 900px; margin: 0 auto; text-align: left;">
-    <h2 style="margin: 0; font-size: 2rem; color: #1F2A44; font-weight: 600;">
-      A structural architecture for governance, decision pathways, and organizational performance
-    </h2>
-    <p style="margin-top: 12px; font-size: 1.1rem; color: #4A5673; line-height: 1.6; max-width: 700px;">
+<div class="iva-hero">
+  <div class="iva-hero-inner">
+    <h2>A structural architecture for governance, decision pathways, and organizational performance</h2>
+    <p>
       IVA provides a coherent system for mapping structure, realigning governance, and supporting long term organizational integrity.
     </p>
   </div>
 </div>
-
-<script>
-  // Micro fade on scroll
-  const hero = document.getElementById('iva-hero');
-  window.addEventListener('scroll', () => {
-    const fadeEnd = 200;
-    const scroll = window.scrollY;
-    const opacity = Math.max(0, 1 - scroll / fadeEnd);
-    hero.style.opacity = opacity;
-  });
-</script>
