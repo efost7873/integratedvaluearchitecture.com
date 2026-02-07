@@ -1,9 +1,9 @@
-/* Identity Bar (Dark, Dramatic, Brand‑Pure Glass) */
+/* Identity Bar (Darker, High‑Contrast, Brand‑Pure Glass) */
 .iva-identity-bar {
-  background: rgba(31, 42, 68, 0.90);
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
-  border-bottom: 1px solid rgba(31, 42, 68, 0.55);
+  background: rgba(31, 42, 68, 0.94);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(31, 42, 68, 0.62);
   color: #FFFFFF;
   font-size: 0.82rem;
   padding: 6px 32px;
@@ -11,21 +11,21 @@
   letter-spacing: 0.3px;
 }
 
-/* Glass Header (Dramatic, Darker, Premium) */
+/* Header (Dramatic, Darker, High‑Contrast Glass) */
 .iva-header {
   position: sticky;
   top: 0;
   z-index: 9999;
   isolation: isolate;
-  backdrop-filter: blur(34px);
-  -webkit-backdrop-filter: blur(34px);
+  backdrop-filter: blur(36px);
+  -webkit-backdrop-filter: blur(36px);
 
   background: linear-gradient(
     to bottom,
-    rgba(31, 42, 68, 0.78),
-    rgba(31, 42, 68, 0.58)
+    rgba(31, 42, 68, 0.86),
+    rgba(31, 42, 68, 0.68)
   );
-  border-bottom: 1px solid rgba(31, 42, 68, 0.48);
+  border-bottom: 1px solid rgba(31, 42, 68, 0.52);
 
   transition:
     background-color $iva-transition-med,
@@ -38,21 +38,21 @@
 .iva-header.scrolled {
   background: linear-gradient(
     to bottom,
-    rgba(31, 42, 68, 0.92),
-    rgba(31, 42, 68, 0.84)
+    rgba(31, 42, 68, 0.96),
+    rgba(31, 42, 68, 0.88)
   );
-  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.32);
-  border-color: rgba(31, 42, 68, 0.55);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.38);
+  border-color: rgba(31, 42, 68, 0.62);
 }
 
 .iva-header-inner {
   max-width: 1120px;
   margin: 0 auto;
-  padding: 20px 32px;
+  padding: 22px 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 24px;
+  gap: 26px;
   transition: padding $iva-transition-med;
 }
 
@@ -60,37 +60,37 @@
 .iva-header-brand {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
 }
 
 .iva-header-logo {
-  height: 44px;
+  height: 46px;
   background: #FFFFFF;
-  padding: 6px 8px;
+  padding: 6px 10px;
   border-radius: 6px;
   border: 1px solid $iva-slate;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.18);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.22);
   transition: height $iva-transition-med;
 }
 
 .iva-header-title {
-  font-size: 1.45rem;
+  font-size: 1.52rem;
   font-weight: 600;
   color: #FFFFFF;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.45px;
   transition: font-size $iva-transition-med;
 }
 
 /* Navigation */
 .iva-header-nav {
   display: flex;
-  gap: 32px;
-  font-size: 1.05rem;
+  gap: 36px;
+  font-size: 1.08rem;
   align-items: center;
 }
 
 .iva-header-link {
-  color: rgba(255,255,255,0.80);
+  color: rgba(255,255,255,0.88);
   text-decoration: none;
   position: relative;
   padding-bottom: 2px;
@@ -109,7 +109,7 @@
     height: 2px;
     background: #FFFFFF;
     transform: translateY(1px);
-    transition: width 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: width 0.16s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   &:hover::after {
@@ -122,8 +122,8 @@
   .iva-header-inner {
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 18px 28px;
-    gap: 18px;
+    padding: 20px 28px;
+    gap: 20px;
   }
 
   .iva-header-brand {
@@ -139,23 +139,23 @@
     width: 100%;
     justify-content: flex-start;
     flex-wrap: wrap;
-    gap: 14px 28px;
-    margin-top: 8px;
+    gap: 16px 30px;
+    margin-top: 10px;
   }
 
   .iva-header-title {
-    font-size: 1.32rem;
+    font-size: 1.38rem;
   }
 
   .iva-header-logo {
-    height: 40px;
+    height: 42px;
   }
 }
 
 /* Mobile Toggle */
 .iva-header-toggle {
   display: none;
-  font-size: 1.9rem;
+  font-size: 2rem;
   color: #FFFFFF;
   cursor: pointer;
 }
@@ -167,13 +167,13 @@
   }
 
   .iva-header-inner {
-    padding: 16px 20px;
+    padding: 18px 22px;
   }
 
   .iva-header-nav {
     display: none;
     flex-direction: column;
-    gap: 16px;
-    padding: 0 20px 16px;
+    gap: 18px;
+    padding: 0 22px 18px;
   }
 }
