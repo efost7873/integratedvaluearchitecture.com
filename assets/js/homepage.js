@@ -3,11 +3,16 @@ document.addEventListener("DOMContentLoaded", function () {
   var engine = document.getElementById("iva-structural-engine");
   if (!engine) return;
 
+  var bar = engine.querySelector(".iva-structural-bar");
   var nodes = Array.prototype.slice.call(
     engine.querySelectorAll(".iva-structural-node")
   );
   var sectionLabel = engine.querySelector('[data-role="section-label"]');
   var sectionText = engine.querySelector('[data-role="section-text"]');
+
+  // flyout elements (full-height, flush)
+  var flyout = engine.querySelector(".iva-structural-flyout");
+  var flyoutLabel = engine.querySelector('[data-role="flyout-label"]');
 
   var sectionContext = {
     "what-iva-is": {
@@ -89,6 +94,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!sections.length) return;
 
+  function updateFlyout(ctx) {
+    if (!flyout || !flyoutLabel) return;
+    flyoutLabel.textContent = ctx && ctx.label ? ctx.label : "";
+  }
+
   function setActiveSection(id) {
     var ctx = sectionContext[id];
     if (!ctx) return;
@@ -101,8 +111,10 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    sectionLabel.textContent = ctx.label;
-    sectionText.textContent = ctx.text;
+    if (sectionLabel) sectionLabel.textContent = ctx.label;
+    if (sectionText) sectionText.textContent = ctx.text;
+
+    updateFlyout(ctx);
   }
 
   nodes.forEach(function (node) {
@@ -116,40 +128,70 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-var observer = new IntersectionObserver(
-  function (entries) {
-    var visible = entries
-      .filter(function (entry) {
-        return entry.isIntersecting;
-      })
-      .sort(function (a, b) {
-        return b.intersectionRatio - a.intersectionRatio;
+  var observer = new IntersectionObserver(
+    function (entries) {
+      var visible = entries
+        .filter(function (entry) {
+          return entry.isIntersecting;
+        })
+        .sort(function (a, b) {
+          return b.intersectionRatio - a.intersectionRatio;
+        });
+
+      if (!visible.length) return;
+
+      var top = visible[0].target;
+      var match = sections.find(function (item) {
+        return item.element === top;
       });
 
-    if (!visible.length) return;
-
-    var top = visible[0].target;
-    var match = sections.find(function (item) {
-      return item.element === top;
-    });
-
-    if (match) {
-      setActiveSection(match.id);
+      if (match) {
+        setActiveSection(match.id);
+      }
+    },
+    {
+      root: null,
+      rootMargin: "-30% 0px -50% 0px",
+      threshold: 0.15
     }
-  },
-  {
-    root: null,
-    rootMargin: "-30% 0px -50% 0px",
-    threshold: 0.15
-  }
-);
-
+  );
 
   sections.forEach(function (item) {
     observer.observe(item.element);
   });
 
   setActiveSection("what-iva-is");
+
+  // === FLYOUT BEHAVIOR (FULL-HEIGHT, FLUSH, STABLE) ===
+  if (bar && flyout && flyoutLabel) {
+    var insideBar = false;
+
+    bar.addEventListener("mouseenter", function () {
+      insideBar = true;
+      engine.classList.add("flyout-open");
+
+      var activeNode = engine.querySelector(".iva-structural-node-active");
+      var activeId = activeNode
+        ? activeNode.getAttribute("data-section")
+        : "what-iva-is";
+      var ctx = sectionContext[activeId];
+      updateFlyout(ctx);
+    });
+
+    bar.addEventListener("mouseleave", function () {
+      insideBar = false;
+      engine.classList.remove("flyout-open");
+    });
+
+    nodes.forEach(function (node) {
+      node.addEventListener("mouseenter", function () {
+        if (!insideBar) return;
+        var id = node.getAttribute("data-section");
+        var ctx = sectionContext[id];
+        updateFlyout(ctx);
+      });
+    });
+  }
 });
 
 
@@ -183,6 +225,7 @@ if ('IntersectionObserver' in window) {
     if (section) observer.observe(section);
   });
 }
+
 
 // === SMOOTH SCROLL FOR FLOATING NAV (respects reduced motion) ===
 const prefersReducedMotion =
