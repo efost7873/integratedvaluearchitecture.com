@@ -271,8 +271,7 @@
   transition: right 0.25s ease, opacity 0.25s ease;
 }
 
-/* Peek mode: engine sits slightly offscreen until hovered */
-/* FIXED: hover applies to the entire engine, not just nodes */
+/* Peek mode: entire engine is hover target */
 #iva-structural-engine.peek {
   right: -6px;
   opacity: 0.85;
@@ -301,6 +300,9 @@
   max-height: calc(100vh - 160px);
   overflow-y: auto;
   pointer-events: auto;
+
+  /* FIX: prevent width jitter during hover */
+  width: 180px;
   transition: padding 0.25s ease, width 0.25s ease;
 }
 
@@ -323,6 +325,9 @@
     opacity var(--iva-transition-fast),
     padding 0.25s ease;
   opacity: 0.8;
+
+  /* FIX: prevent node hover from resizing bar */
+  width: 100%;
 }
 
 .iva-structural-node .iva-structural-dot {
@@ -395,7 +400,7 @@
 }
 
 /* ================================
-   AUTO-COLLAPSE LABELS + PANEL SHRINK
+   AUTO-COLLAPSE + FIXED BAR WIDTH
 ================================ */
 
 @media (max-width: 1100px) {
@@ -404,9 +409,10 @@
     top: 100px;
   }
 
+  /* FIX: bar stays fixed width even when labels collapse */
   .iva-structural-bar {
-    padding: 6px 6px 4px;
-    max-height: calc(100vh - 120px);
+    width: 52px;
+    padding: 6px;
   }
 
   /* Collapse labels into icons */
@@ -425,16 +431,22 @@
     height: 10px;
   }
 
-  /* Hover-expand: show label on hover */
+  /* Hover-expand: label appears inside fixed-width bubble */
   .iva-structural-node:hover {
-    font-size: 12px;
-    padding: 4px 10px;
+    padding: 6px;
   }
 
   .iva-structural-node:hover .iva-structural-label {
     display: inline-block;
-    margin-left: 6px;
+    margin-left: 8px;
+    font-size: 12px;
     white-space: nowrap;
+    position: absolute;
+    left: 60px;
+    background: rgba(255, 255, 255, 0.96);
+    padding: 3px 8px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(15, 24, 52, 0.18);
   }
 
   /* FIX: panel shrinks so content is never covered */
@@ -464,6 +476,7 @@
   }
 
   .iva-structural-bar {
+    width: 52px;
     padding: 6px;
   }
 }
