@@ -306,13 +306,15 @@
   width: 8px;
   height: 8px;
   border-radius: 999px;
-  background: transparent;
-  border: 1px solid rgba(122, 130, 151, 0.7);
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(122, 130, 151, 0.4);
   transition:
     background-color var(--iva-transition-fast),
     border-color var(--iva-transition-fast),
-    transform var(--iva-transition-fast);
+    transform var(--iva-transition-fast),
+    box-shadow var(--iva-transition-fast);
 }
+
 
 .iva-structural-node-active {
   background: rgba(255, 255, 255, 0.96);
