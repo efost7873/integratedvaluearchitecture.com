@@ -286,3 +286,109 @@
     margin-bottom: 44px;
   }
 }
+
+#iva-structural-engine {
+  position: fixed;
+  top: 140px;
+  right: 270px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 998;
+  font-size: 13px;
+  color: var(--iva-text-soft);
+}
+
+.iva-structural-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 10px 8px;
+  border-radius: 14px;
+  background: rgba(243, 244, 248, 0.96);
+  border: 1px solid rgba(184, 190, 210, 0.7);
+  box-shadow: 0 10px 26px rgba(15, 24, 52, 0.18);
+}
+
+.iva-structural-node {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 6px;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--iva-text-soft);
+  font-size: 13px;
+  text-align: left;
+  transition:
+    background-color var(--iva-transition-fast),
+    color var(--iva-transition-fast),
+    transform var(--iva-transition-fast);
+}
+
+.iva-structural-node .iva-structural-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid rgba(122, 130, 151, 0.7);
+  transition:
+    background-color var(--iva-transition-fast),
+    border-color var(--iva-transition-fast),
+    transform var(--iva-transition-fast);
+}
+
+.iva-structural-node-active {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--iva-blue);
+  transform: translateX(1px);
+}
+
+.iva-structural-node-active .iva-structural-dot {
+  background: var(--iva-blue);
+  border-color: rgba(31, 42, 68, 0.7);
+  transform: scale(1.1);
+}
+
+.iva-structural-panel {
+  padding: 10px 12px 10px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(184, 190, 210, 0.7);
+  box-shadow: 0 10px 26px rgba(15, 24, 52, 0.18);
+  max-width: 260px;
+}
+
+.iva-structural-panel-title {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--iva-text-soft);
+  margin-bottom: 4px;
+}
+
+.iva-structural-panel-domain {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--iva-blue);
+  margin-bottom: 4px;
+}
+
+.iva-structural-panel-text {
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.iva-structural-panel-relations {
+  font-size: 12px;
+  color: var(--iva-text-soft);
+}
+
+@media (max-width: 1024px) {
+  #iva-structural-engine {
+    display: none;
+  }
+}
