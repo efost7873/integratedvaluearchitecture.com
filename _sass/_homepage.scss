@@ -173,7 +173,7 @@
   margin-top: 12px;
 }
 
-/* === FLOATING NAV (UPGRADED TO MATCH DRAMATIC HEADER) === */
+/* === FLOATING NAV (DRAMATIC GLASS, FIXED TRANSPARENCY) === */
 
 #iva-floating-nav {
   position: fixed;
@@ -187,15 +187,13 @@
   line-height: 1.45;
   z-index: 999;
 
-  /* Dramatic glass tone to match header */
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(26px);
+  -webkit-backdrop-filter: blur(26px);
 
-  /* Stronger border + shadow for contrast */
   border-radius: 14px;
-  border: 1px solid rgba(198, 203, 220, 0.9);
-  box-shadow: 0 18px 38px rgba(15, 24, 52, 0.22);
+  border: 1px solid rgba(31, 42, 68, 0.22);
+  box-shadow: 0 22px 44px rgba(15, 24, 52, 0.28);
 
   padding: 14px 14px 12px;
 }
@@ -224,7 +222,6 @@
   transition: color var(--iva-transition-fast), transform var(--iva-transition-fast);
 }
 
-/* Premium active indicator */
 #iva-floating-nav a::before {
   content: "";
   width: 7px;
