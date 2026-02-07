@@ -1,10 +1,9 @@
-const ivaHeader = document.querySelector('.iva-header');
-const ivaHeaderInner = document.querySelector('.iva-header-inner');
-const ivaLogo = document.querySelector('.iva-header-logo');
-const ivaTitle = document.querySelector('.iva-header-title');
+// ======================================================
+// MOBILE MENU TOGGLE
+// ======================================================
+
 const ivaToggle = document.getElementById('iva-menu-toggle');
 const ivaNav = document.getElementById('iva-nav');
-const ivaFooter = document.querySelector('.iva-footer');
 
 function updateMenu() {
   if (window.innerWidth < 780) {
@@ -23,22 +22,46 @@ ivaToggle.addEventListener('click', () => {
 window.addEventListener('resize', updateMenu);
 updateMenu();
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 20) {
-    ivaHeader.classList.add('scrolled');
-    ivaHeaderInner.style.padding = '10px 32px';
-    ivaLogo.style.height = '36px';
-    ivaTitle.style.fontSize = '1.25rem';
-  } else {
-    ivaHeader.classList.remove('scrolled');
-    ivaHeaderInner.style.padding = '18px 32px';
-    ivaLogo.style.height = '44px';
-    ivaTitle.style.fontSize = '1.45rem';
+
+// ======================================================
+// SLIDE-AWAY HEADER (Identity Bar + Header)
+// ======================================================
+
+document.addEventListener("DOMContentLoaded", function () {
+  const root = document.documentElement;
+  let lastScroll = window.pageYOffset;
+
+  function handleScroll() {
+    const current = window.pageYOffset;
+
+    // Only apply slide-away on large screens
+    if (window.innerWidth > 1100) {
+      if (current > lastScroll + 10) {
+        // scrolling down
+        root.classList.add("header-hidden");
+      } else if (current < lastScroll - 10) {
+        // scrolling up
+        root.classList.remove("header-hidden");
+      }
+    } else {
+      // below 1100px, header is hidden by CSS
+      root.classList.remove("header-hidden");
+    }
+
+    lastScroll = current;
   }
 
-  if (window.scrollY > 0) {
-    ivaFooter.style.opacity = '0.96';
-  } else {
-    ivaFooter.style.opacity = '1';
-  }
+  window.addEventListener("scroll", handleScroll, { passive: true });
+});
+
+
+// ======================================================
+// FOOTER OPACITY ON SCROLL
+// ======================================================
+
+const ivaFooter = document.querySelector('.iva-footer');
+
+window.addEventListener('scroll', () => {
+  if (!ivaFooter) return;
+  ivaFooter.style.opacity = window.scrollY > 0 ? '0.96' : '1';
 });
