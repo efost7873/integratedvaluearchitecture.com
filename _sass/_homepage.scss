@@ -173,7 +173,8 @@
   margin-top: 12px;
 }
 
-/* Floating nav */
+/* === FLOATING NAV (UPGRADED TO MATCH DRAMATIC HEADER) === */
+
 #iva-floating-nav {
   position: fixed;
   top: 140px;
@@ -185,12 +186,18 @@
   font-size: 14px;
   line-height: 1.45;
   z-index: 999;
-  background: rgba(247, 248, 252, 0.96);
+
+  /* Dramatic glass tone to match header */
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  /* Stronger border + shadow for contrast */
   border-radius: 14px;
   border: 1px solid rgba(198, 203, 220, 0.9);
-  box-shadow: 0 14px 34px rgba(15, 24, 52, 0.18);
+  box-shadow: 0 18px 38px rgba(15, 24, 52, 0.22);
+
   padding: 14px 14px 12px;
-  backdrop-filter: blur(10px);
 }
 
 #iva-floating-nav.visible {
@@ -205,7 +212,7 @@
 }
 
 #iva-floating-nav li {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 #iva-floating-nav a {
@@ -213,23 +220,27 @@
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   transition: color var(--iva-transition-fast), transform var(--iva-transition-fast);
 }
 
+/* Premium active indicator */
 #iva-floating-nav a::before {
   content: "";
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   border-radius: 999px;
   background: transparent;
   border: 1px solid transparent;
-  transition: background-color var(--iva-transition-fast), border-color var(--iva-transition-fast), transform var(--iva-transition-fast);
+  transition:
+    background-color var(--iva-transition-fast),
+    border-color var(--iva-transition-fast),
+    transform var(--iva-transition-fast);
 }
 
 #iva-floating-nav a:hover {
   color: var(--iva-blue);
-  transform: translateX(1px);
+  transform: translateX(2px);
 }
 
 #iva-floating-nav a.active {
@@ -240,11 +251,13 @@
 #iva-floating-nav a.active::before {
   background: var(--iva-blue);
   border-color: rgba(31, 42, 68, 0.4);
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 
-/* Responsive */
-@media (max-width: 900px) {
+/* === RESPONSIVE === */
+
+/* Floating nav hidden ONLY on mobile */
+@media (max-width: 780px) {
   #iva-floating-nav {
     display: none;
   }
