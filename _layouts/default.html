@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  {% include meta.html %}
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{ page.title }}</title>
+
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css">
+
+  {% if page.url == "/" %}
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/homepage.css">
+  {% endif %}
 </head>
 
 <body>
 
   {% include header.html %}
 
-  {{ content }}
+  <div class="iva-content">
+    {{ content }}
+  </div>
 
   {% include footer.html %}
 
-  <script src="{{ site.baseurl }}/assets/js/main.js"></script>
   <script src="{{ site.baseurl }}/assets/js/site.js"></script>
+
+  {% if page.url == "/" %}
+    <script src="{{ site.baseurl }}/assets/js/homepage.js"></script>
+  {% endif %}
 
 </body>
 </html>
