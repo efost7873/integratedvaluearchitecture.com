@@ -116,32 +116,34 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  var observer = new IntersectionObserver(
-    function (entries) {
-      var visible = entries
-        .filter(function (entry) {
-          return entry.isIntersecting;
-        })
-        .sort(function (a, b) {
-          return b.intersectionRatio - a.intersectionRatio;
-        });
-
-      if (!visible.length) return;
-
-      var top = visible[0].target;
-      var match = sections.find(function (item) {
-        return item.element === top;
+var observer = new IntersectionObserver(
+  function (entries) {
+    var visible = entries
+      .filter(function (entry) {
+        return entry.isIntersecting;
+      })
+      .sort(function (a, b) {
+        return b.intersectionRatio - a.intersectionRatio;
       });
 
-      if (match) {
-        setActiveSection(match.id);
-      }
-    },
-    {
-      root: null,
-      threshold: [0.25, 0.5, 0.75]
+    if (!visible.length) return;
+
+    var top = visible[0].target;
+    var match = sections.find(function (item) {
+      return item.element === top;
+    });
+
+    if (match) {
+      setActiveSection(match.id);
     }
-  );
+  },
+  {
+    root: null,
+    rootMargin: "-30% 0px -50% 0px",
+    threshold: 0.15
+  }
+);
+
 
   sections.forEach(function (item) {
     observer.observe(item.element);
