@@ -1,4 +1,7 @@
-/* Identity Bar (Darker, More Opaque, Brand‑Pure Glass) */
+/* ============================================
+   IDENTITY BAR (Brand Glass)
+============================================ */
+
 .iva-identity-bar {
   background: rgba(31, 42, 68, 0.90);
   backdrop-filter: blur(24px);
@@ -9,14 +12,23 @@
   padding: 6px 32px;
   text-align: center;
   letter-spacing: 0.3px;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  transition: transform 0.35s ease, opacity 0.25s ease;
+  will-change: transform;
 }
 
-/* Header (Slightly More Transparent for Visible Depth + Shadow) */
+/* ============================================
+   HEADER (Glass + Gradient)
+============================================ */
+
 .iva-header {
   position: sticky;
   top: 0;
   z-index: 9999;
   isolation: isolate;
+
   backdrop-filter: blur(36px);
   -webkit-backdrop-filter: blur(36px);
 
@@ -28,13 +40,18 @@
   border-bottom: 1px solid rgba(31, 42, 68, 0.48);
 
   transition:
+    transform 0.35s ease,
+    opacity 0.25s ease,
     background-color $iva-transition-med,
     backdrop-filter $iva-transition-med,
     box-shadow $iva-transition-med,
     border-color $iva-transition-med,
     padding $iva-transition-med;
+
+  will-change: transform;
 }
 
+/* Header darkens slightly when page is scrolled */
 .iva-header.scrolled {
   background: linear-gradient(
     to bottom,
@@ -44,6 +61,10 @@
   box-shadow: 0 8px 26px rgba(0, 0, 0, 0.38);
   border-color: rgba(31, 42, 68, 0.62);
 }
+
+/* ============================================
+   HEADER INNER LAYOUT
+============================================ */
 
 .iva-header-inner {
   max-width: 1120px;
@@ -81,7 +102,10 @@
   transition: font-size $iva-transition-med;
 }
 
-/* Navigation */
+/* ============================================
+   NAVIGATION
+============================================ */
+
 .iva-header-nav {
   display: flex;
   gap: 36px;
@@ -117,7 +141,10 @@
   }
 }
 
-/* Tablet Layout */
+/* ============================================
+   TABLET LAYOUT
+============================================ */
+
 @media (max-width: 980px) {
   .iva-header-inner {
     flex-wrap: wrap;
@@ -152,7 +179,10 @@
   }
 }
 
-/* Mobile Toggle */
+/* ============================================
+   MOBILE NAVIGATION
+============================================ */
+
 .iva-header-toggle {
   display: none;
   font-size: 2rem;
@@ -160,7 +190,6 @@
   cursor: pointer;
 }
 
-/* Mobile Navigation */
 @media (max-width: 780px) {
   .iva-header-toggle {
     display: block;
@@ -175,5 +204,23 @@
     flex-direction: column;
     gap: 18px;
     padding: 0 22px 18px;
+  }
+}
+
+/* ============================================
+   SLIDE-AWAY HEADER (Identity Bar + Header)
+============================================ */
+
+.header-hidden .iva-identity-bar,
+.header-hidden .iva-header {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+/* Below 1100px: header fully removed so it never collides with the structural engine */
+@media (max-width: 1100px) {
+  .iva-identity-bar,
+  .iva-header {
+    display: none !important;
   }
 }
