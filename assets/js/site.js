@@ -24,8 +24,17 @@ updateMenu();
 
 
 // ======================================================
-// SLIDE-AWAY HEADER (Identity Bar + Header)
+// HEADER + ENGINE SCROLL BEHAVIOR
 // ======================================================
+//
+// Behavior Spec:
+// - Header always visible on load
+// - Header hides ONLY when scrolling down
+// - Header reappears when scrolling up
+// - Engine appears ONLY when header hides AND screen >1100px
+// - Engine disappears when header reappears
+// - Engine always hidden on mobile (<780px)
+//
 
 document.addEventListener("DOMContentLoaded", function () {
   const root = document.documentElement;
@@ -34,18 +43,27 @@ document.addEventListener("DOMContentLoaded", function () {
   function handleScroll() {
     const current = window.pageYOffset;
 
-    // Only apply slide-away on large screens
-    if (window.innerWidth > 1100) {
-      if (current > lastScroll + 10) {
-        // scrolling down
-        root.classList.add("header-hidden");
-      } else if (current < lastScroll - 10) {
-        // scrolling up
-        root.classList.remove("header-hidden");
+    const scrollingDown = current > lastScroll + 10;
+    const scrollingUp = current < lastScroll - 10;
+
+    const largeScreen = window.innerWidth > 1100;
+
+    if (scrollingDown) {
+      // Hide header
+      root.classList.add("header-hidden");
+
+      // Show engine only on large screens
+      if (largeScreen) {
+        root.classList.add("engine-visible");
       }
-    } else {
-      // below 1100px, header is hidden by CSS
+    }
+
+    if (scrollingUp) {
+      // Show header
       root.classList.remove("header-hidden");
+
+      // Hide engine
+      root.classList.remove("engine-visible");
     }
 
     lastScroll = current;
