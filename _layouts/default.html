@@ -2,6 +2,295 @@
 <html lang="en">
 <head>
   {% include meta.html %}
+
+  <style>
+    :root {
+      --iva-blue: #1F2A44;
+      --iva-slate: #4A5673;
+
+      --iva-neutral-0: #FFFFFF;
+      --iva-neutral-1: #F7F8FC;
+      --iva-neutral-2: #EEF0F6;
+      --iva-neutral-3: #E2E4ED;
+
+      --iva-text-strong: #1F2430;
+      --iva-text-soft: #5A6278;
+
+      --iva-shadow-header: 0 12px 28px rgba(20, 28, 48, 0.16);
+      --iva-shadow-footer: 0 -10px 28px rgba(20, 28, 48, 0.12);
+
+      --iva-transition-fast: 0.18s ease-out;
+      --iva-transition-med: 0.28s ease-out;
+    }
+
+    /* Identity Bar */
+    .iva-identity-bar {
+      background: var(--iva-slate);
+      color: #FFFFFF;
+      font-size: 0.82rem;
+      padding: 6px 32px;
+      text-align: center;
+      letter-spacing: 0.3px;
+    }
+
+    /* Header */
+    .iva-header {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      backdrop-filter: blur(14px);
+      background: rgba(247, 248, 252, 0.82);
+      border-bottom: 1px solid rgba(198, 203, 220, 0.7);
+      transition:
+        background-color var(--iva-transition-med),
+        backdrop-filter var(--iva-transition-med),
+        box-shadow var(--iva-transition-med),
+        border-color var(--iva-transition-med);
+    }
+
+    .iva-header.scrolled {
+      background: rgba(242, 244, 250, 0.92);
+      box-shadow: var(--iva-shadow-header);
+      border-color: rgba(184, 190, 210, 0.9);
+    }
+
+    .iva-header-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 18px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: padding var(--iva-transition-med);
+    }
+
+    .iva-header-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .iva-header-logo {
+      height: 44px;
+      background: #FFFFFF;
+      padding: 6px 8px;
+      border-radius: 6px;
+      border: 1px solid var(--iva-slate);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.18);
+      transition: height var(--iva-transition-med);
+    }
+
+    .iva-header-title {
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--iva-blue);
+      letter-spacing: 0.4px;
+      transition: font-size var(--iva-transition-med);
+    }
+
+    .iva-header-nav {
+      display: flex;
+      gap: 28px;
+      font-size: 1.05rem;
+    }
+
+    .iva-header-link {
+      color: var(--iva-text-soft);
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 2px;
+      transition: color var(--iva-transition-fast);
+    }
+
+    .iva-header-link:hover {
+      color: var(--iva-blue);
+    }
+
+    .iva-header-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      background: var(--iva-blue);
+      transition: width 0.25s ease;
+    }
+
+    .iva-header-link:hover::after {
+      width: 100%;
+    }
+
+    .iva-header-toggle {
+      display: none;
+      font-size: 1.9rem;
+      color: var(--iva-blue);
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .iva-hero {
+      background: linear-gradient(180deg, #F5F6FA 0%, #FFFFFF 100%);
+      padding: 32px 32px 40px;
+      border-bottom: 1px solid #E0E0E0;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+      transition: opacity 0.3s ease;
+    }
+
+    .iva-hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .iva-hero-inner h2 {
+      margin: 0;
+      font-size: 2rem;
+      color: var(--iva-blue);
+      font-weight: 600;
+    }
+
+    .iva-hero-inner p {
+      margin-top: 12px;
+      font-size: 1.1rem;
+      color: var(--iva-slate);
+      line-height: 1.6;
+      max-width: 700px;
+    }
+
+    /* Footer */
+    .iva-footer {
+      background: linear-gradient(180deg, var(--iva-neutral-2), var(--iva-neutral-3));
+      padding: 56px 28px 40px;
+      border-top: 1px solid rgba(184, 190, 210, 0.7);
+      box-shadow: var(--iva-shadow-footer);
+    }
+
+    .iva-footer-wrapper {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .iva-footer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 36px;
+      margin-bottom: 36px;
+    }
+
+    .iva-footer-col {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .iva-footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .iva-footer-logo {
+      height: 36px;
+      background: white;
+      padding: 4px 6px;
+      border-radius: 6px;
+      border: 1px solid var(--iva-slate);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.18);
+    }
+
+    .iva-footer-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--iva-blue);
+    }
+
+    .iva-footer-desc {
+      font-size: 0.95rem;
+      line-height: 1.55;
+      color: var(--iva-text-soft);
+      max-width: 420px;
+    }
+
+    .iva-footer-heading {
+      margin: 0 0 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--iva-blue);
+    }
+
+    .iva-footer-text {
+      font-size: 0.95rem;
+      color: var(--iva-text-soft);
+      margin: 0;
+    }
+
+    .iva-footer-link {
+      font-size: 0.95rem;
+      color: var(--iva-text-soft);
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 2px;
+      transition: color var(--iva-transition-fast);
+    }
+
+    .iva-footer-link:hover {
+      color: var(--iva-blue);
+    }
+
+    .iva-footer-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 2px;
+      background: var(--iva-blue);
+      transition: width 0.25s ease;
+    }
+
+    .iva-footer-link:hover::after {
+      width: 100%;
+    }
+
+    .iva-footer-bottom {
+      border-top: 1px solid rgba(184, 190, 210, 0.6);
+      padding-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .iva-footer-legal {
+      font-size: 0.85rem;
+      color: var(--iva-text-soft);
+      max-width: 720px;
+    }
+
+    .iva-footer-bottom-links {
+      display: flex;
+      gap: 18px;
+    }
+
+    @media (max-width: 780px) {
+      .iva-header-toggle {
+        display: block;
+      }
+
+      .iva-header-nav {
+        display: none;
+        flex-direction: column;
+        gap: 16px;
+        padding: 0 32px 16px;
+      }
+
+      .iva-footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -11,6 +300,58 @@
   {{ content }}
 
   {% include footer.html %}
+
+  <script>
+    const ivaHeader = document.querySelector('.iva-header');
+    const ivaHeaderInner = document.querySelector('.iva-header-inner');
+    const ivaLogo = document.querySelector('.iva-header-logo');
+    const ivaTitle = document.querySelector('.iva-header-title');
+    const ivaToggle = document.getElementById('iva-menu-toggle');
+    const ivaNav = document.getElementById('iva-nav');
+    const ivaHero = document.querySelector('.iva-hero');
+    const ivaFooter = document.querySelector('.iva-footer');
+
+    function updateMenu() {
+      if (window.innerWidth < 780) {
+        ivaToggle.style.display = 'block';
+        ivaNav.style.display = 'none';
+      } else {
+        ivaToggle.style.display = 'none';
+        ivaNav.style.display = 'flex';
+      }
+    }
+
+    ivaToggle.addEventListener('click', () => {
+      ivaNav.style.display = ivaNav.style.display === 'none' ? 'flex' : 'none';
+    });
+
+    window.addEventListener('resize', updateMenu);
+    updateMenu();
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        ivaHeader.classList.add('scrolled');
+        ivaHeaderInner.style.padding = '10px 32px';
+        ivaLogo.style.height = '36px';
+        ivaTitle.style.fontSize = '1.25rem';
+      } else {
+        ivaHeader.classList.remove('scrolled');
+        ivaHeaderInner.style.padding = '18px 32px';
+        ivaLogo.style.height = '44px';
+        ivaTitle.style.fontSize = '1.45rem';
+      }
+
+      const fadeEnd = 200;
+      const opacity = Math.max(0, 1 - window.scrollY / fadeEnd);
+      ivaHero.style.opacity = opacity;
+
+      if (window.scrollY > 0) {
+        ivaFooter.style.opacity = '0.96';
+      } else {
+        ivaFooter.style.opacity = '1';
+      }
+    });
+  </script>
 
 </body>
 </html>
