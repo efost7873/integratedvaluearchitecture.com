@@ -138,6 +138,58 @@ title: Integrated Value Architecture
   margin-top: 10px;
 }
 
+/* === FLOATING STRUCTURAL NAVIGATION INDEX === */
+
+#iva-floating-nav {
+  position: fixed;
+  top: 140px;
+  right: 32px;
+  width: 200px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  font-size: 14px;
+  line-height: 1.45;
+  z-index: 999;
+}
+
+#iva-floating-nav.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#iva-floating-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#iva-floating-nav li {
+  margin-bottom: 10px;
+}
+
+#iva-floating-nav a {
+  color: #4A5673;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+#iva-floating-nav a:hover {
+  color: #1F2A44;
+}
+
+#iva-floating-nav a.active {
+  color: #1F2A44;
+  font-weight: 600;
+}
+
+/* Hide on smaller screens */
+@media (max-width: 900px) {
+  #iva-floating-nav {
+    display: none;
+  }
+}
+
 /* Responsive */
 @media (max-width: 960px) {
   .iva-page .grid-3 {
@@ -153,6 +205,16 @@ title: Integrated Value Architecture
 }
 </style>
 
+<!-- FLOATING STRUCTURAL NAVIGATION INDEX -->
+<nav id="iva-floating-nav" aria-label="Page navigation">
+  <ul>
+    <li><a href="#what-iva-is">What IVA Is</a></li>
+    <li><a href="#structural-mismatch">Structural Mismatch</a></li>
+    <li><a href="#five-ledgers">Five Ledgers</a></li>
+    <li><a href="#how-iva-works">How IVA Works</a></li>
+    <li><a href="#begin-diagnostic">Begin the Diagnostic</a></li>
+  </ul>
+</nav>
 <div class="iva-page">
 <main>
 
@@ -433,3 +495,44 @@ title: Integrated Value Architecture
 
 </main>
 </div>
+<script>
+// === FLOATING NAV: FADE-IN ON SCROLL ===
+const floatingNav = document.getElementById('iva-floating-nav');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    floatingNav.classList.add('visible');
+  } else {
+    floatingNav.classList.remove('visible');
+  }
+});
+
+// === SECTION HIGHLIGHTING USING INTERSECTION OBSERVER ===
+const navLinks = document.querySelectorAll('#iva-floating-nav a');
+const sections = [...navLinks].map(link => {
+  const id = link.getAttribute('href').replace('#', '');
+  return document.getElementById(id);
+});
+
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+        });
+      }
+    });
+  },
+  {
+    root: null,
+    rootMargin: '0px 0px -60% 0px',
+    threshold: 0.1
+  }
+);
+
+sections.forEach(section => {
+  if (section) observer.observe(section);
+});
+</script>
