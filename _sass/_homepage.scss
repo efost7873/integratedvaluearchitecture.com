@@ -322,10 +322,15 @@
 }
 
 .iva-structural-node-active .iva-structural-dot {
-  background: var(--iva-blue);
-  border-color: rgba(31, 42, 68, 0.7);
-  transform: scale(1.1);
+  background: radial-gradient(circle, #ffdca8 0%, #ffb85c 60%, #e09a3f 100%);
+  border-color: rgba(255, 184, 92, 0.8);
+  box-shadow:
+    0 0 6px rgba(255, 184, 92, 0.8),
+    0 0 12px rgba(255, 184, 92, 0.6),
+    0 0 18px rgba(255, 184, 92, 0.4);
+  transform: scale(1.25);
 }
+
 
 .iva-structural-panel {
   margin-top: 6px;
