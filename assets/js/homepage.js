@@ -1,15 +1,3 @@
-// === FLOATING NAV: FADE-IN ON SCROLL ===
-const floatingNav = document.getElementById('iva-floating-nav');
-
-window.addEventListener('scroll', () => {
-  if (!floatingNav) return;
-  if (window.scrollY > 260) {
-    floatingNav.classList.add('visible');
-  } else {
-    floatingNav.classList.remove('visible');
-  }
-});
-
 // === STRUCTURAL ENGINE ===
 document.addEventListener("DOMContentLoaded", function () {
   var engine = document.getElementById("iva-structural-engine");
@@ -18,102 +6,113 @@ document.addEventListener("DOMContentLoaded", function () {
   var nodes = Array.prototype.slice.call(
     engine.querySelectorAll(".iva-structural-node")
   );
-  var domainLabel = engine.querySelector('[data-role="domain-label"]');
-  var domainText = engine.querySelector('[data-role="domain-text"]');
-  var domainRelations = engine.querySelector('[data-role="domain-relations"]');
+  var sectionLabel = engine.querySelector('[data-role="section-label"]');
+  var sectionText = engine.querySelector('[data-role="section-text"]');
 
-  var domainDefinitions = {
-    financial: {
-      label: "Financial ledger",
-      text: "Monetary structure that shapes incentives, constraints, and reported performance.",
-      relations: "Interacts strongly with operational, capacity, and externalities domains."
+  var sectionContext = {
+    "what-iva-is": {
+      label: "What IVA Is",
+      text:
+        "People recognize quickly that IVA is describing the system they actually work inside every day, not just the financial story they see in reports."
     },
-    operational: {
-      label: "Operational ledger",
-      text: "Workflow and execution structure that reveals how work actually moves.",
-      relations: "Closely tied to capacity and learning, and influenced by financial constraints."
+    "structural-mismatch": {
+      label: "The structural mismatch IVA resolves",
+      text:
+        "Anyone who has been asked to do more with less feels this mismatch immediately, because they are held to outcomes across many domains while everything is still framed through one ledger."
     },
-    capacity: {
-      label: "Capacity ledger",
-      text: "Staffing, systems, data, and infrastructure that carry organizational load.",
-      relations: "Pressure here often appears as performance problems in other domains."
+    "what-people-realize": {
+      label: "What people realize when they see IVA",
+      text:
+        "The moment people see IVA, they recognize that many of the problems they have been blamed for were never individual performance issues, they were structural conditions no one had language for."
     },
-    externalities: {
-      label: "Externalities and equity ledger",
-      text: "Legitimacy, obligations, exposures, and distributional structure.",
-      relations: "Connects internal decisions to communities, regulators, and long term risk."
+    "five-ledgers": {
+      label: "The five ledgers of IVA",
+      text:
+        "People across functions see their work in the five ledgers because they already carry these responsibilities, they have just never seen them acknowledged as distinct forms of value."
     },
-    learning: {
-      label: "Learning and innovation ledger",
-      text: "Learning, adaptation, and future capability as structural value.",
-      relations: "Determines how quickly the organization can respond to structural signals."
+    "why-single-ledger-fails": {
+      label: "Why the single ledger fails",
+      text:
+        "The single ledger failure is familiar to almost everyone: decisions skewed toward short term numbers, capacity ignored, legitimacy treated as optics, and future capability pushed aside."
     },
-    "capacity-pressure": {
-      label: "Capacity pressures",
-      text: "Points where load, constraints, and expectations are misaligned.",
-      relations: "Often sits at the intersection of operational, capacity, and financial decisions."
+    "what-iva-provides": {
+      label: "What IVA provides",
+      text:
+        "IVA gives people a structure that finally explains why their effort, skill, and commitment could not overcome the constraints built into the system."
+    },
+    "what-iva-makes-possible": {
+      label: "What IVA makes possible",
+      text:
+        "Once the structural map is visible, people understand why friction, rework, and burnout felt inevitable, and why coordinated change suddenly feels possible instead of aspirational."
+    },
+    "who-uses-iva": {
+      label: "Who uses IVA",
+      text:
+        "IVA shows up in places where people know their challenges are not just about motivation or culture, but about the way work, capacity, and expectations are structurally arranged."
+    },
+    "why-organizations-choose-iva": {
+      label: "Why organizations choose IVA",
+      text:
+        "People support IVA because it gives them a shared structural language that matches what they experience in their roles, not just what appears in financial summaries."
+    },
+    "how-iva-works": {
+      label: "How IVA works",
+      text:
+        "The sequence makes sense to people at every level: first see the structure, then measure it honestly, then align decisions and expectations around what it reveals."
+    },
+    "what-diagnostic-produces": {
+      label: "What the IVA Diagnostic produces",
+      text:
+        "The diagnostic feels like someone finally mapped the real organization, showing how pressures travel across ledgers and why certain problems keep reappearing no matter who is in the role."
+    },
+    "future-of-standard": {
+      label: "The future of the IVA Standard",
+      text:
+        "People understand why the standard must evolve, because the demands on their work keep changing faster than the systems that are supposed to support them."
+    },
+    "begin-diagnostic": {
+      label: "Begin the IVA Diagnostic",
+      text:
+        "Beginning the diagnostic feels like the first time the organization is being examined on the reality of how work happens, not just on the numbers that appear at the end."
     }
   };
 
-  var sectionDomains = [
-    { id: "what-iva-is", domain: "financial" },
-    { id: "structural-mismatch", domain: "capacity-pressure" },
-    { id: "what-people-realize", domain: "capacity-pressure" },
-    { id: "five-ledgers", domain: "financial" },
-    { id: "why-single-ledger-fails", domain: "financial" },
-    { id: "what-iva-provides", domain: "operational" },
-    { id: "what-iva-makes-possible", domain: "capacity" },
-    { id: "who-uses-iva", domain: "externalities" },
-    { id: "why-organizations-choose-iva", domain: "learning" },
-    { id: "how-iva-works", domain: "operational" },
-    { id: "what-diagnostic-produces", domain: "capacity" },
-    { id: "future-of-standard", domain: "externalities" },
-    { id: "begin-diagnostic", domain: "capacity-pressure" },
-    { id: "standard-intro", domain: "financial" },
-    { id: "standard-ledgers", domain: "financial" },
-    { id: "standard-scope", domain: "operational" },
-    { id: "standard-download", domain: "learning" },
-    { id: "standard-meta", domain: "externalities" },
-    { id: "diag-intro", domain: "financial" },
-    { id: "diag-experiences", domain: "capacity-pressure" },
-    { id: "diag-reveals", domain: "operational" },
-    { id: "diag-why", domain: "externalities" },
-    { id: "diag-gain", domain: "capacity" },
-    { id: "diag-notice", domain: "externalities" },
-    { id: "diag-begin", domain: "capacity-pressure" }
-  ];
+  var sections = Object.keys(sectionContext)
+    .map(function (id) {
+      var el = document.getElementById(id);
+      if (!el) return null;
+      return { id: id, element: el };
+    })
+    .filter(function (item) {
+      return item !== null;
+    });
 
-  var observedSections = [];
+  if (!sections.length) return;
 
-  sectionDomains.forEach(function (item) {
-    var el = document.getElementById(item.id);
-    if (!el) return;
-    observedSections.push({ element: el, domain: item.domain });
-  });
-
-  if (!observedSections.length) return;
-
-  function setActiveDomain(domainKey) {
-    var def = domainDefinitions[domainKey];
-    if (!def) return;
+  function setActiveSection(id) {
+    var ctx = sectionContext[id];
+    if (!ctx) return;
 
     nodes.forEach(function (node) {
-      if (node.getAttribute("data-domain") === domainKey) {
+      if (node.getAttribute("data-section") === id) {
         node.classList.add("iva-structural-node-active");
       } else {
         node.classList.remove("iva-structural-node-active");
       }
     });
 
-    domainLabel.textContent = def.label;
-    domainText.textContent = def.text;
-    domainRelations.textContent = def.relations;
+    sectionLabel.textContent = ctx.label;
+    sectionText.textContent = ctx.text;
   }
 
   nodes.forEach(function (node) {
     node.addEventListener("click", function () {
-      var key = node.getAttribute("data-domain");
-      setActiveDomain(key);
+      var id = node.getAttribute("data-section");
+      var target = document.getElementById(id);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      setActiveSection(id);
     });
   });
 
@@ -130,12 +129,12 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!visible.length) return;
 
       var top = visible[0].target;
-      var match = observedSections.find(function (item) {
+      var match = sections.find(function (item) {
         return item.element === top;
       });
 
       if (match) {
-        setActiveDomain(match.domain);
+        setActiveSection(match.id);
       }
     },
     {
@@ -144,12 +143,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   );
 
-  observedSections.forEach(function (item) {
+  sections.forEach(function (item) {
     observer.observe(item.element);
   });
 
-  setActiveDomain("financial");
+  setActiveSection("what-iva-is");
 });
+
 
 // === SECTION HIGHLIGHTING USING INTERSECTION OBSERVER ===
 const navLinks = document.querySelectorAll('#iva-floating-nav a');
