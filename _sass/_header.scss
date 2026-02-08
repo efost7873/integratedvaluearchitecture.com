@@ -12,8 +12,10 @@
   padding: 6px 32px;
   text-align: center;
   letter-spacing: 0.3px;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 100%;
   z-index: 9999;
   transition: transform 0.35s ease, opacity 0.25s ease;
   will-change: transform;
@@ -24,9 +26,11 @@
 ============================================ */
 
 .iva-header {
-  position: sticky;
-  top: 0;
-  z-index: 9999;
+  position: fixed;
+  top: 32px;
+  left: 0;
+  width: 100%;
+  z-index: 9998;
   isolation: isolate;
 
   backdrop-filter: blur(36px);
@@ -42,16 +46,15 @@
   transition:
     transform 0.35s ease,
     opacity 0.25s ease,
-    background-color $iva-transition-med,
-    backdrop-filter $iva-transition-med,
-    box-shadow $iva-transition-med,
-    border-color $iva-transition-med,
-    padding $iva-transition-med;
+    background-color 0.24s ease-out,
+    backdrop-filter 0.24s ease-out,
+    box-shadow 0.24s ease-out,
+    border-color 0.24s ease-out,
+    padding 0.24s ease-out;
 
   will-change: transform;
 }
 
-/* Header darkens slightly when page is scrolled */
 .iva-header.scrolled {
   background: linear-gradient(
     to bottom,
@@ -74,10 +77,9 @@
   justify-content: space-between;
   align-items: center;
   gap: 26px;
-  transition: padding $iva-transition-med;
+  transition: padding 0.24s ease-out;
 }
 
-/* Brand */
 .iva-header-brand {
   display: flex;
   align-items: center;
@@ -89,9 +91,9 @@
   background: #FFFFFF;
   padding: 6px 10px;
   border-radius: 6px;
-  border: 1px solid $iva-slate;
+  border: 1px solid #4A5673;
   box-shadow: 0 2px 5px rgba(0,0,0,0.22);
-  transition: height $iva-transition-med;
+  transition: height 0.24s ease-out;
 }
 
 .iva-header-title {
@@ -99,7 +101,7 @@
   font-weight: 600;
   color: #FFFFFF;
   letter-spacing: 0.45px;
-  transition: font-size $iva-transition-med;
+  transition: font-size 0.24s ease-out;
 }
 
 /* ============================================
@@ -118,27 +120,27 @@
   text-decoration: none;
   position: relative;
   padding-bottom: 2px;
-  transition: color $iva-transition-fast;
+  transition: color 0.18s ease-out;
+}
 
-  &:hover {
-    color: #FFFFFF;
-  }
+.iva-header-link:hover {
+  color: #FFFFFF;
+}
 
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    width: 0;
-    height: 2px;
-    background: #FFFFFF;
-    transform: translateY(1px);
-    transition: width 0.16s cubic-bezier(0.4, 0, 0.2, 1);
-  }
+.iva-header-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: #FFFFFF;
+  transform: translateY(1px);
+  transition: width 0.16s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
-  &:hover::after {
-    width: 100%;
-  }
+.iva-header-link:hover::after {
+  width: 100%;
 }
 
 /* ============================================
@@ -208,7 +210,7 @@
 }
 
 /* ============================================
-   SLIDE-AWAY HEADER (Identity Bar + Header)
+   SLIDE-AWAY HEADER
 ============================================ */
 
 .header-hidden .iva-identity-bar,
