@@ -24,45 +24,33 @@ updateMenu();
 
 
 // ======================================================
-// HEADER + ENGINE SCROLL BEHAVIOR
+// HEADER + ENGINE SCROLL BEHAVIOR (200px threshold)
 // ======================================================
 //
-// Behavior Spec:
-// - Header always visible on load
-// - Header hides ONLY when scrolling down
-// - Header reappears when scrolling up
-// - Engine appears ONLY when header hides AND screen >1100px
-// - Engine disappears when header reappears
-// - Engine always hidden on mobile (<780px)
+// Behavior:
+// - Header visible from 0–200px
+// - Engine hidden from 0–200px
+// - After 200px: header hides, engine shows
+// - Scrolling up does NOT show header unless back above 200px
+// - Engine stays visible until header returns
 //
 
 document.addEventListener("DOMContentLoaded", function () {
   const root = document.documentElement;
   let lastScroll = window.pageYOffset;
+  const threshold = 200;
 
   function handleScroll() {
     const current = window.pageYOffset;
-
-    const scrollingDown = current > lastScroll + 10;
-    const scrollingUp = current < lastScroll - 10;
-
     const largeScreen = window.innerWidth > 1100;
 
-    if (scrollingDown) {
-      // Hide header
+    if (current > threshold) {
       root.classList.add("header-hidden");
-
-      // Show engine only on large screens
       if (largeScreen) {
         root.classList.add("engine-visible");
       }
-    }
-
-    if (scrollingUp) {
-      // Show header
+    } else {
       root.classList.remove("header-hidden");
-
-      // Hide engine
       root.classList.remove("engine-visible");
     }
 
@@ -70,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   window.addEventListener("scroll", handleScroll, { passive: true });
+  handleScroll();
 });
 
 
