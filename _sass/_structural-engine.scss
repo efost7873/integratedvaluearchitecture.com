@@ -38,6 +38,11 @@
   right: 12px; /* gutter */
   opacity: 1;
   pointer-events: auto;
+
+  /* THE FIX — collapse the engine container */
+  flex-direction: row;
+  align-items: flex-start;
+  height: auto;
 }
 
 #iva-structural-engine.engine-collapsed .iva-structural-panel {
@@ -53,6 +58,11 @@
   min-width: 48px;
   max-width: 48px;
   padding: 6px;
+
+  /* THE FIX — prevent full-height stacking */
+  height: auto;
+  max-height: none;
+  overflow: visible;
 }
 
 /* ============================================================
@@ -61,6 +71,7 @@
 
 #iva-structural-engine.engine-expanded {
   right: 0;
+  flex-direction: column;
 }
 
 #iva-structural-engine.engine-expanded .iva-structural-panel {
