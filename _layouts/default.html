@@ -13,6 +13,10 @@
 
   {% include header.html %}
 
+  {% if page.url == "/" %}
+    {% include structural-engine.html %}
+  {% endif %}
+
   <div class="iva-content">
     {{ content }}
   </div>
