@@ -32,11 +32,12 @@ updateMenu();
 //    - Header visible
 //    - Engine hidden
 //
-// 2. Mid-range (>=200px but header still visible):
+// 2. Mid-range (>=1px and <200px):
 //    - Header visible
+//    - Engine visible
 //    - Engine collapsed into gutter
 //
-// 3. Scrolled down (>200px):
+// 3. Scrolled down (>=200px):
 //    - Header hidden
 //    - Engine fully expanded
 //
@@ -52,7 +53,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const largeScreen = window.innerWidth > 1100;
 
     if (current === 0) {
-      // STATE 1 — Top of page
       header.classList.remove("header-hidden");
       engine.classList.remove("iva-engine-visible");
       engine.classList.remove("engine-collapsed");
@@ -60,15 +60,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (current > 0 && current < threshold) {
-      // STATE 2 — Mid-range: header visible, engine collapsed
       header.classList.remove("header-hidden");
-      engine.classList.remove("iva-engine-visible");
       engine.classList.add("engine-collapsed");
+      engine.classList.add("iva-engine-visible");
       return;
     }
 
     if (current >= threshold) {
-      // STATE 3 — Header hidden, engine expanded
       header.classList.add("header-hidden");
       engine.classList.remove("engine-collapsed");
       if (largeScreen) {
