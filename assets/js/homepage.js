@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
   var engine = document.getElementById("iva-structural-engine");
   if (!engine) return;
 
+  // Force correct initial collapsed state
+  engine.classList.add("engine-collapsed");
+
   var bar = engine.querySelector(".iva-structural-bar");
   var nodes = Array.prototype.slice.call(
     engine.querySelectorAll(".iva-structural-node")
@@ -99,6 +102,17 @@ document.addEventListener("DOMContentLoaded", function () {
     node.addEventListener("mouseleave", function () {
       flyout.classList.remove("visible");
     });
+  });
+
+  // === ENGINE EXPANSION ON HOVER ===
+  engine.addEventListener("mouseenter", function () {
+    engine.classList.add("engine-expanded");
+    engine.classList.remove("engine-collapsed");
+  });
+
+  engine.addEventListener("mouseleave", function () {
+    engine.classList.remove("engine-expanded");
+    engine.classList.add("engine-collapsed");
   });
 
   // === SCROLL VISIBILITY ===
