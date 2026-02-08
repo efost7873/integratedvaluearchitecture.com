@@ -24,21 +24,14 @@
   pointer-events: none;
   transition: opacity 0.25s ease, right 0.25s ease;
 
-  /* Visible after scroll threshold (JS toggles this) */
   &.iva-engine-visible {
     opacity: 1;
     pointer-events: auto;
   }
-
-  /* EXPANDED ON HOVER */
-  &:hover {
-    right: 0;
-    opacity: 1;
-  }
 }
 
 /* ============================================================
-   COLLAPSED STATE — DEFAULT
+   COLLAPSED STATE — DEFAULT WHEN VISIBLE
 ============================================================ */
 
 #iva-structural-engine.engine-collapsed {
@@ -63,7 +56,7 @@
 }
 
 /* ============================================================
-   EXPANDED STATE — HOVER
+   EXPANDED STATE — HOVER ANYWHERE ON ENGINE
 ============================================================ */
 
 #iva-structural-engine.engine-expanded {
