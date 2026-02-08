@@ -188,7 +188,7 @@ html.header-hidden .iva-identity-bar {
 #iva-structural-engine {
   position: fixed;
   top: 140px;
-  right: 12px;
+  right: 0;
   left: auto;
   margin: 0;
   transform: none;
@@ -211,7 +211,7 @@ html.header-hidden .iva-identity-bar {
 
 /* Hover no longer controls visibility */
 #iva-structural-engine:hover {
-  right: 12px;
+  right: 0;
   opacity: 1;
 }
 
@@ -302,10 +302,12 @@ html.header-hidden .iva-identity-bar {
   transition: max-width 0.25s ease, opacity 0.25s ease;
 }
 
+/* Flyout expands inward (left), never outward */
 .iva-structural-flyout {
   position: absolute;
   top: 0;
   right: 100%;
+  left: auto;
   height: 100%;
   display: none;
   pointer-events: none;
@@ -343,7 +345,7 @@ html.header-hidden .iva-identity-bar {
 @media (max-width: 1100px) {
   #iva-structural-engine {
     top: 100px;
-    right: 12px;
+    right: 0;
   }
 
   .iva-structural-bar {
@@ -380,7 +382,7 @@ html.header-hidden .iva-identity-bar {
   }
 
   #iva-structural-engine {
-    right: 12px;
+    right: 0;
   }
 
   .iva-structural-bar {
@@ -404,7 +406,17 @@ html.header-hidden .iva-identity-bar {
 @media (min-width: 781px) {
   #iva-structural-engine {
     position: fixed !important;
-    right: 12px !important;
+    right: 0 !important;
     left: auto !important;
+  }
+}
+
+/* ============================================================
+   RIGHT-SIDE GUTTER — PREVENT CONTENT OVERLAP
+============================================================ */
+
+@media (min-width: 781px) {
+  .iva-page main {
+    padding-right: 96px;
   }
 }
