@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var flyout = engine.querySelector(".iva-structural-flyout");
   var flyoutLabel = engine.querySelector('[data-role="flyout-label"]');
 
+  // === SECTION CONTEXT ===
   var sectionContext = {
     "what-iva-is": {
       label: "What IVA Is",
@@ -75,4 +76,42 @@ document.addEventListener("DOMContentLoaded", function () {
         "People understand why the standard must evolve, because the demands on their work keep changing faster than the systems that are supposed to support them."
     },
     "begin-diagnostic": {
-      label
+      label: "Begin the IVA Diagnostic",
+      text:
+        "The diagnostic begins by mapping the real structure people work inside every day, revealing the pressures, constraints, and patterns that shape performance across all five ledgers."
+    }
+  };
+
+  // === NODE HOVER BEHAVIOR ===
+  nodes.forEach(function (node) {
+    node.addEventListener("mouseenter", function () {
+      var key = node.getAttribute("data-section");
+      var ctx = sectionContext[key];
+      if (!ctx) return;
+
+      sectionLabel.textContent = ctx.label;
+      sectionText.textContent = ctx.text;
+
+      flyoutLabel.textContent = ctx.label;
+      flyout.classList.add("visible");
+    });
+
+    node.addEventListener("mouseleave", function () {
+      flyout.classList.remove("visible");
+    });
+  });
+
+  // === SCROLL VISIBILITY ===
+  function updateEngineVisibility() {
+    var scrollY = window.scrollY || window.pageYOffset;
+
+    if (scrollY > 200) {
+      engine.classList.add("iva-engine-visible");
+    } else {
+      engine.classList.remove("iva-engine-visible");
+    }
+  }
+
+  window.addEventListener("scroll", updateEngineVisibility);
+  updateEngineVisibility();
+});
