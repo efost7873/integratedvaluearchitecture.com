@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
   var sectionLabel = engine.querySelector('[data-role="section-label"]');
   var sectionText = engine.querySelector('[data-role="section-text"]');
 
-  // flyout elements (full-height, flush)
   var flyout = engine.querySelector(".iva-structural-flyout");
   var flyoutLabel = engine.querySelector('[data-role="flyout-label"]');
 
@@ -162,7 +161,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   setActiveSection("what-iva-is");
 
-  // === FLYOUT BEHAVIOR (FULL-HEIGHT, FLUSH, STABLE) ===
   if (bar && flyout && flyoutLabel) {
     var insideBar = false;
 
