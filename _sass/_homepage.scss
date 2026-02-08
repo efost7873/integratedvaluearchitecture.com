@@ -1,6 +1,5 @@
 /* === HOMEPAGE STYLES: GLOBAL === */
 
-/* Variables */
 :root {
   --iva-blue: #1F2A44;
   --iva-slate: #4A5673;
@@ -20,7 +19,6 @@
   --iva-transition-med: 0.24s ease-out;
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   * {
     scroll-behavior: auto !important;
@@ -30,15 +28,13 @@
   }
 }
 
-/* Page wrapper */
 .iva-page {
-  margin-top: 32px;
+  margin-top: 140px;
   background: var(--iva-bg-main);
   color: var(--iva-text-main);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
 }
 
-/* Typography */
 .iva-page h1,
 .iva-page h2,
 .iva-page h3 {
@@ -72,14 +68,12 @@
   margin-bottom: 12px;
 }
 
-/* Layout */
 .iva-page main {
   max-width: 1120px;
   margin: 0 auto;
   padding: 44px 28px 88px;
 }
 
-/* Section rhythm */
 .iva-page section {
   margin-bottom: 72px;
   padding: 32px 26px 34px;
@@ -98,7 +92,6 @@
   box-shadow: var(--iva-shadow-soft);
 }
 
-/* Section headers */
 .section-header {
   margin-bottom: 22px;
   padding-bottom: 14px;
@@ -115,7 +108,6 @@
   max-width: 720px;
 }
 
-/* Grid */
 .grid {
   display: grid;
   gap: 22px;
@@ -129,7 +121,6 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-/* Cards */
 .card {
   background: #FFFFFF;
   border-radius: var(--iva-radius-card);
@@ -156,7 +147,6 @@
   }
 }
 
-/* CTA */
 .iva-cta-section {
   text-align: left;
   background: radial-gradient(circle at top left, #FDFEFF 0%, #F2F4FB 40%, #E7EAF5 100%);
@@ -174,7 +164,7 @@
 }
 
 /* ============================================================
-   HEADER VISIBILITY (CSS SIDE)
+   HEADER VISIBILITY
 ============================================================ */
 
 .iva-header,
@@ -192,49 +182,37 @@ html.header-hidden .iva-identity-bar {
 }
 
 /* ============================================================
-   STRUCTURAL ENGINE (CLEANED + FINAL)
+   STRUCTURAL ENGINE
 ============================================================ */
 
 #iva-structural-engine {
   position: fixed;
   top: 140px;
   right: 12px;
-
   margin: 0;
   left: auto;
   transform: none;
-
   display: flex;
   flex-direction: column;
   gap: 10px;
-
   z-index: 998;
   font-size: 13px;
   color: var(--iva-text-soft);
-
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.25s ease, right 0.25s ease;
 }
 
-/* Engine visible when JS adds .engine-visible */
 html.engine-visible #iva-structural-engine {
   opacity: 1;
   pointer-events: auto;
 }
 
-/* Peek mode */
-#iva-structural-engine.peek {
-  right: -6px;
-  opacity: 0.85;
-}
-
-#iva-structural-engine.peek:hover {
+#iva-structural-engine:hover {
   right: 12px;
   opacity: 1;
 }
 
-/* Children interactive */
 .iva-structural-bar,
 .iva-structural-panel,
 .iva-structural-flyout,
@@ -242,42 +220,34 @@ html.engine-visible #iva-structural-engine {
   pointer-events: auto;
 }
 
-/* Bar */
 .iva-structural-bar {
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 6px;
   padding: 8px 8px 6px;
-
   border-radius: 16px;
   background: rgba(243, 244, 248, 0.9);
   border: 1px solid rgba(184, 190, 210, 0.7);
   box-shadow: 0 18px 40px rgba(15, 24, 52, 0.22);
-
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-
   max-height: calc(100vh - 200px);
   overflow-y: auto;
 }
 
-/* Nodes */
 .iva-structural-node {
   display: flex;
   align-items: center;
   gap: 8px;
-
   padding: 4px 8px;
   border-radius: 999px;
   border: none;
   background: transparent;
-
   cursor: pointer;
   color: var(--iva-text-soft);
   font-size: 13px;
   opacity: 0.8;
-
   transition:
     background-color var(--iva-transition-fast),
     color var(--iva-transition-fast),
@@ -289,10 +259,8 @@ html.engine-visible #iva-structural-engine {
   width: 8px;
   height: 8px;
   border-radius: 999px;
-
   background: rgba(255, 255, 255, 0.4);
   border: 1px solid rgba(122, 130, 151, 0.4);
-
   transition:
     background-color var(--iva-transition-fast),
     border-color var(--iva-transition-fast),
@@ -300,7 +268,6 @@ html.engine-visible #iva-structural-engine {
     box-shadow var(--iva-transition-fast);
 }
 
-/* Active node */
 .iva-structural-node-active {
   background: rgba(255, 255, 255, 0.96);
   color: var(--iva-blue);
@@ -311,36 +278,28 @@ html.engine-visible #iva-structural-engine {
 .iva-structural-node-active .iva-structural-dot {
   background: radial-gradient(circle, #ffdca8 0%, #ffb85c 60%, #e09a3f 100%);
   border-color: rgba(255, 184, 92, 0.8);
-
   box-shadow:
     0 0 6px rgba(255, 184, 92, 0.8),
     0 0 12px rgba(255, 184, 92, 0.6),
     0 0 18px rgba(255, 184, 92, 0.4);
-
   transform: scale(1.25);
 }
 
-/* Panel */
 .iva-structural-panel {
   margin-top: 6px;
   padding: 10px 12px;
-
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(184, 190, 210, 0.7);
   box-shadow: 0 18px 40px rgba(15, 24, 52, 0.22);
-
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-
   max-width: 260px;
   overflow-x: hidden;
-
   pointer-events: auto;
   transition: max-width 0.25s ease, opacity 0.25s ease;
 }
 
-/* Flyout */
 .iva-structural-flyout {
   position: absolute;
   top: 0;
@@ -365,25 +324,20 @@ html.engine-visible #iva-structural-engine.flyout-open .iva-structural-flyout {
 .iva-structural-flyout-label {
   min-width: 160px;
   max-width: 220px;
-
   background: rgba(255, 255, 255, 0.96);
   border-radius: 12px;
   padding: 8px 10px;
-
   box-shadow: 0 10px 30px rgba(15, 24, 52, 0.22);
-
   font-size: 12px;
   line-height: 1.4;
   color: var(--iva-text-soft);
-
   pointer-events: auto;
 }
 
-/* Collapsed mode */
 @media (max-width: 1100px) {
   #iva-structural-engine {
+    top: 100px;
     right: 6px;
-    top: 120px;
   }
 
   .iva-structural-bar {
@@ -414,7 +368,6 @@ html.engine-visible #iva-structural-engine.flyout-open .iva-structural-flyout {
   }
 }
 
-/* Panel hidden */
 @media (max-width: 900px) {
   .iva-structural-panel {
     display: none;
@@ -432,7 +385,6 @@ html.engine-visible #iva-structural-engine.flyout-open .iva-structural-flyout {
   }
 }
 
-/* Mobile: hide engine */
 @media (max-width: 780px) {
   #iva-structural-engine {
     display: none !important;
