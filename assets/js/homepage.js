@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   var engine = document.getElementById("iva-structural-engine");
   if (!engine) return;
 
-  // Force correct initial collapsed state
+  // Start collapsed
   engine.classList.add("engine-collapsed");
 
   var bar = engine.querySelector(".iva-structural-bar");
@@ -115,14 +115,17 @@ document.addEventListener("DOMContentLoaded", function () {
     engine.classList.add("engine-collapsed");
   });
 
-  // === SCROLL VISIBILITY ===
+  // === SCROLL VISIBILITY + FORCED COLLAPSE ===
   function updateEngineVisibility() {
     var scrollY = window.scrollY || window.pageYOffset;
 
     if (scrollY > 200) {
       engine.classList.add("iva-engine-visible");
+      engine.classList.add("engine-collapsed"); // ← critical fix
     } else {
       engine.classList.remove("iva-engine-visible");
+      engine.classList.remove("engine-expanded");
+      engine.classList.add("engine-collapsed");
     }
   }
 
