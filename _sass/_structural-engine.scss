@@ -33,6 +33,36 @@
   }
 }
 
+/* ============================================================
+   COLLAPSED STATE — ENGINE MINIMIZED INTO GUTTER
+============================================================ */
+
+#iva-structural-engine.engine-collapsed {
+  opacity: 1;
+  pointer-events: auto;
+  right: 12px; /* gutter position */
+  top: 140px;
+}
+
+#iva-structural-engine.engine-collapsed .iva-structural-panel {
+  display: none;
+}
+
+#iva-structural-engine.engine-collapsed .iva-structural-node .iva-structural-label {
+  display: none;
+}
+
+#iva-structural-engine.engine-collapsed .iva-structural-bar {
+  width: 48px;
+  min-width: 48px;
+  max-width: 48px;
+  padding: 6px;
+}
+
+/* ============================================================
+   BASE ELEMENTS
+============================================================ */
+
 .iva-structural-bar,
 .iva-structural-panel,
 .iva-structural-flyout,
