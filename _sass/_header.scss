@@ -216,11 +216,3 @@
   transform: translateY(-100%);
   opacity: 0;
 }
-
-/* Below 1100px: header fully removed so it never collides with the structural engine */
-@media (max-width: 1100px) {
-  .iva-identity-bar,
-  .iva-header {
-    display: none !important;
-  }
-}
