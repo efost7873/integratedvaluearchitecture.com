@@ -27,34 +27,55 @@ updateMenu();
 // HEADER + ENGINE SCROLL BEHAVIOR (200px threshold)
 // ======================================================
 //
-// Behavior:
-// - Header visible from 0–200px
-// - Engine hidden from 0–200px
-// - After 200px: header hides, engine shows
-// - Scrolling up does NOT show header unless back above 200px
-// - Engine stays visible until header returns
+// States:
+// 1. Top of page (<200px):
+//    - Header visible
+//    - Engine hidden
+//
+// 2. Mid-range (>=200px but header still visible):
+//    - Header visible
+//    - Engine collapsed into gutter
+//
+// 3. Scrolled down (>200px):
+//    - Header hidden
+//    - Engine fully expanded
 //
 
 document.addEventListener("DOMContentLoaded", function () {
   const root = document.documentElement;
-  let lastScroll = window.pageYOffset;
+  const header = document.querySelector('.iva-header');
+  const engine = document.getElementById('iva-structural-engine');
   const threshold = 200;
 
   function handleScroll() {
     const current = window.pageYOffset;
     const largeScreen = window.innerWidth > 1100;
 
-    if (current > threshold) {
-      root.classList.add("header-hidden");
-      if (largeScreen) {
-        root.classList.add("engine-visible");
-      }
-    } else {
-      root.classList.remove("header-hidden");
-      root.classList.remove("engine-visible");
+    if (current === 0) {
+      // STATE 1 — Top of page
+      header.classList.remove("header-hidden");
+      engine.classList.remove("iva-engine-visible");
+      engine.classList.remove("engine-collapsed");
+      return;
     }
 
-    lastScroll = current;
+    if (current > 0 && current < threshold) {
+      // STATE 2 — Mid-range: header visible, engine collapsed
+      header.classList.remove("header-hidden");
+      engine.classList.remove("iva-engine-visible");
+      engine.classList.add("engine-collapsed");
+      return;
+    }
+
+    if (current >= threshold) {
+      // STATE 3 — Header hidden, engine expanded
+      header.classList.add("header-hidden");
+      engine.classList.remove("engine-collapsed");
+      if (largeScreen) {
+        engine.classList.add("iva-engine-visible");
+      }
+      return;
+    }
   }
 
   window.addEventListener("scroll", handleScroll, { passive: true });
