@@ -9,12 +9,14 @@
   {% endif %}
 </title>
 
-<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+<!-- CSS with cache-busting -->
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css?v=20260208">
 
-<link rel="icon" type="image/png" href="https://integratedvaluearchitecture.com/assets/images/tmlogo.png">
-<link rel="apple-touch-icon" href="https://integratedvaluearchitecture.com/assets/images/tmlogo.png">
-<link rel="icon" sizes="192x192" href="https://integratedvaluearchitecture.com/assets/images/tmlogo.png">
-<link rel="icon" sizes="512x512" href="https://integratedvaluearchitecture.com/assets/images/tmlogo.png">
+<!-- Icons with cache-busting -->
+<link rel="icon" type="image/png" href="https://integratedvaluearchitecture.com/assets/images/tmlogo.png?v=20260208">
+<link rel="apple-touch-icon" href="https://integratedvaluearchitecture.com/assets/images/tmlogo.png?v=20260208">
+<link rel="icon" sizes="192x192" href="https://integratedvaluearchitecture.com/assets/images/tmlogo.png?v=20260208">
+<link rel="icon" sizes="512x512" href="https://integratedvaluearchitecture.com/assets/images/tmlogo.png?v=20260208">
 
 <link rel="canonical" href="https://integratedvaluearchitecture.com{{ page.url }}">
 
@@ -30,7 +32,7 @@
 {% if page.og_image %}
   {% assign og_image = page.og_image %}
 {% else %}
-  {% assign og_image = "https://integratedvaluearchitecture.com/assets/images/social-preview.png" %}
+  {% assign og_image = "https://integratedvaluearchitecture.com/assets/images/social-preview.png?v=20260208" %}
 {% endif %}
 
 <meta property="og:title" content="{% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }} | Integrated Value Architecture{% endif %}">
@@ -49,7 +51,7 @@
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="bingbot" content="index, follow">
 
-<link rel="manifest" href="/manifest.json">
+<link rel="manifest" href="/manifest.json?v=20260208">
 
 <script type="application/ld+json">
 {
@@ -57,7 +59,7 @@
   "@type": "Organization",
   "name": "Integrated Value Architecture",
   "url": "https://integratedvaluearchitecture.com",
-  "logo": "https://integratedvaluearchitecture.com/assets/images/tmlogo.png",
+  "logo": "https://integratedvaluearchitecture.com/assets/images/tmlogo.png?v=20260208",
   "description": "A structural diagnostic that reveals the patterns organizations cannot see.",
   "founder": "Evan M. Foster"
 }
