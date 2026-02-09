@@ -171,4 +171,39 @@ document.addEventListener("DOMContentLoaded", function () {
     "how-iva-works",
     "what-diagnostic-produces",
     "future-of-standard",
-    "begin-diagnostic
+    "begin-diagnostic"
+  ];
+
+  var sections = sectionIds.map(function (id) {
+    return document.getElementById(id);
+  });
+
+  function updateActiveNode() {
+    var scrollPos = window.scrollY + window.innerHeight * 0.33;
+
+    var activeId = null;
+
+    sections.forEach(function (section) {
+      if (!section) return;
+      var rect = section.getBoundingClientRect();
+      var top = rect.top + window.scrollY;
+      var bottom = top + rect.height;
+
+      if (scrollPos >= top && scrollPos < bottom) {
+        activeId = section.id;
+      }
+    });
+
+    nodes.forEach(function (node) {
+      var key = node.getAttribute("data-section");
+      if (key === activeId) {
+        node.classList.add("iva-structural-node-active");
+      } else {
+        node.classList.remove("iva-structural-node-active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", updateActiveNode);
+  updateActiveNode();
+});
