@@ -156,14 +156,16 @@
 }
 
 /* ============================================================
-   REMOVE BLACK FOCUS OVALS (THE FIX)
+   REMOVE BLACK FOCUS OVALS (REAL FIX)
 ============================================================ */
 
-.iva-structural-node:focus,
-.iva-structural-node:focus-visible,
-.iva-structural-node:focus-within {
+button.iva-structural-node:focus,
+button.iva-structural-node:focus-visible,
+button.iva-structural-node:focus-within {
   outline: none !important;
   box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-focus-ring-color: transparent !important;
 }
 
 /* ============================================================
