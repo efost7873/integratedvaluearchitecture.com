@@ -213,8 +213,9 @@
    SLIDE-AWAY HEADER
 ============================================ */
 
-.header-hidden .iva-identity-bar,
-.header-hidden .iva-header {
+/* FIXED VERSION — this matches your JS */
+.iva-identity-bar.header-hidden,
+.iva-header.header-hidden {
   transform: translateY(-100%);
   opacity: 0;
 }
