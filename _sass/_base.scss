@@ -95,3 +95,37 @@ section {
   transform: translateY(-2px);
   transition: all 0.15s ease;
 }
+
+/* ============================================================
+   GLOBAL FOCUS RESET — removes browser default focus rings
+   (Chrome, Safari, Firefox, Edge)
+============================================================ */
+
+*:focus,
+*:focus-visible,
+*:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+button:focus,
+button:focus-visible,
+button:focus-within {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+}
+
+/* Safari + Chrome internal focus ring */
+button::-webkit-focus-ring-color {
+  outline: none !important;
+}
+
+/* Firefox internal focus ring */
+button::-moz-focus-inner {
+  border: 0 !important;
+}
+button:-moz-focusring {
+  outline: none !important;
+}
