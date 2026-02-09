@@ -155,6 +155,13 @@
   }
 }
 
+/* REMOVE BLACK FOCUS OVALS */
+.iva-structural-node:focus,
+.iva-structural-node:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 .iva-structural-panel {
   margin-top: 6px;
   padding: 10px 12px;
