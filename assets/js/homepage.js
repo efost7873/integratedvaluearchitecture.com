@@ -147,4 +147,54 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.addEventListener("scroll", handleScroll);
   handleScroll();
+
+  // === ACTIVE NODE ON SCROLL (RESTORED) ===
+  var sectionIds = [
+    "what-iva-is",
+    "structural-mismatch",
+    "what-people-realize",
+    "five-ledgers",
+    "why-single-ledger-fails",
+    "what-iva-provides",
+    "what-iva-makes-possible",
+    "who-uses-iva",
+    "why-organizations-choose-iva",
+    "how-iva-works",
+    "what-diagnostic-produces",
+    "future-of-standard",
+    "begin-diagnostic"
+  ];
+
+  var sections = sectionIds.map(function (id) {
+    return document.getElementById(id);
+  });
+
+  function updateActiveNode() {
+    var scrollPos = window.scrollY + window.innerHeight * 0.33;
+
+    var activeId = null;
+
+    sections.forEach(function (section) {
+      if (!section) return;
+      var rect = section.getBoundingClientRect();
+      var top = rect.top + window.scrollY;
+      var bottom = top + rect.height;
+
+      if (scrollPos >= top && scrollPos < bottom) {
+        activeId = section.id;
+      }
+    });
+
+    nodes.forEach(function (node) {
+      var key = node.getAttribute("data-section");
+      if (key === activeId) {
+        node.classList.add("iva-structural-node-active");
+      } else {
+        node.classList.remove("iva-structural-node-active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", updateActiveNode);
+  updateActiveNode();
 });
