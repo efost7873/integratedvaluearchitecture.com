@@ -155,12 +155,20 @@
   }
 }
 
-/* REMOVE BLACK FOCUS OVALS */
+/* ============================================================
+   REMOVE BLACK FOCUS OVALS (THE FIX)
+============================================================ */
+
 .iva-structural-node:focus,
-.iva-structural-node:focus-visible {
+.iva-structural-node:focus-visible,
+.iva-structural-node:focus-within {
   outline: none !important;
   box-shadow: none !important;
 }
+
+/* ============================================================
+   PANEL + FLYOUT
+============================================================ */
 
 .iva-structural-panel {
   margin-top: 6px;
