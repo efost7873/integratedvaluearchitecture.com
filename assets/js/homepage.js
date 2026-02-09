@@ -115,20 +115,36 @@ document.addEventListener("DOMContentLoaded", function () {
     engine.classList.add("engine-collapsed");
   });
 
-  // === SCROLL VISIBILITY + FORCED COLLAPSE ===
-  function updateEngineVisibility() {
-    var scrollY = window.scrollY || window.pageYOffset;
+  // === SCROLL VISIBILITY + HEADER HIDE/SHOW ===
+  var lastScrollY = window.scrollY;
+  var header = document.querySelector(".iva-header"); // FIXED
 
-    if (scrollY > 200) {
+  function handleScroll() {
+    var currentY = window.scrollY;
+
+    // Hide header on scroll down
+    if (currentY > lastScrollY && currentY > 120) {
+      header.classList.add("header-hidden");
+    }
+
+    // Show header on scroll up or near top
+    if (currentY < lastScrollY || currentY < 120) {
+      header.classList.remove("header-hidden");
+    }
+
+    // Engine visibility tied to header state
+    if (header.classList.contains("header-hidden")) {
       engine.classList.add("iva-engine-visible");
-      engine.classList.add("engine-collapsed"); // ← critical fix
+      engine.classList.add("engine-collapsed");
     } else {
       engine.classList.remove("iva-engine-visible");
       engine.classList.remove("engine-expanded");
       engine.classList.add("engine-collapsed");
     }
+
+    lastScrollY = currentY;
   }
 
-  window.addEventListener("scroll", updateEngineVisibility);
-  updateEngineVisibility();
+  window.addEventListener("scroll", handleScroll);
+  handleScroll();
 });
