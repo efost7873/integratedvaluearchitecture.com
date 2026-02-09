@@ -54,7 +54,7 @@
   max-width: 48px;
   padding: 6px;
 
-  /* THE FIX — prevent full-height stacking */
+  /* prevent full-height stacking */
   height: auto;
   max-height: none;
   overflow: visible;
@@ -271,14 +271,13 @@
   }
 }
 
-@media (min-width: 781px) {
-  #iva-structural-engine {
-    position: fixed !important;
-    right: 0 !important;
-    left: auto !important;
-  }
+/* ============================================================
+   FULL-SCREEN DEFAULT — EXPANDED
+============================================================ */
 
-  .iva-page main {
-    padding-right: 96px;
+@media (min-width: 1101px) {
+  #iva-structural-engine.iva-engine-visible {
+    flex-direction: column; /* expanded by default */
+    right: 0;
   }
 }
