@@ -117,25 +117,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // === SCROLL VISIBILITY + HEADER HIDE/SHOW ===
   var lastScrollY = window.scrollY;
-  var header = document.querySelector(".iva-header"); // FIXED
+  var header = document.querySelector(".iva-header");
 
   function handleScroll() {
     var currentY = window.scrollY;
+    var isFullScreen = window.innerWidth >= 1101;
 
     // Hide header on scroll down
     if (currentY > lastScrollY && currentY > 120) {
       header.classList.add("header-hidden");
     }
 
-    // Show header on scroll up or near top
-    if (currentY < lastScrollY || currentY < 120) {
+    // Show header ONLY when near top
+    if (currentY < 80) {
       header.classList.remove("header-hidden");
     }
 
     // Engine visibility tied to header state
     if (header.classList.contains("header-hidden")) {
       engine.classList.add("iva-engine-visible");
-      engine.classList.add("engine-collapsed");
+
+      if (isFullScreen) {
+        engine.classList.remove("engine-collapsed");
+        engine.classList.add("engine-expanded");
+      } else {
+        engine.classList.add("engine-collapsed");
+        engine.classList.remove("engine-expanded");
+      }
+
     } else {
       engine.classList.remove("iva-engine-visible");
       engine.classList.remove("engine-expanded");
@@ -162,39 +171,4 @@ document.addEventListener("DOMContentLoaded", function () {
     "how-iva-works",
     "what-diagnostic-produces",
     "future-of-standard",
-    "begin-diagnostic"
-  ];
-
-  var sections = sectionIds.map(function (id) {
-    return document.getElementById(id);
-  });
-
-  function updateActiveNode() {
-    var scrollPos = window.scrollY + window.innerHeight * 0.33;
-
-    var activeId = null;
-
-    sections.forEach(function (section) {
-      if (!section) return;
-      var rect = section.getBoundingClientRect();
-      var top = rect.top + window.scrollY;
-      var bottom = top + rect.height;
-
-      if (scrollPos >= top && scrollPos < bottom) {
-        activeId = section.id;
-      }
-    });
-
-    nodes.forEach(function (node) {
-      var key = node.getAttribute("data-section");
-      if (key === activeId) {
-        node.classList.add("iva-structural-node-active");
-      } else {
-        node.classList.remove("iva-structural-node-active");
-      }
-    });
-  }
-
-  window.addEventListener("scroll", updateActiveNode);
-  updateActiveNode();
-});
+    "begin-diagnostic
