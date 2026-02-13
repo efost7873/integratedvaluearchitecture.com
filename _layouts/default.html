@@ -1,33 +1,28 @@
+<!-- _layouts/default.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  {% include head.html %}
+  {% include meta.html %}
 </head>
 
 <body>
 
   {% include header.html %}
 
-  {%- comment -%}
-  Structural Engine should appear ONLY on:
-  - Homepage (/)
-  - Diagnostic page (/diagnostic or /diagnostic.html)
-  {%- endcomment -%}
   {% if page.url == "/" or page.url == "/diagnostic/" or page.url == "/diagnostic.html" %}
     {% include structural-engine.html %}
   {% endif %}
 
-  <main>
+  <div class="iva-content">
     {{ content }}
-  </main>
+  </div>
 
   {% include footer.html %}
 
-  {%- comment -%}
-  Load engine JS only on pages where engine exists
-  {%- endcomment -%}
+  <script src="{{ site.baseurl }}/assets/js/site.js"></script>
+
   {% if page.url == "/" or page.url == "/diagnostic/" or page.url == "/diagnostic.html" %}
-    <script src="{{ '/assets/js/homepage.js' | relative_url }}"></script>
+    <script src="{{ site.baseurl }}/assets/js/homepage.js"></script>
   {% endif %}
 
 </body>
