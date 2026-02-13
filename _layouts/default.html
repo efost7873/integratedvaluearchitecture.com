@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>{{ page.title }}</title>
-
-  <link rel="stylesheet" href="/assets/css/style.css">
+  {% include meta.html %}
 </head>
 
 <body>
@@ -22,12 +17,6 @@
   </div>
 
   {% include footer.html %}
-
-  <script src="/assets/js/site.js"></script>
-
-  {% if page.url == "/" %}
-    <script src="/assets/js/homepage.js"></script>
-  {% endif %}
 
 </body>
 </html>
