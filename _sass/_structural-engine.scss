@@ -1,14 +1,12 @@
 /* _sass/_structural-engine.scss */
 
 /* ============================================================
-   STRUCTURAL ENGINE — FIXED, RIGHT-DOCKED, ABOVE MOBILE
-   Default: COLLAPSED
-   Hover: EXPANDED (labels + panel)
+   STRUCTURAL ENGINE
 ============================================================ */
 
 #iva-structural-engine {
   position: fixed;
-  top: 220px; /* moved down */
+  top: 220px;
   right: 0;
   left: auto;
   margin: 0;
@@ -30,11 +28,11 @@
 }
 
 /* ============================================================
-   COLLAPSED STATE — DEFAULT WHEN VISIBLE
+   COLLAPSED STATE
 ============================================================ */
 
 #iva-structural-engine.engine-collapsed {
-  right: 12px; /* gutter */
+  right: 12px;
   flex-direction: row;
   align-items: flex-start;
   height: auto;
@@ -59,7 +57,7 @@
 }
 
 /* ============================================================
-   EXPANDED STATE — HOVER ANYWHERE ON ENGINE
+   EXPANDED STATE
 ============================================================ */
 
 #iva-structural-engine.engine-expanded {
@@ -158,15 +156,29 @@
 }
 
 /* ============================================================
-   REMOVE BLACK FOCUS OVALS (REAL FIX)
+   REMOVE BLACK FOCUS OVALS
+   Your nodes are divs with tabindex="0", so target the class, not button
 ============================================================ */
 
+.iva-structural-node,
+.iva-structural-node * {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.iva-structural-node:focus,
+.iva-structural-node:focus-visible,
+.iva-structural-node:focus-within,
+div.iva-structural-node:focus,
+div.iva-structural-node:focus-visible,
+div.iva-structural-node:focus-within,
 button.iva-structural-node:focus,
 button.iva-structural-node:focus-visible,
-button.iva-structural-node:focus-within {
+button.iva-structural-node:focus-within,
+a.iva-structural-node:focus,
+a.iva-structural-node:focus-visible,
+a.iva-structural-node:focus-within {
   outline: none !important;
   box-shadow: none !important;
-  -webkit-tap-highlight-color: transparent !important;
   -webkit-focus-ring-color: transparent !important;
 }
 
@@ -233,7 +245,6 @@ button.iva-structural-node:focus-within {
     right: 0;
   }
 
-  /* restore gutter in mid-range collapsed mode */
   #iva-structural-engine.engine-collapsed {
     right: 12px;
   }
@@ -295,12 +306,8 @@ button.iva-structural-node:focus-within {
 
 @media (min-width: 781px) and (max-width: 1100px) {
   .iva-page main {
-    padding-right: 96px; /* gutter space */
+    padding-right: 96px;
   }
 }
 
-/* ============================================================
-   NOTE
-   The previous "FULL-SCREEN DEFAULT — EXPANDED" rule was removed.
-   Full-width should remain collapsed unless .engine-expanded is present.
-============================================================ */
+/* Note: the previous full-screen auto-expanded rule was removed on purpose. */
