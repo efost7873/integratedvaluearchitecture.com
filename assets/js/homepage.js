@@ -1,11 +1,7 @@
-// assets/js/homepage.js
 document.addEventListener("DOMContentLoaded", function () {
   var engine = document.getElementById("iva-structural-engine");
   if (!engine) return;
 
-  // ---------------------------------------------
-  // Page detection
-  // ---------------------------------------------
   var path = (window.location.pathname || "").toLowerCase();
   var isHome = path === "/" || path === "" || path === "/index.html";
   var isDiagnostic =
@@ -13,9 +9,16 @@ document.addEventListener("DOMContentLoaded", function () {
     path === "/diagnostic.html" ||
     path.indexOf("/diagnostic/") === 0;
 
-  // ---------------------------------------------
-  // Engine state helpers
-  // ---------------------------------------------
+  var nodes = Array.prototype.slice.call(
+    engine.querySelectorAll(".iva-structural-node")
+  );
+
+  var sectionLabel = engine.querySelector('[data-role="section-label"]');
+  var sectionText = engine.querySelector('[data-role="section-text"]');
+
+  var flyout = engine.querySelector(".iva-structural-flyout");
+  var flyoutLabel = engine.querySelector('[data-role="flyout-label"]');
+
   function collapseEngine() {
     engine.classList.remove("engine-expanded");
     engine.classList.add("engine-collapsed");
@@ -29,114 +32,132 @@ document.addEventListener("DOMContentLoaded", function () {
   // Always start collapsed
   collapseEngine();
 
-  var bar = engine.querySelector(".iva-structural-bar");
-  var nodes = Array.prototype.slice.call(
-    engine.querySelectorAll(".iva-structural-node")
-  );
-  var sectionLabel = engine.querySelector('[data-role="section-label"]');
-  var sectionText = engine.querySelector('[data-role="section-text"]');
-
-  var flyout = engine.querySelector(".iva-structural-flyout");
-  var flyoutLabel = engine.querySelector('[data-role="flyout-label"]');
-
-  // Track hover so scroll logic does not fight hover expansion
   var isHoveringEngine = false;
 
-  // ---------------------------------------------
-  // SECTION CONTEXT (homepage)
-  // Keys must match node data-section values
-  // ---------------------------------------------
+  // Expand only on hover (desktop)
+  engine.addEventListener("mouseenter", function () {
+    isHoveringEngine = true;
+    expandEngine();
+  });
+
+  engine.addEventListener("mouseleave", function () {
+    isHoveringEngine = false;
+    collapseEngine();
+    if (flyout) flyout.classList.remove("visible");
+  });
+
+  // Context for panel + flyout
   var homeSectionContext = {
     "what-iva-is": {
       label: "What IVA Is",
       text:
-        "People recognize quickly that IVA is describing the system they actually work inside every day, not just the financial story they see in reports."
+        "IVA describes the system you actually work inside, not just the financial story in reports."
     },
     "structural-mismatch": {
       label: "The structural mismatch IVA resolves",
       text:
-        "Anyone who has been asked to do more with less feels this mismatch immediately, because they are held to outcomes across many domains while everything is still framed through one ledger."
+        "Overload appears when organizations outgrow inherited structure and work keeps rolling downhill."
     },
     "what-people-realize": {
       label: "What people realize when they see IVA",
       text:
-        "The moment people see IVA, they recognize that many of the problems they have been blamed for were never individual performance issues, they were structural conditions no one had language for."
+        "Many recurring problems are structural conditions, not individual performance failures."
     },
     "five-ledgers": {
       label: "The five ledgers of IVA",
       text:
-        "People across functions see their work in the five ledgers because they already carry these responsibilities, they have just never seen them acknowledged as distinct forms of value."
+        "Five distinct value domains with independent authority and evidence expectations."
     },
     "why-single-ledger-fails": {
       label: "Why the single ledger fails",
       text:
-        "The single ledger failure is familiar to almost everyone: decisions skewed toward short term numbers, capacity ignored, legitimacy treated as optics, and future capability pushed aside."
+        "When one measure becomes the whole story, the rest of the system gets distorted."
     },
     "what-iva-provides": {
       label: "What IVA provides",
       text:
-        "IVA gives people a structure that finally explains why their effort, skill, and commitment could not overcome the constraints built into the system."
+        "A structural map that clarifies decision rights, evidence, and where friction originates."
     },
     "what-iva-makes-possible": {
       label: "What IVA makes possible",
       text:
-        "Once the structural map is visible, people understand why friction, rework, and burnout felt inevitable, and why coordinated change suddenly feels possible instead of aspirational."
+        "Less rework, fewer bottlenecks, and decisions that align with real constraints."
     },
     "who-uses-iva": {
       label: "Who uses IVA",
       text:
-        "IVA shows up in places where people know their challenges are not just about motivation or culture, but about the way work, capacity, and expectations are structurally arranged."
+        "Leaders who need structural clarity, not another dashboard or culture initiative."
     },
     "why-organizations-choose-iva": {
       label: "Why organizations choose IVA",
       text:
-        "People support IVA because it gives them a shared structural language that matches what they experience in their roles, not just what appears in financial summaries."
+        "Because it explains persistent patterns and makes governance visible and actionable."
     },
     "how-iva-works": {
       label: "How IVA works",
       text:
-        "The sequence makes sense to people at every level: first see the structure, then measure it honestly, then align decisions and expectations around what it reveals."
+        "First map structure, then measure it honestly, then align governance around it."
     },
     "what-diagnostic-produces": {
       label: "What the IVA Diagnostic produces",
       text:
-        "The diagnostic feels like someone finally mapped the real organization, showing how pressures travel across ledgers and why certain problems keep reappearing no matter who is in the role."
+        "A diagnostic report that shows decision pathways, constraints, and structural risk."
     },
     "future-of-standard": {
       label: "The future of the IVA Standard",
       text:
-        "People understand why the standard must evolve, because the demands on their work keep changing faster than the systems that are supposed to support them."
+        "The standard evolves as expectations and complexity evolve."
     },
     "begin-diagnostic": {
       label: "Begin the IVA Diagnostic",
       text:
-        "The diagnostic begins by mapping the real structure people work inside every day, revealing the pressures, constraints, and patterns that shape performance across all five ledgers."
+        "Start by establishing a structural baseline before implementation."
     }
   };
 
-  // ---------------------------------------------
-  // SECTION CONTEXT (diagnostic)
-  // If you want different copy shown in the panel on the diagnostic page,
-  // set it here using the SAME KEYS as the nodes.
-  // If you leave it empty, it will fallback to homepage context.
-  // ---------------------------------------------
   var diagnosticSectionContext = {
-    // Example overrides (optional). Keep keys the same as node data-section.
-    // "begin-diagnostic": { label: "Start here", text: "..." }
+    "diag-intro": {
+      label: "The IVA Diagnostic",
+      text:
+        "The entry point into IVA. It reveals structure and establishes a baseline. It does not implement change."
+    },
+    "diag-experiences": {
+      label: "What You Are Experiencing",
+      text:
+        "Recurring friction, delays, and overload are structural signals, not personal shortcomings."
+    },
+    "diag-reveals": {
+      label: "What the Diagnostic Reveals",
+      text:
+        "Decision flow, authority distribution, work movement, and early indicators of structural risk."
+    },
+    "diag-why": {
+      label: "Why the Diagnostic Matters",
+      text:
+        "Most tools measure symptoms. The Diagnostic measures structure and prepares the ground for implementation."
+    },
+    "diag-gain": {
+      label: "What You Gain",
+      text:
+        "A diagnostic report that maps constraints, capacity strain, decision slowdowns, and governance misalignment."
+    },
+    "diag-begin": {
+      label: "Begin the IVA Diagnostic",
+      text:
+        "If the patterns feel familiar, start here. The next step is establishing contact and scope."
+    }
   };
 
-  function getContextForKey(key) {
-    if (isDiagnostic && diagnosticSectionContext[key]) return diagnosticSectionContext[key];
+  function getContext(key) {
+    if (isDiagnostic) return diagnosticSectionContext[key];
     return homeSectionContext[key];
   }
 
-  // ---------------------------------------------
-  // Node hover behavior (panel + flyout)
-  // ---------------------------------------------
+  // Node hover updates panel + flyout
   nodes.forEach(function (node) {
     node.addEventListener("mouseenter", function () {
       var key = node.getAttribute("data-section");
-      var ctx = getContextForKey(key);
+      var ctx = getContext(key);
       if (!ctx) return;
 
       if (sectionLabel) sectionLabel.textContent = ctx.label || "";
@@ -151,22 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // ---------------------------------------------
-  // Engine expansion on hover only
-  // ---------------------------------------------
-  engine.addEventListener("mouseenter", function () {
-    isHoveringEngine = true;
-    expandEngine();
-  });
-
-  engine.addEventListener("mouseleave", function () {
-    isHoveringEngine = false;
-    collapseEngine();
-  });
-
-  // ---------------------------------------------
-  // Scroll visibility + header hide/show (unchanged behavior)
-  // ---------------------------------------------
+  // Header hide/show + engine visibility
   var lastScrollY = window.scrollY;
   var header = document.querySelector(".iva-header");
 
@@ -184,15 +190,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (header.classList.contains("header-hidden")) {
         engine.classList.add("iva-engine-visible");
-
-        // Always stay collapsed by default at all widths; expand only on hover.
-        if (!isHoveringEngine) {
-          collapseEngine();
-        }
+        if (!isHoveringEngine) collapseEngine();
       } else {
         engine.classList.remove("iva-engine-visible");
         collapseEngine();
         isHoveringEngine = false;
+        if (flyout) flyout.classList.remove("visible");
       }
     }
 
@@ -202,10 +205,7 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", handleScroll);
   handleScroll();
 
-  // ---------------------------------------------
-  // ACTIVE NODE ON SCROLL
-  // ---------------------------------------------
-  // Homepage section IDs (must exist on home)
+  // Active node on scroll, one node per section
   var homeSectionIds = [
     "what-iva-is",
     "structural-mismatch",
@@ -222,55 +222,25 @@ document.addEventListener("DOMContentLoaded", function () {
     "begin-diagnostic"
   ];
 
-  // Diagnostic section IDs (must exist on /diagnostic)
-  // Replace these with the REAL ids on your diagnostic page.
-  // Easiest method: set your diagnostic page section IDs to MATCH the node keys above,
-  // and then you can literally reuse homeSectionIds here.
   var diagnosticSectionIds = [
-    // Option 1 (recommended): make diagnostic sections use the same IDs as the node keys.
-    // If you do that, replace this entire array with: homeSectionIds
-
-    // Option 2: keep your diagnostic page IDs different, and list them here in the same order as the nodes.
-    // Example placeholders:
-    "diagnostic-intro",
-    "diagnostic-scope",
-    "diagnostic-document-matrix",
-    "diagnostic-governance-triangle",
-    "diagnostic-evidence",
-    "diagnostic-deliverables",
-    "diagnostic-timeline",
-    "diagnostic-pricing",
-    "diagnostic-engagement",
-    "diagnostic-next-steps",
-    "diagnostic-faq",
-    "diagnostic-terms",
-    "diagnostic-begin"
+    "diag-intro",
+    "diag-experiences",
+    "diag-reveals",
+    "diag-why",
+    "diag-gain",
+    "diag-begin"
   ];
 
-  function getPageSectionIds() {
-    if (isDiagnostic) return diagnosticSectionIds;
-    return homeSectionIds;
-  }
+  function getActiveSectionId() {
+    var ids = isDiagnostic ? diagnosticSectionIds : homeSectionIds;
 
-  function getSectionsFromIds(ids) {
-    return ids
+    var sections = ids
       .map(function (id) {
         return document.getElementById(id);
       })
       .filter(Boolean);
-  }
 
-  function updateActiveNode() {
-    var ids = getPageSectionIds();
-    var sections = getSectionsFromIds(ids);
-
-    if (!sections.length) {
-      // Nothing to map to on this page; clear active state
-      nodes.forEach(function (node) {
-        node.classList.remove("iva-structural-node-active");
-      });
-      return;
-    }
+    if (!sections.length) return null;
 
     var scrollPos = window.scrollY + window.innerHeight * 0.33;
     var activeId = null;
@@ -285,22 +255,15 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Map active section id -> node
-    // If your diagnostic IDs differ from node keys, you need a mapping here.
-    // Recommended: make diagnostic IDs match node keys and this will just work.
-    var activeKey = activeId;
+    return activeId;
+  }
 
-    // If diagnostic ids are different, map them by index position:
-    if (isDiagnostic) {
-      var idx = diagnosticSectionIds.indexOf(activeId);
-      if (idx >= 0 && idx < nodes.length) {
-        activeKey = nodes[idx].getAttribute("data-section");
-      }
-    }
+  function updateActiveNode() {
+    var activeId = getActiveSectionId();
 
     nodes.forEach(function (node) {
       var key = node.getAttribute("data-section");
-      if (key === activeKey) {
+      if (activeId && key === activeId) {
         node.classList.add("iva-structural-node-active");
       } else {
         node.classList.remove("iva-structural-node-active");
