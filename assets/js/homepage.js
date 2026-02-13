@@ -1,12 +1,33 @@
 // assets/js/homepage.js
-
-// === STRUCTURAL ENGINE ===
 document.addEventListener("DOMContentLoaded", function () {
   var engine = document.getElementById("iva-structural-engine");
   if (!engine) return;
 
-  // Start collapsed
-  engine.classList.add("engine-collapsed");
+  // ---------------------------------------------
+  // Page detection
+  // ---------------------------------------------
+  var path = (window.location.pathname || "").toLowerCase();
+  var isHome = path === "/" || path === "" || path === "/index.html";
+  var isDiagnostic =
+    path === "/diagnostic/" ||
+    path === "/diagnostic.html" ||
+    path.indexOf("/diagnostic/") === 0;
+
+  // ---------------------------------------------
+  // Engine state helpers
+  // ---------------------------------------------
+  function collapseEngine() {
+    engine.classList.remove("engine-expanded");
+    engine.classList.add("engine-collapsed");
+  }
+
+  function expandEngine() {
+    engine.classList.remove("engine-collapsed");
+    engine.classList.add("engine-expanded");
+  }
+
+  // Always start collapsed
+  collapseEngine();
 
   var bar = engine.querySelector(".iva-structural-bar");
   var nodes = Array.prototype.slice.call(
@@ -21,8 +42,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // Track hover so scroll logic does not fight hover expansion
   var isHoveringEngine = false;
 
-  // === SECTION CONTEXT ===
-  var sectionContext = {
+  // ---------------------------------------------
+  // SECTION CONTEXT (homepage)
+  // Keys must match node data-section values
+  // ---------------------------------------------
+  var homeSectionContext = {
     "what-iva-is": {
       label: "What IVA Is",
       text:
@@ -90,71 +114,86 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  // === NODE HOVER BEHAVIOR ===
+  // ---------------------------------------------
+  // SECTION CONTEXT (diagnostic)
+  // If you want different copy shown in the panel on the diagnostic page,
+  // set it here using the SAME KEYS as the nodes.
+  // If you leave it empty, it will fallback to homepage context.
+  // ---------------------------------------------
+  var diagnosticSectionContext = {
+    // Example overrides (optional). Keep keys the same as node data-section.
+    // "begin-diagnostic": { label: "Start here", text: "..." }
+  };
+
+  function getContextForKey(key) {
+    if (isDiagnostic && diagnosticSectionContext[key]) return diagnosticSectionContext[key];
+    return homeSectionContext[key];
+  }
+
+  // ---------------------------------------------
+  // Node hover behavior (panel + flyout)
+  // ---------------------------------------------
   nodes.forEach(function (node) {
     node.addEventListener("mouseenter", function () {
       var key = node.getAttribute("data-section");
-      var ctx = sectionContext[key];
+      var ctx = getContextForKey(key);
       if (!ctx) return;
 
-      sectionLabel.textContent = ctx.label;
-      sectionText.textContent = ctx.text;
+      if (sectionLabel) sectionLabel.textContent = ctx.label || "";
+      if (sectionText) sectionText.textContent = ctx.text || "";
 
-      flyoutLabel.textContent = ctx.label;
-      flyout.classList.add("visible");
+      if (flyoutLabel) flyoutLabel.textContent = ctx.label || "";
+      if (flyout) flyout.classList.add("visible");
     });
 
     node.addEventListener("mouseleave", function () {
-      flyout.classList.remove("visible");
+      if (flyout) flyout.classList.remove("visible");
     });
   });
 
-  // === ENGINE EXPANSION ON HOVER ===
+  // ---------------------------------------------
+  // Engine expansion on hover only
+  // ---------------------------------------------
   engine.addEventListener("mouseenter", function () {
     isHoveringEngine = true;
-    engine.classList.add("engine-expanded");
-    engine.classList.remove("engine-collapsed");
+    expandEngine();
   });
 
   engine.addEventListener("mouseleave", function () {
     isHoveringEngine = false;
-    engine.classList.remove("engine-expanded");
-    engine.classList.add("engine-collapsed");
+    collapseEngine();
   });
 
-  // === SCROLL VISIBILITY + HEADER HIDE/SHOW ===
+  // ---------------------------------------------
+  // Scroll visibility + header hide/show (unchanged behavior)
+  // ---------------------------------------------
   var lastScrollY = window.scrollY;
   var header = document.querySelector(".iva-header");
 
   function handleScroll() {
     var currentY = window.scrollY;
 
-    // Hide header on scroll down
-    if (currentY > lastScrollY && currentY > 120) {
-      header.classList.add("header-hidden");
-    }
-
-    // Show header ONLY when near top
-    if (currentY < 80) {
-      header.classList.remove("header-hidden");
-    }
-
-    // Engine visibility tied to header state
-    if (header.classList.contains("header-hidden")) {
-      engine.classList.add("iva-engine-visible");
-
-      // Always stay collapsed by default at ALL widths.
-      // Expand ONLY on hover.
-      if (!isHoveringEngine) {
-        engine.classList.add("engine-collapsed");
-        engine.classList.remove("engine-expanded");
+    if (header) {
+      if (currentY > lastScrollY && currentY > 120) {
+        header.classList.add("header-hidden");
       }
 
-    } else {
-      engine.classList.remove("iva-engine-visible");
-      engine.classList.remove("engine-expanded");
-      engine.classList.add("engine-collapsed");
-      isHoveringEngine = false;
+      if (currentY < 80) {
+        header.classList.remove("header-hidden");
+      }
+
+      if (header.classList.contains("header-hidden")) {
+        engine.classList.add("iva-engine-visible");
+
+        // Always stay collapsed by default at all widths; expand only on hover.
+        if (!isHoveringEngine) {
+          collapseEngine();
+        }
+      } else {
+        engine.classList.remove("iva-engine-visible");
+        collapseEngine();
+        isHoveringEngine = false;
+      }
     }
 
     lastScrollY = currentY;
@@ -163,8 +202,11 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", handleScroll);
   handleScroll();
 
-  // === ACTIVE NODE ON SCROLL (RESTORED) ===
-  var sectionIds = [
+  // ---------------------------------------------
+  // ACTIVE NODE ON SCROLL
+  // ---------------------------------------------
+  // Homepage section IDs (must exist on home)
+  var homeSectionIds = [
     "what-iva-is",
     "structural-mismatch",
     "what-people-realize",
@@ -180,17 +222,60 @@ document.addEventListener("DOMContentLoaded", function () {
     "begin-diagnostic"
   ];
 
-  var sections = sectionIds.map(function (id) {
-    return document.getElementById(id);
-  });
+  // Diagnostic section IDs (must exist on /diagnostic)
+  // Replace these with the REAL ids on your diagnostic page.
+  // Easiest method: set your diagnostic page section IDs to MATCH the node keys above,
+  // and then you can literally reuse homeSectionIds here.
+  var diagnosticSectionIds = [
+    // Option 1 (recommended): make diagnostic sections use the same IDs as the node keys.
+    // If you do that, replace this entire array with: homeSectionIds
+
+    // Option 2: keep your diagnostic page IDs different, and list them here in the same order as the nodes.
+    // Example placeholders:
+    "diagnostic-intro",
+    "diagnostic-scope",
+    "diagnostic-document-matrix",
+    "diagnostic-governance-triangle",
+    "diagnostic-evidence",
+    "diagnostic-deliverables",
+    "diagnostic-timeline",
+    "diagnostic-pricing",
+    "diagnostic-engagement",
+    "diagnostic-next-steps",
+    "diagnostic-faq",
+    "diagnostic-terms",
+    "diagnostic-begin"
+  ];
+
+  function getPageSectionIds() {
+    if (isDiagnostic) return diagnosticSectionIds;
+    return homeSectionIds;
+  }
+
+  function getSectionsFromIds(ids) {
+    return ids
+      .map(function (id) {
+        return document.getElementById(id);
+      })
+      .filter(Boolean);
+  }
 
   function updateActiveNode() {
-    var scrollPos = window.scrollY + window.innerHeight * 0.33;
+    var ids = getPageSectionIds();
+    var sections = getSectionsFromIds(ids);
 
+    if (!sections.length) {
+      // Nothing to map to on this page; clear active state
+      nodes.forEach(function (node) {
+        node.classList.remove("iva-structural-node-active");
+      });
+      return;
+    }
+
+    var scrollPos = window.scrollY + window.innerHeight * 0.33;
     var activeId = null;
 
     sections.forEach(function (section) {
-      if (!section) return;
       var rect = section.getBoundingClientRect();
       var top = rect.top + window.scrollY;
       var bottom = top + rect.height;
@@ -200,9 +285,22 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
+    // Map active section id -> node
+    // If your diagnostic IDs differ from node keys, you need a mapping here.
+    // Recommended: make diagnostic IDs match node keys and this will just work.
+    var activeKey = activeId;
+
+    // If diagnostic ids are different, map them by index position:
+    if (isDiagnostic) {
+      var idx = diagnosticSectionIds.indexOf(activeId);
+      if (idx >= 0 && idx < nodes.length) {
+        activeKey = nodes[idx].getAttribute("data-section");
+      }
+    }
+
     nodes.forEach(function (node) {
       var key = node.getAttribute("data-section");
-      if (key === activeId) {
+      if (key === activeKey) {
         node.classList.add("iva-structural-node-active");
       } else {
         node.classList.remove("iva-structural-node-active");
