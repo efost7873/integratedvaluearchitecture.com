@@ -33,3 +33,33 @@ window.addEventListener('scroll', () => {
   if (!ivaFooter) return;
   ivaFooter.style.opacity = window.scrollY > 0 ? '0.96' : '1';
 });
+
+// ======================================================
+// HEADER HIDE / SHOW ON SCROLL (SITE-WIDE)
+// ======================================================
+
+(function () {
+  var header = document.querySelector(".iva-header");
+  if (!header) return;
+
+  var lastScrollY = window.scrollY;
+
+  function handleHeaderScroll() {
+    var currentY = window.scrollY;
+
+    // Hide header on scroll down after user is past the top
+    if (currentY > lastScrollY && currentY > 120) {
+      header.classList.add("header-hidden");
+    }
+
+    // Show header when near top
+    if (currentY < 80) {
+      header.classList.remove("header-hidden");
+    }
+
+    lastScrollY = currentY;
+  }
+
+  window.addEventListener("scroll", handleHeaderScroll);
+  handleHeaderScroll();
+})();
