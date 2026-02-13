@@ -1,3 +1,5 @@
+/* _sass/_structural-engine.scss */
+
 /* ============================================================
    STRUCTURAL ENGINE — FIXED, RIGHT-DOCKED, ABOVE MOBILE
    Default: COLLAPSED
@@ -298,12 +300,7 @@ button.iva-structural-node:focus-within {
 }
 
 /* ============================================================
-   FULL-SCREEN DEFAULT — EXPANDED
+   NOTE
+   The previous "FULL-SCREEN DEFAULT — EXPANDED" rule was removed.
+   Full-width should remain collapsed unless .engine-expanded is present.
 ============================================================ */
-
-@media (min-width: 1101px) {
-  #iva-structural-engine.iva-engine-visible {
-    flex-direction: column;
-    right: 0;
-  }
-}
