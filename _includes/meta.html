@@ -1,13 +1,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+{% assign default_title = "Integrated Value Architecture LLC" %}
+{% assign default_description = "Integrated Value Architecture LLC is a governance architecture firm based in Springfield, Illinois. It develops the IVA Standard, a five-ledger governance architecture for plural value recognition and audit-ready structural evidence." %}
+
 <title>
   {% if page.seo_title %}
     {{ page.seo_title }}
+  {% elsif page.title %}
+    {{ page.title }} | {{ default_title }}
   {% else %}
-    {{ page.title }} | Integrated Value Architecture
+    {{ default_title }}
   {% endif %}
 </title>
+
+<!-- Canonical -->
+<link rel="canonical" href="https://integratedvaluearchitecture.com{{ page.url | replace:'index.html','' }}">
+
+<!-- Meta description -->
+{% if page.seo_description %}
+  <meta name="description" content="{{ page.seo_description }}">
+{% else %}
+  <meta name="description" content="{{ default_description }}">
+{% endif %}
+
+<meta name="keywords" content="governance architecture, organizational governance, institutional design, systems thinking, multi-ledger governance, plural value recognition, structural accounting, decision rights, evidence-based governance, operational ledger, capacity ledger, learning and innovation ledger, externalities and equity ledger, financial dominance">
+<meta name="author" content="Integrated Value Architecture LLC">
 
 <!-- CSS with cache-busting -->
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css?v=20260208">
@@ -19,49 +37,70 @@
 <link rel="icon" sizes="192x192" href="{{ site.baseurl }}/assets/images/tmlogo.png?v=20260208">
 <link rel="icon" sizes="512x512" href="{{ site.baseurl }}/assets/images/tmlogo.png?v=20260208">
 
-<link rel="canonical" href="https://integratedvaluearchitecture.com{{ page.url }}">
-
-{% if page.seo_description %}
-  <meta name="description" content="{{ page.seo_description }}">
-{% else %}
-  <meta name="description" content="Integrated Value Architecture reveals the structural patterns organizations cannot see.">
-{% endif %}
-
-<meta name="keywords" content="organizational structure, governance, systems thinking, institutional design, structural analysis, value architecture, operational coherence, diagnostic mapping, organizational performance, structural constraints">
-<meta name="author" content="Integrated Value Architecture">
-
 {% if page.og_image %}
   {% assign og_image = page.og_image %}
 {% else %}
   {% assign og_image = "https://integratedvaluearchitecture.com/assets/images/social-preview.png?v=20260208" %}
 {% endif %}
 
-<meta property="og:title" content="{% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }} | Integrated Value Architecture{% endif %}">
-<meta property="og:description" content="{% if page.seo_description %}{{ page.seo_description }}{% else %}A structural diagnostic that reveals the patterns organizations cannot see.{% endif %}">
-<meta property="og:image" content="{{ og_image }}">
-<meta property="og:url" content="https://integratedvaluearchitecture.com{{ page.url }}">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Integrated Value Architecture">
+{% assign resolved_title = default_title %}
+{% if page.seo_title %}
+  {% assign resolved_title = page.seo_title %}
+{% elsif page.title %}
+  {% assign resolved_title = page.title | append: " | " | append: default_title %}
+{% endif %}
 
+{% assign resolved_description = default_description %}
+{% if page.seo_description %}
+  {% assign resolved_description = page.seo_description %}
+{% endif %}
+
+<!-- Open Graph -->
+<meta property="og:title" content="{{ resolved_title }}">
+<meta property="og:description" content="{{ resolved_description }}">
+<meta property="og:image" content="{{ og_image }}">
+<meta property="og:url" content="https://integratedvaluearchitecture.com{{ page.url | replace:'index.html','' }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ default_title }}">
+
+<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }} | Integrated Value Architecture{% endif %}">
-<meta name="twitter:description" content="{% if page.seo_description %}{{ page.seo_description }}{% else %}A structural diagnostic that reveals the patterns organizations cannot see.{% endif %}">
+<meta name="twitter:title" content="{{ resolved_title }}">
+<meta name="twitter:description" content="{{ resolved_description }}">
 <meta name="twitter:image" content="{{ og_image }}">
 
+<!-- Robots -->
 <meta name="robots" content="index, follow">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="bingbot" content="index, follow">
 
 <link rel="manifest" href="/manifest.json?v=20260208">
 
+<!-- Structured data: Organization -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Integrated Value Architecture",
-  "url": "https://integratedvaluearchitecture.com",
+  "name": "Integrated Value Architecture LLC",
+  "url": "https://integratedvaluearchitecture.com/",
   "logo": "https://integratedvaluearchitecture.com/assets/images/tmlogo.png?v=20260208",
-  "description": "A structural diagnostic that reveals the patterns organizations cannot see.",
-  "founder": "Evan M. Foster"
+  "description": "Integrated Value Architecture LLC is a governance architecture firm based in Springfield, Illinois. It develops the IVA Standard, a five-ledger governance architecture for plural value recognition and audit-ready structural evidence.",
+  "founder": {
+    "@type": "Person",
+    "name": "Evan M. Foster",
+    "alternateName": "Evan Foster",
+    "jobTitle": "Founder and Principal Architect"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Springfield",
+    "addressRegion": "IL",
+    "addressCountry": "US"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/evan-micheal-foster/",
+    "https://orcid.org/0009-0005-8361-2495",
+    "https://ssrn.com/abstract=6050034"
+  ]
 }
 </script>
