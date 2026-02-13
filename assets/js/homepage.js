@@ -1,3 +1,5 @@
+// assets/js/homepage.js
+
 // === STRUCTURAL ENGINE ===
 document.addEventListener("DOMContentLoaded", function () {
   var engine = document.getElementById("iva-structural-engine");
@@ -15,6 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var flyout = engine.querySelector(".iva-structural-flyout");
   var flyoutLabel = engine.querySelector('[data-role="flyout-label"]');
+
+  // Track hover so scroll logic does not fight hover expansion
+  var isHoveringEngine = false;
 
   // === SECTION CONTEXT ===
   var sectionContext = {
@@ -106,11 +111,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // === ENGINE EXPANSION ON HOVER ===
   engine.addEventListener("mouseenter", function () {
+    isHoveringEngine = true;
     engine.classList.add("engine-expanded");
     engine.classList.remove("engine-collapsed");
   });
 
   engine.addEventListener("mouseleave", function () {
+    isHoveringEngine = false;
     engine.classList.remove("engine-expanded");
     engine.classList.add("engine-collapsed");
   });
@@ -121,7 +128,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function handleScroll() {
     var currentY = window.scrollY;
-    var isFullScreen = window.innerWidth >= 1101;
 
     // Hide header on scroll down
     if (currentY > lastScrollY && currentY > 120) {
@@ -137,10 +143,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (header.classList.contains("header-hidden")) {
       engine.classList.add("iva-engine-visible");
 
-      if (isFullScreen) {
-        engine.classList.remove("engine-collapsed");
-        engine.classList.add("engine-expanded");
-      } else {
+      // Always stay collapsed by default at ALL widths.
+      // Expand ONLY on hover.
+      if (!isHoveringEngine) {
         engine.classList.add("engine-collapsed");
         engine.classList.remove("engine-expanded");
       }
@@ -149,6 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
       engine.classList.remove("iva-engine-visible");
       engine.classList.remove("engine-expanded");
       engine.classList.add("engine-collapsed");
+      isHoveringEngine = false;
     }
 
     lastScrollY = currentY;
