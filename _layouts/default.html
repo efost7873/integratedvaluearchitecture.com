@@ -18,5 +18,11 @@
 
   {% include footer.html %}
 
+  <script src="{{ site.baseurl }}/assets/js/site.js"></script>
+
+  {% if page.url == "/" %}
+    <script src="{{ site.baseurl }}/assets/js/homepage.js"></script>
+  {% endif %}
+
 </body>
 </html>
