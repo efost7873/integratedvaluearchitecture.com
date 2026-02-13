@@ -1,4 +1,3 @@
-<!-- _layouts/default.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +8,10 @@
 
   {% include header.html %}
 
-  {% if page.url == "/" or page.url == "/diagnostic/" or page.url == "/diagnostic.html" %}
+  {% if page.url == "/" %}
     {% include structural-engine.html %}
+  {% elsif page.url == "/diagnostic/" or page.url == "/diagnostic.html" %}
+    {% include structural-engine-diagnostic.html %}
   {% endif %}
 
   <div class="iva-content">
