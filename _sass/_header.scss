@@ -210,6 +210,9 @@
     align-items: center;
     justify-content: space-between;
     gap: 12px;
+
+    /* Needed so the dropdown can anchor to the header */
+    position: relative;
   }
 
   .iva-header-brand {
@@ -229,11 +232,55 @@
     max-width: 62vw;
   }
 
+  /* Turn the nav into a full-width dropdown panel */
   .iva-header-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
     display: none;
     flex-direction: column;
-    gap: 14px;
-    padding: 0 14px 14px;
+
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+
+    gap: 0;
+    padding: 12px 14px 14px;
+    margin: 0;
+
+    background: rgba(31, 42, 68, 0.94);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+
+    border-top: 1px solid rgba(255,255,255,0.12);
+    border-bottom: 1px solid rgba(31, 42, 68, 0.62);
+
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+  }
+
+  /* Match whatever class your JS toggles to open the menu */
+  .iva-header-nav.active,
+  .iva-header-nav.open,
+  .iva-header-nav.is-open,
+  .iva-header-nav.nav-open {
+    display: flex;
+  }
+
+  .iva-header-link {
+    width: 100%;
+    padding: 10px 6px;
+    font-size: 1.02rem;
+    color: rgba(255,255,255,0.92);
+  }
+
+  .iva-header-link::after {
+    display: none;
+  }
+
+  .iva-header-link + .iva-header-link {
+    border-top: 1px solid rgba(255,255,255,0.10);
   }
 }
 
