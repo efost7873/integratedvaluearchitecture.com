@@ -55,6 +55,7 @@ a:hover {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.06);
   border: 1px solid #e5e5e5;
+  max-width: 100%;
 }
 
 .card h3 {
@@ -75,7 +76,8 @@ a:hover {
 }
 
 @media (max-width: 800px) {
-  .grid-2, .grid-3 {
+  .grid-2,
+  .grid-3 {
     grid-template-columns: 1fr;
   }
 }
@@ -97,8 +99,7 @@ section {
 }
 
 /* ============================================================
-   GLOBAL FOCUS RESET — removes browser default focus rings
-   (Chrome, Safari, Firefox, Edge)
+   GLOBAL FOCUS RESET
 ============================================================ */
 
 *:focus,
@@ -117,15 +118,82 @@ button:focus-within {
   appearance: none !important;
 }
 
-/* Safari + Chrome internal focus ring */
 button::-webkit-focus-ring-color {
   outline: none !important;
 }
 
-/* Firefox internal focus ring */
 button::-moz-focus-inner {
   border: 0 !important;
 }
+
 button:-moz-focusring {
   outline: none !important;
+}
+
+/* ============================================================
+   MOBILE OVERFLOW / WRAPPING SAFETY
+============================================================ */
+
+/* Consistent box model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent horizontal scroll from rogue elements */
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Allow long words and URLs to wrap */
+p,
+li,
+div,
+span,
+a,
+td,
+th,
+blockquote {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Prevent code blocks from breaking layout */
+pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+code {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Media never exceeds container width */
+img,
+video,
+iframe,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Allow flex/grid children inside cards to shrink */
+.card * {
+  min-width: 0;
+}
+
+/* Optional safety for tables (only matters if you use them) */
+table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
 }
