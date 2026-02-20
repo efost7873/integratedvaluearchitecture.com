@@ -6,18 +6,22 @@ const ivaToggle = document.getElementById('iva-menu-toggle');
 const ivaNav = document.getElementById('iva-nav');
 
 function updateMenu() {
+  if (!ivaToggle || !ivaNav) return;
+
   if (window.innerWidth < 780) {
     ivaToggle.style.display = 'block';
-    ivaNav.style.display = 'none';
+    ivaNav.classList.remove('is-open');
   } else {
     ivaToggle.style.display = 'none';
-    ivaNav.style.display = 'flex';
+    ivaNav.classList.remove('is-open');
   }
 }
 
-ivaToggle.addEventListener('click', () => {
-  ivaNav.style.display = ivaNav.style.display === 'none' ? 'flex' : 'none';
-});
+if (ivaToggle && ivaNav) {
+  ivaToggle.addEventListener('click', () => {
+    ivaNav.classList.toggle('is-open');
+  });
+}
 
 window.addEventListener('resize', updateMenu);
 updateMenu();
@@ -34,6 +38,7 @@ window.addEventListener('scroll', () => {
   ivaFooter.style.opacity = window.scrollY > 0 ? '0.96' : '1';
 });
 
+
 // ======================================================
 // HEADER HIDE / SHOW ON SCROLL (SITE-WIDE)
 // ======================================================
@@ -47,12 +52,10 @@ window.addEventListener('scroll', () => {
   function handleHeaderScroll() {
     var currentY = window.scrollY;
 
-    // Hide header on scroll down after user is past the top
     if (currentY > lastScrollY && currentY > 120) {
       header.classList.add("header-hidden");
     }
 
-    // Show header when near top
     if (currentY < 80) {
       header.classList.remove("header-hidden");
     }
