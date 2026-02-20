@@ -99,7 +99,8 @@ section {
 }
 
 /* ============================================================
-   GLOBAL FOCUS RESET
+   GLOBAL FOCUS RESET — removes browser default focus rings
+   (Chrome, Safari, Firefox, Edge)
 ============================================================ */
 
 *:focus,
@@ -118,14 +119,15 @@ button:focus-within {
   appearance: none !important;
 }
 
+/* Safari + Chrome internal focus ring */
 button::-webkit-focus-ring-color {
   outline: none !important;
 }
 
+/* Firefox internal focus ring */
 button::-moz-focus-inner {
   border: 0 !important;
 }
-
 button:-moz-focusring {
   outline: none !important;
 }
@@ -148,32 +150,25 @@ body {
   overflow-x: hidden;
 }
 
-/* Allow long words and URLs to wrap */
+/* Wrap long strings when needed (by word, not by letter) */
 p,
 li,
-div,
-span,
-a,
-td,
-th,
 blockquote {
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 a {
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
-/* Prevent code blocks from breaking layout */
+/* Code/pre blocks should scroll instead of blowing up layout */
 pre {
   max-width: 100%;
   overflow-x: auto;
 }
 
 code {
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   word-break: break-word;
 }
 
@@ -191,9 +186,35 @@ svg {
   min-width: 0;
 }
 
-/* Optional safety for tables (only matters if you use them) */
+/* Tables can force horizontal overflow */
 table {
   display: block;
   max-width: 100%;
   overflow-x: auto;
+}
+
+/* ============================================================
+   FORCE CARDS TO STACK ON MOBILE
+============================================================ */
+
+@media (max-width: 800px) {
+  .grid,
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Insurance policy: if something overrides .grid into flex, force stacking anyway */
+  .grid {
+    display: block !important;
+  }
+
+  .grid > * {
+    width: 100% !important;
+  }
+
+  .card {
+    width: 100%;
+    padding: $space-3;
+  }
 }
