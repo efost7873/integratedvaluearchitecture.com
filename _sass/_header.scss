@@ -91,6 +91,12 @@
   min-width: 0;
 }
 
+/* Added to support clickable logo without changing layout */
+.iva-header-brand-link {
+  display: inline-flex;
+  align-items: center;
+}
+
 .iva-header-logo {
   height: 40px;
   background: #FFFFFF;
@@ -146,6 +152,100 @@
 }
 
 .iva-header-link:hover::after {
+  width: 100%;
+}
+
+/* ============================================
+   LEDGERS SUBMENU (details/summary)
+============================================ */
+
+.iva-header-details {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Remove default marker and make summary behave like your nav links */
+.iva-header-summary {
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+  padding-bottom: 2px;
+}
+
+/* Chrome/Safari marker */
+.iva-header-summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Add a subtle caret that feels native */
+.iva-header-summary::before {
+  content: "▾";
+  display: inline-block;
+  margin-left: 8px;
+  font-size: 0.85em;
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+/* Desktop dropdown panel */
+.iva-header-submenu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 0;
+  min-width: 240px;
+
+  padding: 10px;
+  border-radius: 12px;
+
+  background: rgba(31, 42, 68, 0.96);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+
+  z-index: 9999;
+}
+
+/* Show submenu when open */
+.iva-header-details[open] .iva-header-submenu {
+  display: block;
+}
+
+.iva-header-sublink {
+  display: block;
+  padding: 10px 10px;
+  border-radius: 10px;
+  text-decoration: none;
+
+  color: rgba(255,255,255,0.90);
+  transition: background 0.14s ease-out, color 0.14s ease-out;
+}
+
+.iva-header-sublink:hover,
+.iva-header-sublink:focus {
+  color: #FFFFFF;
+  background: rgba(255,255,255,0.10);
+  outline: none;
+}
+
+/* Make the summary underline behave like other nav items */
+.iva-header-details .iva-header-summary::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: #FFFFFF;
+  transform: translateY(1px);
+  transition: width 0.16s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.iva-header-details:hover .iva-header-summary::after,
+.iva-header-details[open] .iva-header-summary::after {
   width: 100%;
 }
 
@@ -272,6 +372,57 @@
   }
 
   .iva-header-link + .iva-header-link {
+    border-top: 1px solid rgba(255,255,255,0.10);
+  }
+
+  /* Mobile submenu should behave like an inline list, not a floating dropdown */
+  .iva-header-details {
+    width: 100%;
+    display: block;
+  }
+
+  .iva-header-summary {
+    width: 100%;
+    padding: 10px 6px;
+    color: rgba(255,255,255,0.92);
+    position: relative;
+  }
+
+  .iva-header-details .iva-header-summary::after {
+    display: none;
+  }
+
+  .iva-header-submenu {
+    position: static;
+    display: none;
+
+    width: 100%;
+    min-width: 0;
+
+    padding: 6px 0 10px 10px;
+    margin: 0;
+
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .iva-header-details[open] .iva-header-submenu {
+    display: block;
+  }
+
+  .iva-header-sublink {
+    width: 100%;
+    padding: 10px 6px;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .iva-header-sublink + .iva-header-sublink {
     border-top: 1px solid rgba(255,255,255,0.10);
   }
 }
