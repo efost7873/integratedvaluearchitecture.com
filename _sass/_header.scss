@@ -124,7 +124,7 @@
   display: flex;
   gap: 32px;
   font-size: 1.05rem;
-  align-items: center;
+  align-items: center; /* alignment fix */
 }
 
 .iva-header-link {
@@ -133,6 +133,7 @@
   position: relative;
   padding-bottom: 2px;
   transition: color 0.18s ease-out;
+  line-height: 1; /* alignment fix */
 }
 
 .iva-header-link:hover {
@@ -165,12 +166,25 @@
   align-items: center;
 }
 
-/* Remove default marker and make summary behave like your nav links */
+/* Make summary behave like nav links */
 .iva-header-summary {
   list-style: none;
   cursor: pointer;
   user-select: none;
+
+  display: inline-flex;
+  align-items: center;
+
+  color: rgba(255,255,255,0.88);
+  font-size: 1.05rem;
+  position: relative;
+
   padding-bottom: 2px;
+  padding-left: 0;
+  margin: 0;
+
+  transition: color 0.18s ease-out;
+  line-height: 1; /* alignment fix */
 }
 
 /* Chrome/Safari marker */
@@ -178,7 +192,11 @@
   display: none;
 }
 
-/* Add a subtle caret that feels native */
+.iva-header-summary:hover {
+  color: #FFFFFF;
+}
+
+/* Add a subtle caret */
 .iva-header-summary::before {
   content: "▾";
   display: inline-block;
@@ -231,7 +249,7 @@
   outline: none;
 }
 
-/* Make the summary underline behave like other nav items */
+/* Underline behavior consistent with other nav items */
 .iva-header-details .iva-header-summary::after {
   content: "";
   position: absolute;
@@ -270,6 +288,10 @@
 
   .iva-header-nav {
     gap: 18px;
+    font-size: 0.95rem;
+  }
+
+  .iva-header-summary {
     font-size: 0.95rem;
   }
 }
@@ -365,6 +387,7 @@
     padding: 10px 6px;
     font-size: 1.02rem;
     color: rgba(255,255,255,0.92);
+    line-height: 1.2; /* mobile readability */
   }
 
   .iva-header-link::after {
@@ -375,7 +398,7 @@
     border-top: 1px solid rgba(255,255,255,0.10);
   }
 
-  /* Mobile submenu should behave like an inline list, not a floating dropdown */
+  /* Mobile submenu behaves like inline list, not floating dropdown */
   .iva-header-details {
     width: 100%;
     display: block;
@@ -386,6 +409,7 @@
     padding: 10px 6px;
     color: rgba(255,255,255,0.92);
     position: relative;
+    line-height: 1.2;
   }
 
   .iva-header-details .iva-header-summary::after {
