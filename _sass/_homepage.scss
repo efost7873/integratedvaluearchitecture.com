@@ -147,6 +147,62 @@
   }
 }
 
+/* ============================================================
+   CLICKABLE CARDS
+   Use: <a class="card card-link" href="..."> ... </a>
+============================================================ */
+
+a.card {
+  display: block;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  position: relative;
+
+  h3 {
+    color: var(--iva-blue);
+  }
+
+  p {
+    color: var(--iva-text-muted);
+  }
+
+  &:visited {
+    color: inherit;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:hover h3 {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba(31, 42, 68, 0.55);
+    outline-offset: 4px;
+  }
+}
+
+/* Optional small cue line inside linked cards when you include it */
+.card-meta {
+  margin-top: 10px;
+  font-size: 0.95em;
+  opacity: 0.75;
+}
+
+/* ============================================================
+   CTA
+============================================================ */
+
 .iva-cta-section {
   text-align: left;
   background: radial-gradient(circle at top left, #FDFEFF 0%, #F2F4FB 40%, #E7EAF5 100%);
