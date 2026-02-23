@@ -13,24 +13,59 @@
 }
 
 /* ============================================
+   GLOBAL CONTENT WIDTH
+   Fixes wasted left/right space by widening the main container
+   and removing redundant inner max-width constraints.
+============================================ */
+
+.iva-page main {
+  max-width: 1320px; /* was effectively ~1120 */
+  margin: 0 auto;
+  padding: 44px 40px 88px; /* keeps your current vertical rhythm */
+}
+
+@media (max-width: 980px) {
+  .iva-page main {
+    padding: 44px 24px 88px;
+  }
+}
+
+@media (max-width: 700px) {
+  .iva-page main {
+    padding: 40px 18px 84px;
+  }
+}
+
+/* ============================================
    SECTION BANDS
+   Bands are full-width visually, but content is controlled by main.
 ============================================ */
 
 .iva-band-soft {
   background: #F6F8FB;
-  padding: 80px 32px;
 }
 
 .iva-band-strong {
   background: #FFFFFF;
-  padding: 80px 32px;
 }
 
-@media (max-width: 900px) {
-  .iva-band-soft,
-  .iva-band-strong {
-    padding: 60px 20px;
-  }
+/* Default section styling to match your existing feel */
+.iva-page section {
+  margin-bottom: 72px;
+  padding: 32px 26px 34px;
+  border-radius: 18px;
+  background: #FFFFFF;
+  box-shadow: 0 0 0 1px rgba(214, 217, 229, 0.7);
+}
+
+.iva-page section.iva-band-soft {
+  background: #F7F8FB;
+  box-shadow: 0 0 0 1px rgba(200, 205, 222, 0.7);
+}
+
+.iva-page section.iva-band-strong {
+  background: linear-gradient(135deg, #F4F5FB 0%, #E9EBF3 50%, #F7F8FC 100%);
+  box-shadow: 0 10px 30px rgba(10, 18, 40, 0.08);
 }
 
 /* ============================================
@@ -38,22 +73,59 @@
 ============================================ */
 
 .section-header {
-  max-width: 1120px;
-  margin: 0 auto 48px auto;
+  margin-bottom: 22px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(184, 190, 210, 0.7);
 }
 
 .section-header h1,
+.section-header h2,
+.section-header h3 {
+  margin-top: 0;
+  color: #1F2A44;
+  letter-spacing: 0.01em;
+}
+
+.section-header h1 {
+  font-size: 36px;
+  line-height: 1.22;
+  margin-bottom: 18px;
+}
+
 .section-header h2 {
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  margin-bottom: 16px;
+  font-size: 28px;
+  line-height: 1.28;
+  margin-bottom: 6px;
+}
+
+.section-subtitle {
+  font-size: 15px;
+  color: #7A8297;
+  max-width: 820px; /* slightly wider for the wider layout */
+}
+
+/* ============================================
+   TYPOGRAPHY CONSISTENCY
+============================================ */
+
+.iva-page {
+  background: #F3F4F8;
+  color: #1F2430;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+}
+
+.iva-page h3 {
+  font-size: 18px;
+  line-height: 1.35;
+  margin-bottom: 10px;
   color: #1F2A44;
 }
 
-.section-header p {
-  font-size: 1.05rem;
-  color: #4A5673;
-  max-width: 720px;
+.iva-page p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #5A6278;
+  margin-bottom: 12px;
 }
 
 /* ============================================
@@ -61,29 +133,27 @@
 ============================================ */
 
 .grid {
-  max-width: 1120px;
-  margin: 0 auto;
   display: grid;
-  gap: 24px;
+  gap: 22px;
 }
 
-.grid-2 {
-  grid-template-columns: repeat(2, 1fr);
+.grid.grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.grid-3 {
-  grid-template-columns: repeat(3, 1fr);
+.grid.grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 @media (max-width: 980px) {
-  .grid-3 {
-    grid-template-columns: repeat(2, 1fr);
+  .grid.grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 700px) {
-  .grid-2,
-  .grid-3 {
+  .grid.grid-2,
+  .grid.grid-3 {
     grid-template-columns: 1fr;
   }
 }
@@ -95,31 +165,27 @@
 .card {
   background: #FFFFFF;
   border-radius: 14px;
-  padding: 28px;
-  border: 1px solid rgba(31, 42, 68, 0.08);
-  box-shadow: 0 8px 22px rgba(31, 42, 68, 0.06);
+  padding: 18px 20px 16px;
+  border: 1px solid rgba(214, 217, 229, 0.9);
+  box-shadow: 0 4px 14px rgba(10, 18, 40, 0.06);
   transition:
-    transform 0.18s ease,
-    box-shadow 0.18s ease,
-    border-color 0.18s ease;
-}
-
-.card h3 {
-  margin-bottom: 12px;
-  font-weight: 600;
-  color: #1F2A44;
+    transform 0.18s ease-out,
+    box-shadow 0.18s ease-out,
+    border-color 0.18s ease-out,
+    background-color 0.18s ease-out;
 }
 
 .card p {
-  color: #4A5673;
-  line-height: 1.6;
+  margin-bottom: 0;
 }
 
-/* Hover behavior */
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 30px rgba(31, 42, 68, 0.10);
-  border-color: rgba(31, 42, 68, 0.16);
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(10, 18, 40, 0.08);
+    border-color: rgba(184, 190, 210, 0.95);
+    background-color: #FFFFFF;
+  }
 }
 
 /* ============================================
@@ -136,20 +202,18 @@
   color: inherit;
 }
 
-.card-link:focus {
-  outline: none;
-}
-
 .card-link:hover {
   text-decoration: none;
 }
 
+.card-link:focus {
+  outline: none;
+}
+
 .card-meta {
-  margin-top: 14px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #4A5673;
-  opacity: 0.85;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #7A8297;
 }
 
 /* ============================================
@@ -157,75 +221,48 @@
 ============================================ */
 
 .iva-cta-section {
-  background: #1F2A44;
-  color: #FFFFFF;
-  padding: 80px 32px;
-  text-align: center;
-}
-
-.iva-cta-section h2 {
-  color: #FFFFFF;
-  margin-bottom: 18px;
+  text-align: left;
+  background: radial-gradient(circle at top left, #FDFEFF 0%, #F2F4FB 40%, #E7EAF5 100%);
+  box-shadow: 0 10px 30px rgba(10, 18, 40, 0.08);
 }
 
 .iva-cta-section p {
-  max-width: 760px;
-  margin: 0 auto 32px auto;
-  color: rgba(255,255,255,0.85);
-  line-height: 1.6;
+  margin-bottom: 18px;
 }
 
-.iva-btn-primary {
-  display: inline-block;
-  padding: 14px 28px;
-  border-radius: 8px;
-  background: #FFFFFF;
-  color: #1F2A44;
-  font-weight: 600;
-  text-decoration: none;
-  transition:
-    transform 0.16s ease,
-    box-shadow 0.16s ease,
-    background 0.16s ease;
-}
-
-.iva-btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
-  background: #F0F3F9;
+.iva-cta-meta {
+  font-size: 14px;
+  color: #7A8297;
+  margin-top: 12px;
 }
 
 /* ============================================
-   LIST STYLING
+   HEADER VISIBILITY
 ============================================ */
 
-ul {
-  margin: 18px 0 0 20px;
-  padding: 0;
-  color: #4A5673;
+.iva-header,
+.iva-identity-bar {
+  display: block;
+  opacity: 1;
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-ul li {
-  margin-bottom: 10px;
-  line-height: 1.6;
+html.header-hidden .iva-header,
+html.header-hidden .iva-identity-bar {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
 }
 
 /* ============================================
-   TYPOGRAPHY CONSISTENCY
+   ACCESSIBILITY
 ============================================ */
 
-h1 {
-  font-size: 2.3rem;
-}
-
-h2 {
-  font-size: 1.8rem;
-}
-
-h3 {
-  font-size: 1.15rem;
-}
-
-p {
-  font-size: 1rem;
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
