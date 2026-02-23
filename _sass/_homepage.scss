@@ -1,240 +1,231 @@
-/* === HOMEPAGE STYLES: GLOBAL === */
-
-:root {
-  --iva-blue: #1F2A44;
-  --iva-slate: #4A5673;
-  --iva-bg-main: #F3F4F8;
-  --iva-bg-soft: #E9EBF3;
-  --iva-bg-band: #F7F8FB;
-  --iva-border-soft: #D6D9E5;
-  --iva-border-strong: #B8BED2;
-  --iva-text-main: #1F2430;
-  --iva-text-muted: #5A6278;
-  --iva-text-soft: #7A8297;
-  --iva-shadow-soft: 0 10px 30px rgba(10, 18, 40, 0.08);
-  --iva-shadow-subtle: 0 4px 14px rgba(10, 18, 40, 0.06);
-  --iva-radius-card: 14px;
-  --iva-radius-pill: 999px;
-  --iva-transition-fast: 0.18s ease-out;
-  --iva-transition-med: 0.24s ease-out;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    scroll-behavior: auto !important;
-    animation-duration: 0.001ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
-  }
-}
+/* ============================================
+   BASE PAGE WRAPPER
+============================================ */
 
 .iva-page {
-  margin-top: 140px;
-  background: var(--iva-bg-main);
-  color: var(--iva-text-main);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+  padding-top: 140px; /* identity bar + header */
+}
 
-  h1,
-  h2,
-  h3 {
-    letter-spacing: 0.01em;
-    color: var(--iva-blue);
-    margin-top: 0;
-  }
-
-  h1 {
-    font-size: 36px;
-    line-height: 1.22;
-    margin-bottom: 18px;
-  }
-
-  h2 {
-    font-size: 28px;
-    line-height: 1.28;
-    margin-bottom: 14px;
-  }
-
-  h3 {
-    font-size: 18px;
-    line-height: 1.35;
-    margin-bottom: 10px;
-  }
-
-  p {
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--iva-text-muted);
-    margin-bottom: 12px;
-  }
-
-  main {
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 44px 28px 88px;
-  }
-
-  section {
-    margin-bottom: 72px;
-    padding: 32px 26px 34px;
-    border-radius: 18px;
-    background: #FFFFFF;
-    box-shadow: 0 0 0 1px rgba(214, 217, 229, 0.7);
-
-    &.iva-band-soft {
-      background: var(--iva-bg-band);
-      box-shadow: 0 0 0 1px rgba(200, 205, 222, 0.7);
-    }
-
-    &.iva-band-strong {
-      background: linear-gradient(135deg, #F4F5FB 0%, #E9EBF3 50%, #F7F8FC 100%);
-      box-shadow: var(--iva-shadow-soft);
-    }
+@media (max-width: 900px) {
+  .iva-page {
+    padding-top: 90px;
   }
 }
+
+/* ============================================
+   SECTION BANDS
+============================================ */
+
+.iva-band-soft {
+  background: #F6F8FB;
+  padding: 80px 32px;
+}
+
+.iva-band-strong {
+  background: #FFFFFF;
+  padding: 80px 32px;
+}
+
+@media (max-width: 900px) {
+  .iva-band-soft,
+  .iva-band-strong {
+    padding: 60px 20px;
+  }
+}
+
+/* ============================================
+   SECTION HEADER
+============================================ */
 
 .section-header {
-  margin-bottom: 22px;
-  padding-bottom: 14px;
-  border-bottom: 1px solid rgba(184, 190, 210, 0.7);
-
-  h2 {
-    margin-bottom: 6px;
-  }
+  max-width: 1120px;
+  margin: 0 auto 48px auto;
 }
 
-.section-subtitle {
-  font-size: 15px;
-  color: var(--iva-text-soft);
+.section-header h1,
+.section-header h2 {
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  margin-bottom: 16px;
+  color: #1F2A44;
+}
+
+.section-header p {
+  font-size: 1.05rem;
+  color: #4A5673;
   max-width: 720px;
 }
 
+/* ============================================
+   GRID SYSTEM
+============================================ */
+
 .grid {
+  max-width: 1120px;
+  margin: 0 auto;
   display: grid;
-  gap: 22px;
+  gap: 24px;
+}
 
-  &.grid-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
 
-  &.grid-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 980px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
+
+@media (max-width: 700px) {
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   CARD SYSTEM
+============================================ */
 
 .card {
   background: #FFFFFF;
-  border-radius: var(--iva-radius-card);
-  padding: 18px 20px 16px;
-  border: 1px solid var(--iva-border-soft);
-  box-shadow: var(--iva-shadow-subtle);
+  border-radius: 14px;
+  padding: 28px;
+  border: 1px solid rgba(31, 42, 68, 0.08);
+  box-shadow: 0 8px 22px rgba(31, 42, 68, 0.06);
   transition:
-    transform var(--iva-transition-fast),
-    box-shadow var(--iva-transition-fast),
-    border-color var(--iva-transition-fast),
-    background-color var(--iva-transition-fast);
-
-  p {
-    margin-bottom: 0;
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    &:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--iva-shadow-soft);
-      border-color: var(--iva-border-strong);
-      background-color: #FFFFFF;
-    }
-  }
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
 }
 
-/* ============================================================
-   CLICKABLE CARDS
-   Use: <a class="card card-link" href="..."> ... </a>
-============================================================ */
-
-a.card {
-  display: block;
+.card h3 {
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: #1F2A44;
 }
+
+.card p {
+  color: #4A5673;
+  line-height: 1.6;
+}
+
+/* Hover behavior */
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(31, 42, 68, 0.10);
+  border-color: rgba(31, 42, 68, 0.16);
+}
+
+/* ============================================
+   CLICKABLE CARD LINKS
+============================================ */
 
 .card-link {
+  display: block;
   text-decoration: none;
   color: inherit;
-  cursor: pointer;
-  position: relative;
-
-  h3 {
-    color: var(--iva-blue);
-  }
-
-  p {
-    color: var(--iva-text-muted);
-  }
-
-  &:visited {
-    color: inherit;
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    &:hover {
-      text-decoration: none;
-    }
-
-    &:hover h3 {
-      text-decoration: underline;
-      text-decoration-thickness: 2px;
-      text-underline-offset: 4px;
-    }
-  }
-
-  &:focus-visible {
-    outline: 3px solid rgba(31, 42, 68, 0.55);
-    outline-offset: 4px;
-  }
 }
 
-/* Optional small cue line inside linked cards when you include it */
+.card-link:visited {
+  color: inherit;
+}
+
+.card-link:focus {
+  outline: none;
+}
+
+.card-link:hover {
+  text-decoration: none;
+}
+
 .card-meta {
-  margin-top: 10px;
-  font-size: 0.95em;
-  opacity: 0.75;
+  margin-top: 14px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #4A5673;
+  opacity: 0.85;
 }
 
-/* ============================================================
-   CTA
-============================================================ */
+/* ============================================
+   CTA SECTION
+============================================ */
 
 .iva-cta-section {
-  text-align: left;
-  background: radial-gradient(circle at top left, #FDFEFF 0%, #F2F4FB 40%, #E7EAF5 100%);
-  box-shadow: var(--iva-shadow-soft);
-
-  p {
-    margin-bottom: 18px;
-  }
+  background: #1F2A44;
+  color: #FFFFFF;
+  padding: 80px 32px;
+  text-align: center;
 }
 
-.iva-cta-meta {
-  font-size: 14px;
-  color: var(--iva-text-soft);
-  margin-top: 12px;
+.iva-cta-section h2 {
+  color: #FFFFFF;
+  margin-bottom: 18px;
 }
 
-/* ============================================================
-   HEADER VISIBILITY
-============================================================ */
-
-.iva-header,
-.iva-identity-bar {
-  display: block;
-  opacity: 1;
-  transition: opacity 0.25s ease, transform 0.25s ease;
+.iva-cta-section p {
+  max-width: 760px;
+  margin: 0 auto 32px auto;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.6;
 }
 
-html.header-hidden {
-  .iva-header,
-  .iva-identity-bar {
-    opacity: 0;
-    transform: translateY(-20px);
-    pointer-events: none;
-  }
+.iva-btn-primary {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: #1F2A44;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    transform 0.16s ease,
+    box-shadow 0.16s ease,
+    background 0.16s ease;
+}
+
+.iva-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  background: #F0F3F9;
+}
+
+/* ============================================
+   LIST STYLING
+============================================ */
+
+ul {
+  margin: 18px 0 0 20px;
+  padding: 0;
+  color: #4A5673;
+}
+
+ul li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* ============================================
+   TYPOGRAPHY CONSISTENCY
+============================================ */
+
+h1 {
+  font-size: 2.3rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+}
+
+p {
+  font-size: 1rem;
 }
