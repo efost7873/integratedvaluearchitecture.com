@@ -6,13 +6,11 @@
 <header class="iva-header" role="banner">
   <div class="iva-header-inner">
     <div class="iva-header-brand">
-      <a href="{{ site.baseurl }}/" class="iva-header-brand-link" aria-label="Integrated Value Architecture home">
-        <img
-          src="{{ site.baseurl }}/assets/images/tmlogo.png"
-          alt="IVA Logo"
-          class="iva-header-logo"
-        >
-      </a>
+      <img 
+        src="{{ site.baseurl }}/assets/images/tmlogo.png"
+        alt="IVA Logo"
+        class="iva-header-logo"
+      >
       <div class="iva-header-title">Integrated Value Architecture</div>
     </div>
 
@@ -21,22 +19,21 @@
     <nav class="iva-header-nav" id="iva-nav" aria-label="Primary navigation">
       <a class="iva-header-link" href="{{ site.baseurl }}/">Home</a>
       <a class="iva-header-link" href="{{ site.baseurl }}/standard">IVA Standard</a>
-
-      <details class="iva-header-details">
-        <summary class="iva-header-link iva-header-summary">
-          Ledgers
-        </summary>
-
-        <div class="iva-header-submenu" role="menu" aria-label="Ledgers submenu">
-          <a class="iva-header-sublink" role="menuitem" href="{{ site.baseurl }}/finance">Finance</a>
-          <a class="iva-header-sublink" role="menuitem" href="{{ site.baseurl }}/operations">Operations</a>
-          <a class="iva-header-sublink" role="menuitem" href="{{ site.baseurl }}/capacity">Capacity</a>
-          <a class="iva-header-sublink" role="menuitem" href="{{ site.baseurl }}/external">Externalities and Equity</a>
-          <a class="iva-header-sublink" role="menuitem" href="{{ site.baseurl }}/learning">Learning and Innovation</a>
-        </div>
-      </details>
-
       <a class="iva-header-link" href="{{ site.baseurl }}/diagnostic">Diagnostic</a>
+
+      <!-- LEDGER DROPDOWN -->
+      <div class="iva-header-dropdown">
+        <span class="iva-header-link iva-header-dropdown-toggle">Ledgers</span>
+
+        <div class="iva-header-dropdown-menu">
+          <a href="{{ site.baseurl }}/finance">Financial</a>
+          <a href="{{ site.baseurl }}/operations">Operational</a>
+          <a href="{{ site.baseurl }}/capacity">Capacity</a>
+          <a href="{{ site.baseurl }}/external">Externalities and Equity</a>
+          <a href="{{ site.baseurl }}/learning">Learning and Innovation</a>
+        </div>
+      </div>
+
       <a class="iva-header-link" href="{{ site.baseurl }}/about-me">About Me</a>
       <a class="iva-header-link" href="{{ site.baseurl }}/publications">Publications</a>
       <a class="iva-header-link" href="{{ site.baseurl }}/contact">Contact</a>
