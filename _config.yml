@@ -1,6 +1,14 @@
+title: Integrated Value Architecture
+description: Integrated Value Architecture is a five-ledger governance architecture that restores structural balance across financial, operational, capacity, learning, and external value domains.
+url: https://integratedvaluearchitecture.com
+baseurl: ""
+
 markdown: kramdown
 theme: null
-baseurl: ""
+permalink: pretty
+
+plugins:
+  - jekyll-sitemap
 
 sass:
   sass_dir: _sass
