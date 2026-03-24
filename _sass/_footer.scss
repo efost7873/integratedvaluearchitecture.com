@@ -1,120 +1,215 @@
-/* Footer */
+/* ============================================
+   FOOTER
+============================================ */
+
 .iva-footer {
-  background: linear-gradient(180deg, $iva-neutral-2, $iva-neutral-3);
-  padding: 56px 28px 40px;
-  border-top: 1px solid rgba(184, 190, 210, 0.7);
-  box-shadow: $iva-shadow-footer;
+  background: $iva-surface-dark;
+  color: $iva-text-inverse;
+  padding: $space-8 $space-5 $space-6;
+  margin-top: $space-9;
 }
 
 .iva-footer-wrapper {
-  max-width: 1120px;
+  max-width: $iva-site-max-width;
   margin: 0 auto;
 }
 
 .iva-footer-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 36px;
-  margin-bottom: 36px;
+  grid-template-columns: 1.35fr 0.85fr 0.9fr;
+  gap: $space-7;
+  margin-bottom: $space-7;
 }
 
 .iva-footer-col {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: $space-3;
+  min-width: 0;
+}
+
+.iva-footer-col-brand {
+  padding-right: $space-4;
 }
 
 .iva-footer-brand {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: $space-4;
+  margin-bottom: $space-2;
 }
 
 .iva-footer-logo {
-  height: 36px;
-  background: white;
-  padding: 4px 6px;
-  border-radius: 6px;
-  border: 1px solid $iva-slate;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.18);
+  height: 42px;
+  width: auto;
+  display: block;
+  background: rgba(255, 255, 255, 0.96);
+  padding: 6px 10px;
+  border-radius: $iva-radius-sm;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: none;
 }
 
 .iva-footer-title {
   font-size: 1.1rem;
-  font-weight: 600;
-  color: $iva-blue;
+  font-weight: 650;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: $iva-text-inverse;
 }
 
 .iva-footer-desc {
-  font-size: 0.95rem;
-  line-height: 1.55;
-  color: $iva-text-soft;
-  max-width: 420px;
+  margin: 0;
+  max-width: 34rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .iva-footer-heading {
-  margin: 0 0 6px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: $iva-blue;
+  margin: 0 0 $space-2;
+  font-size: 0.95rem;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
 }
 
 .iva-footer-text {
-  font-size: 0.95rem;
-  color: $iva-text-soft;
   margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.76);
 }
 
 .iva-footer-link {
-  font-size: 0.95rem;
-  color: $iva-text-soft;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.86);
   text-decoration: none;
-  position: relative;
-  padding-bottom: 2px;
-  transition: color $iva-transition-fast;
+  transition:
+    color $iva-transition-fast,
+    opacity $iva-transition-fast,
+    transform $iva-transition-fast;
 
-  &:hover {
-    color: $iva-blue;
+  &:hover,
+  &:focus {
+    color: $iva-civic-amber;
+    transform: translateX(2px);
   }
+}
 
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 0;
-    height: 2px;
-    background: $iva-blue;
-    transition: width 0.25s ease;
-  }
-
-  &:hover::after {
-    width: 100%;
-  }
+.iva-footer-cta {
+  margin-top: $space-3;
+  width: fit-content;
+  text-decoration: none;
 }
 
 .iva-footer-bottom {
-  border-top: 1px solid rgba(184, 190, 210, 0.6);
-  padding-top: 18px;
+  padding-top: $space-5;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
+  gap: $space-5;
   flex-wrap: wrap;
-  gap: 18px;
 }
 
 .iva-footer-legal {
-  font-size: 0.85rem;
-  color: $iva-text-soft;
-  max-width: 720px;
+  max-width: 48rem;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.iva-footer-ip {
+  display: inline;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .iva-footer-bottom-links {
   display: flex;
-  gap: 18px;
+  align-items: center;
+  gap: $space-4;
+  flex-wrap: wrap;
 }
 
-@media (max-width: 780px) {
+.iva-footer-bottom-links .iva-footer-link {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.68);
+
+  &:hover,
+  &:focus {
+    color: $iva-civic-amber;
+    transform: none;
+  }
+}
+
+/* ============================================
+   TABLET
+============================================ */
+
+@media (max-width: 980px) {
+  .iva-footer {
+    padding: $space-7 $space-5 $space-6;
+  }
+
+  .iva-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: $space-6;
+  }
+
+  .iva-footer-col-brand {
+    grid-column: 1 / -1;
+    padding-right: 0;
+  }
+}
+
+/* ============================================
+   MOBILE
+============================================ */
+
+@media (max-width: 680px) {
+  .iva-footer {
+    padding: $space-6 $space-4 $space-5;
+    margin-top: $space-8;
+  }
+
   .iva-footer-grid {
     grid-template-columns: 1fr;
+    gap: $space-5;
+    margin-bottom: $space-6;
+  }
+
+  .iva-footer-brand {
+    gap: $space-3;
+  }
+
+  .iva-footer-logo {
+    height: 38px;
+    padding: 5px 8px;
+  }
+
+  .iva-footer-title {
+    font-size: 1rem;
+  }
+
+  .iva-footer-desc,
+  .iva-footer-text,
+  .iva-footer-link {
+    font-size: 0.95rem;
+  }
+
+  .iva-footer-bottom {
+    flex-direction: column;
+    gap: $space-4;
+    padding-top: $space-4;
+  }
+
+  .iva-footer-bottom-links {
+    gap: $space-3;
   }
 }
