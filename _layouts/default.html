@@ -9,12 +9,6 @@
 
   {% include header.html %}
 
-  {% if page.url == "/" %}
-    {% include structural-engine.html %}
-  {% elsif page.url == "/services/" or page.url == "/services.html" %}
-    {% include structural-engine-diagnostic.html %}
-  {% endif %}
-
   <div class="iva-content">
     {{ content }}
   </div>
@@ -22,10 +16,6 @@
   {% include footer.html %}
 
   <script src="{{ site.baseurl }}/assets/js/site.js"></script>
-
-  {% if page.url == "/" or page.url == "/services/" or page.url == "/services.html" %}
-    <script src="{{ site.baseurl }}/assets/js/homepage.js"></script>
-  {% endif %}
 
 </body>
 </html>
