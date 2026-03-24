@@ -11,7 +11,7 @@
 ============================================ */
 
 .iva-page main {
-  max-width: 1400px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 24px 40px 40px;
 }
@@ -29,7 +29,7 @@
 }
 
 /* ============================================
-   HOMEPAGE SPACING CONTROL
+   SECTION SPACING (FIXES CRAMPED LAYOUT)
 ============================================ */
 
 .iva-page section + section {
@@ -43,24 +43,12 @@
 }
 
 /* ============================================
-   HERO LAYOUT
+   HERO (FIXED PROPERLY)
 ============================================ */
 
 #homepage-hero {
-  display: grid;
-  grid-template-columns: minmax(0, 760px) minmax(120px, 1fr);
-  column-gap: 72px;
-  align-items: start;
   padding-top: 12px;
-}
-
-/* force all hero content into left column */
-#homepage-hero .section-header,
-#homepage-hero > p,
-#homepage-hero .iva-btn-row,
-#homepage-hero .iva-cta-meta {
-  grid-column: 1;
-  max-width: none;
+  max-width: 900px;
 }
 
 #homepage-hero .section-header {
@@ -68,24 +56,20 @@
 }
 
 #homepage-hero h1 {
-  font-size: clamp(3.1rem, 4.6vw, 4.6rem);
-  line-height: 0.93;
-  letter-spacing: -0.05em;
-  margin-bottom: 12px;
-  max-width: 9ch;
-}
+  font-size: clamp(3rem, 4.2vw, 4.2rem);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+  margin-bottom: 14px;
 
-#homepage-hero .section-subtitle {
-  font-size: 1.04rem;
-  line-height: 1.68;
-  max-width: 760px;
+  /* THIS is the key fix */
+  max-width: 14ch;
 }
 
 #homepage-hero > p {
-  font-size: 0.99rem;
+  font-size: 0.98rem;
   line-height: 1.72;
   margin-bottom: 16px;
-  max-width: 760px;
+  max-width: 820px;
 }
 
 #homepage-hero .iva-btn-row {
@@ -95,18 +79,6 @@
 #homepage-hero .iva-cta-meta {
   margin-top: 12px;
   font-size: 0.9rem;
-}
-
-/* ============================================
-   SECTION HEADERS
-============================================ */
-
-.section-header {
-  margin-bottom: 20px;
-}
-
-.section-subtitle {
-  max-width: 980px;
 }
 
 /* ============================================
@@ -121,27 +93,12 @@
   .grid.grid-3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
-  #homepage-hero {
-    grid-template-columns: 1fr;
-    column-gap: 0;
-  }
-
-  #homepage-hero h1,
-  #homepage-hero .section-subtitle,
-  #homepage-hero > p {
-    max-width: none;
-  }
 }
 
 @media (max-width: 800px) {
   .grid.grid-2,
   .grid.grid-3 {
     grid-template-columns: 1fr;
-  }
-
-  #homepage-hero {
-    padding-top: 8px;
   }
 
   #homepage-hero h1 {
@@ -172,7 +129,7 @@
 .iva-cta-section h2,
 .iva-cta-section p,
 .iva-cta-section .iva-cta-meta {
-  max-width: 760px;
+  max-width: 720px;
 }
 
 .iva-cta-section .iva-btn-row {
