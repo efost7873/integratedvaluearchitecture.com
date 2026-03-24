@@ -19,23 +19,23 @@
 .iva-page main {
   max-width: $iva-site-max-width;
   margin: 0 auto;
-  padding: $space-8 $space-6 $space-9;
+  padding: $space-6 $space-6 $space-9;
 }
 
 @media (max-width: 980px) {
   .iva-page main {
-    padding: $space-7 $space-5 $space-8;
+    padding: $space-5 $space-5 $space-8;
   }
 }
 
 @media (max-width: 800px) {
   .iva-page main {
-    padding: $space-6 $space-4 $space-7;
+    padding: $space-4 $space-4 $space-7;
   }
 }
 
 /* ============================================
-   SECTION FLOW (NO MORE BOXED EVERYTHING)
+   SECTION FLOW
 ============================================ */
 
 .iva-page section {
@@ -51,22 +51,53 @@
 }
 
 /* ============================================
-   HERO FIX (MOST IMPORTANT CHANGE)
+   HERO
 ============================================ */
 
 #homepage-hero {
   background: transparent;
   border: none;
   box-shadow: none;
-  padding-left: 0;
-  padding-right: 0;
+  padding: 0;
 }
 
 #homepage-hero .section-header,
 #homepage-hero > p,
 #homepage-hero .iva-btn-row,
 #homepage-hero .iva-cta-meta {
-  max-width: 720px;
+  max-width: 700px;
+}
+
+#homepage-hero .section-header {
+  margin-bottom: $space-4;
+}
+
+#homepage-hero h1 {
+  font-size: clamp(2.4rem, 4.8vw, 3.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  max-width: 11ch;
+  margin-bottom: $space-3;
+}
+
+#homepage-hero .section-subtitle {
+  font-size: 1.02rem;
+  line-height: 1.65;
+  max-width: 640px;
+}
+
+#homepage-hero > p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: $space-4;
+}
+
+#homepage-hero .iva-btn-row {
+  margin-top: $space-4;
+}
+
+#homepage-hero .iva-cta-meta {
+  margin-top: $space-3;
 }
 
 /* ============================================
@@ -111,7 +142,7 @@
 }
 
 /* ============================================
-   CARD ADJUSTMENTS (LESS HEAVY)
+   CARD ADJUSTMENTS
 ============================================ */
 
 .card {
@@ -119,7 +150,7 @@
 }
 
 /* ============================================
-   CTA SECTION (LET BASE HANDLE MOST)
+   CTA SECTION
 ============================================ */
 
 .iva-cta-section {
@@ -127,18 +158,7 @@
 }
 
 /* ============================================
-   REMOVE LEGACY HEADER BEHAVIOR
-============================================ */
-
-html.header-hidden .iva-header,
-html.header-hidden .iva-identity-bar {
-  opacity: 1;
-  transform: none;
-  pointer-events: auto;
-}
-
-/* ============================================
-   ACCESSIBILITY (KEEP)
+   ACCESSIBILITY
 ============================================ */
 
 @media (prefers-reduced-motion: reduce) {
