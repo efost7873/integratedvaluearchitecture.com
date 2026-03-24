@@ -292,13 +292,13 @@ section {
 
 .iva-btn-secondary {
   background: transparent;
-  color: $iva-deep-governance-blue;
-  border: 1px solid rgba(31, 42, 68, 0.14);
+  color: $iva-text-soft;
+  border: 1px solid rgba(31, 42, 68, 0.10);
 }
 
 .iva-btn-secondary:hover,
 .iva-btn-secondary:focus {
-  background: rgba(31, 42, 68, 0.05);
+  background: rgba(31, 42, 68, 0.04);
   color: $iva-deep-governance-blue;
   transform: translateY(-1px);
 }
