@@ -19,7 +19,7 @@
 .iva-page main {
   max-width: $iva-site-max-width;
   margin: 0 auto;
-  padding: $space-7 $space-6 $space-9;
+  padding: $space-8 $space-6 $space-9;
 }
 
 @media (max-width: 980px) {
@@ -35,20 +35,38 @@
 }
 
 /* ============================================
-   REMOVE OLD SECTION OVERRIDES
+   SECTION FLOW (NO MORE BOXED EVERYTHING)
 ============================================ */
 
 .iva-page section {
-  margin-bottom: 0;
+  margin: 0;
   padding: 0;
   background: transparent;
   box-shadow: none;
-  border-radius: 0;
+  border: none;
 }
 
-/* spacing between sections handled globally */
 .iva-page section + section {
   margin-top: $space-8;
+}
+
+/* ============================================
+   HERO FIX (MOST IMPORTANT CHANGE)
+============================================ */
+
+#homepage-hero {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#homepage-hero .section-header,
+#homepage-hero > p,
+#homepage-hero .iva-btn-row,
+#homepage-hero .iva-cta-meta {
+  max-width: 720px;
 }
 
 /* ============================================
@@ -61,12 +79,18 @@
   border: none;
 }
 
+.section-header h1,
+.section-header h2,
+.section-header h3 {
+  margin-bottom: $space-3;
+}
+
 .section-subtitle {
   max-width: 640px;
 }
 
 /* ============================================
-   GRID OVERRIDES (LIGHT TOUCH)
+   GRID SYSTEM
 ============================================ */
 
 .grid {
@@ -87,7 +111,7 @@
 }
 
 /* ============================================
-   CARD OVERRIDES (MINIMAL)
+   CARD ADJUSTMENTS (LESS HEAVY)
 ============================================ */
 
 .card {
@@ -95,7 +119,7 @@
 }
 
 /* ============================================
-   CTA SECTION ADJUSTMENTS
+   CTA SECTION (LET BASE HANDLE MOST)
 ============================================ */
 
 .iva-cta-section {
@@ -103,10 +127,9 @@
 }
 
 /* ============================================
-   REMOVE LEGACY HEADER/IDENTITY BEHAVIOR
+   REMOVE LEGACY HEADER BEHAVIOR
 ============================================ */
 
-/* kill old hidden header logic */
 html.header-hidden .iva-header,
 html.header-hidden .iva-identity-bar {
   opacity: 1;
@@ -115,7 +138,7 @@ html.header-hidden .iva-identity-bar {
 }
 
 /* ============================================
-   ACCESSIBILITY (KEEP THIS)
+   ACCESSIBILITY (KEEP)
 ============================================ */
 
 @media (prefers-reduced-motion: reduce) {
