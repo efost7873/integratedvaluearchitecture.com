@@ -1,42 +1,43 @@
-<!-- Identity Bar -->
-<div class="iva-identity-bar">
-  A structural governance standard | Diagnostic mapping, implementation architecture, and ongoing support
-</div>
-
 <header class="iva-header" role="banner">
   <div class="iva-header-inner">
 
     <a class="iva-header-brand iva-header-brand-link" href="{{ site.baseurl }}/" aria-label="Integrated Value Architecture home">
-      <img 
+      <img
         src="{{ site.baseurl }}/assets/images/tmlogo.png"
-        alt="IVA Logo"
+        alt="Integrated Value Architecture logo"
         class="iva-header-logo"
       >
-      <div class="iva-header-title">Integrated Value Architecture</div>
+      <div class="iva-header-brand-text">
+        <div class="iva-header-title">Integrated Value Architecture</div>
+      </div>
     </a>
 
-    <div class="iva-header-toggle" id="iva-menu-toggle" aria-label="Open menu" aria-controls="iva-nav" aria-expanded="false">☰</div>
+    <button
+      class="iva-header-toggle"
+      id="iva-menu-toggle"
+      type="button"
+      aria-label="Open menu"
+      aria-controls="iva-nav"
+      aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
     <nav class="iva-header-nav" id="iva-nav" aria-label="Primary navigation">
       <a class="iva-header-link" href="{{ site.baseurl }}/">Home</a>
-      <a class="iva-header-link" href="{{ site.baseurl }}/standard">IVA Standard</a>
-      <a class="iva-header-link" href="{{ site.baseurl }}/diagnostic">Diagnostic</a>
-
-      <!-- Ledgers submenu -->
-      <details class="iva-header-details">
-        <summary class="iva-header-link iva-header-summary">Ledgers</summary>
-        <div class="iva-header-submenu" role="menu" aria-label="Ledgers submenu">
-          <a class="iva-header-sublink" href="{{ site.baseurl }}/finance" role="menuitem">Financial</a>
-          <a class="iva-header-sublink" href="{{ site.baseurl }}/operations" role="menuitem">Operational</a>
-          <a class="iva-header-sublink" href="{{ site.baseurl }}/capacity" role="menuitem">Capacity</a>
-          <a class="iva-header-sublink" href="{{ site.baseurl }}/external" role="menuitem">Externalities and Equity</a>
-          <a class="iva-header-sublink" href="{{ site.baseurl }}/learning" role="menuitem">Learning and Innovation</a>
-        </div>
-      </details>
-
-      <a class="iva-header-link" href="{{ site.baseurl }}/about-me">About Me</a>
+      <a class="iva-header-link" href="{{ site.baseurl }}/services">Services</a>
+      <a class="iva-header-link" href="{{ site.baseurl }}/about">About</a>
       <a class="iva-header-link" href="{{ site.baseurl }}/publications">Publications</a>
       <a class="iva-header-link" href="{{ site.baseurl }}/contact">Contact</a>
+
+      <a
+        class="iva-btn-primary iva-header-cta"
+        href="https://book.ms/b/IntegratedValueArchitectureLLC@integratedvaluearchitecture.com"
+        target="_blank"
+        rel="noopener">
+        Book a Call
+      </a>
     </nav>
 
   </div>
