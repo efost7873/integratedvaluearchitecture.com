@@ -13,18 +13,18 @@
 .iva-page main {
   max-width: 1320px;
   margin: 0 auto;
-  padding: 18px $space-5 $space-8;
+  padding: 22px 32px 64px;
 }
 
 @media (max-width: 980px) {
   .iva-page main {
-    padding: 14px $space-4 $space-7;
+    padding: 18px 24px 56px;
   }
 }
 
 @media (max-width: 800px) {
   .iva-page main {
-    padding: 12px $space-4 $space-6;
+    padding: 14px 18px 48px;
   }
 }
 
@@ -32,7 +32,7 @@
    SECTION FLOW
 ============================================ */
 
-.iva-page section {
+.iva-page section:not(.iva-band-strong):not(.iva-band-soft):not(.iva-cta-section) {
   margin: 0;
   padding: 0;
   background: transparent;
@@ -49,10 +49,9 @@
 ============================================ */
 
 #homepage-hero {
-  padding: 0;
+  padding: $space-5 0 0;
 }
 
-/* make hero use more of the page width */
 #homepage-hero .section-header,
 #homepage-hero > p,
 #homepage-hero .iva-btn-row,
@@ -65,7 +64,7 @@
 }
 
 #homepage-hero h1 {
-  font-size: clamp(2.1rem, 4vw, 3.2rem);
+  font-size: clamp(2.35rem, 4.4vw, 3.35rem);
   line-height: 1.02;
   letter-spacing: -0.03em;
   margin-bottom: $space-2;
@@ -74,7 +73,7 @@
 
 #homepage-hero .section-subtitle {
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.62;
   max-width: 780px;
 }
 
@@ -94,7 +93,7 @@
 }
 
 /* ============================================
-   SECTION HEADER
+   SECTION HEADERS
 ============================================ */
 
 .section-header {
@@ -106,7 +105,7 @@
 }
 
 /* ============================================
-   GRID SYSTEM
+   GRID
 ============================================ */
 
 .grid {
@@ -127,7 +126,7 @@
 }
 
 /* ============================================
-   CARD ADJUSTMENTS
+   CARDS
 ============================================ */
 
 .card {
@@ -140,6 +139,13 @@
 
 .iva-cta-section {
   text-align: left;
+  padding: $space-6;
+}
+
+@media (max-width: 800px) {
+  .iva-cta-section {
+    padding: $space-5;
+  }
 }
 
 /* ============================================
