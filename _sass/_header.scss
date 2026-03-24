@@ -1,72 +1,26 @@
 /* ============================================
-   IDENTITY BAR (Brand Glass)
-============================================ */
-
-.iva-identity-bar {
-  background: rgba(31, 42, 68, 0.90);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-bottom: 1px solid rgba(31, 42, 68, 0.62);
-  color: #FFFFFF;
-  font-size: 0.82rem;
-  padding: 6px 32px;
-  text-align: center;
-  letter-spacing: 0.3px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 9999;
-  transition: transform 0.35s ease, opacity 0.25s ease;
-  will-change: transform;
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* ============================================
-   HEADER (Glass + Gradient)
+   HEADER
 ============================================ */
 
 .iva-header {
-  position: fixed;
-  top: 32px;
-  left: 0;
-  width: 100%;
-  z-index: 9998;
-  isolation: isolate;
-
-  backdrop-filter: blur(36px);
-  -webkit-backdrop-filter: blur(36px);
-
-  background: linear-gradient(
-    to bottom,
-    rgba(31, 42, 68, 0.74),
-    rgba(31, 42, 68, 0.56)
-  );
-  border-bottom: 1px solid rgba(31, 42, 68, 0.48);
-
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: $iva-border-soft;
   transition:
-    transform 0.35s ease,
-    opacity 0.25s ease,
-    background-color 0.24s ease-out,
-    backdrop-filter 0.24s ease-out,
-    box-shadow 0.24s ease-out,
-    border-color 0.24s ease-out,
-    padding 0.24s ease-out;
-
-  will-change: transform;
+    background $iva-transition-med,
+    box-shadow $iva-transition-med,
+    border-color $iva-transition-med,
+    transform $iva-transition-med;
 }
 
 .iva-header.scrolled {
-  background: linear-gradient(
-    to bottom,
-    rgba(31, 42, 68, 0.88),
-    rgba(31, 42, 68, 0.78)
-  );
-  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.38);
-  border-color: rgba(31, 42, 68, 0.62);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: $iva-shadow-header;
+  border-bottom: $iva-border-mid;
 }
 
 /* ============================================
@@ -74,45 +28,48 @@
 ============================================ */
 
 .iva-header-inner {
-  max-width: 1120px;
+  max-width: $iva-site-max-width;
+  min-height: $iva-header-height;
   margin: 0 auto;
-  padding: 14px 32px;
+  padding: 0 $space-6;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  transition: padding 0.24s ease-out;
+  gap: $space-5;
 }
 
-.iva-header-brand {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  min-width: 0;
-}
-
-/* Added to support clickable logo without changing layout */
+.iva-header-brand,
 .iva-header-brand-link {
   display: inline-flex;
   align-items: center;
+  gap: $space-4;
+  min-width: 0;
+  text-decoration: none;
+}
+
+.iva-header-brand-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
 }
 
 .iva-header-logo {
-  height: 40px;
-  background: #FFFFFF;
+  height: 46px;
+  width: auto;
+  display: block;
+  background: $iva-neutral-0;
   padding: 6px 10px;
-  border-radius: 6px;
-  border: 1px solid #4A5673;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.22);
-  transition: height 0.24s ease-out;
+  border-radius: $iva-radius-sm;
+  border: $iva-border-soft;
+  box-shadow: $iva-shadow-xs;
 }
 
 .iva-header-title {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #FFFFFF;
-  letter-spacing: 0.4px;
-  transition: font-size 0.24s ease-out;
+  color: $iva-deep-governance-blue;
+  font-size: 1.15rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
   white-space: nowrap;
 }
 
@@ -122,260 +79,168 @@
 
 .iva-header-nav {
   display: flex;
-  gap: 32px;
-  font-size: 1.05rem;
-  align-items: center; /* alignment fix */
+  align-items: center;
+  gap: $space-5;
+  margin-left: auto;
 }
 
 .iva-header-link {
-  color: rgba(255,255,255,0.88);
-  text-decoration: none;
   position: relative;
-  padding-bottom: 2px;
-  transition: color 0.18s ease-out;
-  line-height: 1; /* alignment fix */
+  display: inline-flex;
+  align-items: center;
+  color: $iva-text-strong;
+  text-decoration: none;
+  font-size: 0.98rem;
+  font-weight: 500;
+  line-height: 1;
+  padding: 8px 0;
+  transition: color $iva-transition-fast, opacity $iva-transition-fast;
 }
 
-.iva-header-link:hover {
-  color: #FFFFFF;
+.iva-header-link:hover,
+.iva-header-link:focus {
+  color: $iva-deep-governance-blue;
+  opacity: 1;
 }
 
 .iva-header-link::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -3px;
+  bottom: -2px;
   width: 0;
   height: 2px;
-  background: #FFFFFF;
-  transform: translateY(1px);
-  transition: width 0.16s cubic-bezier(0.4, 0, 0.2, 1);
+  background: $iva-civic-amber;
+  border-radius: 999px;
+  transition: width $iva-transition-fast;
 }
 
-.iva-header-link:hover::after {
+.iva-header-link:hover::after,
+.iva-header-link:focus::after {
   width: 100%;
 }
 
 /* ============================================
-   LEDGERS SUBMENU (details/summary)
+   HEADER CTA
 ============================================ */
 
-.iva-header-details {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-}
-
-/* Make summary behave like nav links */
-.iva-header-summary {
-  list-style: none;
-  cursor: pointer;
-  user-select: none;
-
-  display: inline-flex;
-  align-items: center;
-
-  color: rgba(255,255,255,0.88);
-  font-size: 1.05rem;
-  position: relative;
-
-  padding-bottom: 2px;
-  padding-left: 0;
-  margin: 0;
-
-  transition: color 0.18s ease-out;
-  line-height: 1; /* alignment fix */
-}
-
-/* Chrome/Safari marker */
-.iva-header-summary::-webkit-details-marker {
-  display: none;
-}
-
-.iva-header-summary:hover {
-  color: #FFFFFF;
-}
-
-/* Add a subtle caret */
-.iva-header-summary::before {
-  content: "▾";
-  display: inline-block;
-  margin-left: 8px;
-  font-size: 0.85em;
-  transform: translateY(-1px);
-  opacity: 0.9;
-}
-
-/* Desktop dropdown panel */
-.iva-header-submenu {
-  display: none;
-  position: absolute;
-  top: calc(100% + 14px);
-  left: 0;
-  min-width: 240px;
-
-  padding: 10px;
-  border-radius: 12px;
-
-  background: rgba(31, 42, 68, 0.96);
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
-
-  border: 1px solid rgba(255,255,255,0.14);
-  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
-
-  z-index: 9999;
-}
-
-/* Show submenu when open */
-.iva-header-details[open] .iva-header-submenu {
-  display: block;
-}
-
-.iva-header-sublink {
-  display: block;
-  padding: 10px 10px;
-  border-radius: 10px;
+.iva-header-cta {
+  margin-left: $space-2;
+  white-space: nowrap;
   text-decoration: none;
-
-  color: rgba(255,255,255,0.90);
-  transition: background 0.14s ease-out, color 0.14s ease-out;
-}
-
-.iva-header-sublink:hover,
-.iva-header-sublink:focus {
-  color: #FFFFFF;
-  background: rgba(255,255,255,0.10);
-  outline: none;
-}
-
-/* Underline behavior consistent with other nav items */
-.iva-header-details .iva-header-summary::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 0;
-  height: 2px;
-  background: #FFFFFF;
-  transform: translateY(1px);
-  transition: width 0.16s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.iva-header-details:hover .iva-header-summary::after,
-.iva-header-details[open] .iva-header-summary::after {
-  width: 100%;
+  box-shadow: none;
 }
 
 /* ============================================
-   TABLET LAYOUT
-============================================ */
-
-@media (max-width: 980px) {
-  .iva-header-inner {
-    flex-wrap: wrap;
-    padding: 12px 24px;
-    gap: 16px;
-  }
-
-  .iva-header-logo {
-    height: 36px;
-  }
-
-  .iva-header-title {
-    font-size: 1.25rem;
-  }
-
-  .iva-header-nav {
-    gap: 18px;
-    font-size: 0.95rem;
-  }
-
-  .iva-header-summary {
-    font-size: 0.95rem;
-  }
-}
-
-/* ============================================
-   MOBILE LAYOUT
+   MOBILE TOGGLE
 ============================================ */
 
 .iva-header-toggle {
   display: none;
-  font-size: 1.9rem;
-  color: #FFFFFF;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
   cursor: pointer;
 }
 
-@media (max-width: 900px) {
-  body .iva-identity-bar {
-    display: none !important;
-    visibility: hidden !important;
-  }
-
-  body .iva-header {
-    top: 0 !important;
-  }
+.iva-header-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: $iva-deep-governance-blue;
+  border-radius: 999px;
+  transition: transform $iva-transition-fast, opacity $iva-transition-fast;
 }
 
-@media (max-width: 780px) {
+.iva-header-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
 
-  .iva-header-toggle {
-    display: block;
-  }
+.iva-header-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
 
+.iva-header-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ============================================
+   TABLET
+============================================ */
+
+@media (max-width: 1080px) {
   .iva-header-inner {
-    padding: 10px 14px;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-
-    position: relative;
+    padding: 0 $space-5;
+    gap: $space-4;
   }
 
-  .iva-header-brand {
-    gap: 10px;
-  }
-
-  .iva-header-logo {
-    height: 32px;
-    padding: 5px 8px;
+  .iva-header-nav {
+    gap: $space-4;
   }
 
   .iva-header-title {
     font-size: 1.05rem;
-    letter-spacing: 0.2px;
+  }
+
+  .iva-header-link {
+    font-size: 0.95rem;
+  }
+}
+
+/* ============================================
+   MOBILE
+============================================ */
+
+@media (max-width: 820px) {
+  .iva-header {
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+
+  .iva-header-inner {
+    min-height: $iva-header-height-mobile;
+    padding: 0 $space-4;
+    gap: $space-3;
+  }
+
+  .iva-header-logo {
+    height: 40px;
+    padding: 5px 9px;
+  }
+
+  .iva-header-title {
+    font-size: 1rem;
+    max-width: 54vw;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 62vw;
+  }
+
+  .iva-header-toggle {
+    display: inline-flex;
+    margin-left: auto;
   }
 
   .iva-header-nav {
     position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-
+    top: calc(100% + 1px);
+    left: $space-3;
+    right: $space-3;
     display: none;
     flex-direction: column;
-
-    align-items: flex-start;
-    justify-content: flex-start;
-    text-align: left;
-
+    align-items: stretch;
     gap: 0;
-    padding: 12px 14px 14px;
-    margin: 0;
-
-    background: rgba(31, 42, 68, 0.94);
-    backdrop-filter: blur(28px);
-    -webkit-backdrop-filter: blur(28px);
-
-    border-top: 1px solid rgba(255,255,255,0.12);
-    border-bottom: 1px solid rgba(31, 42, 68, 0.62);
-
-    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+    padding: $space-3;
+    background: rgba(255, 255, 255, 0.98);
+    border: $iva-border-soft;
+    border-radius: $iva-radius-md;
+    box-shadow: $iva-shadow-md;
   }
 
   .iva-header-nav.is-open {
@@ -384,79 +249,24 @@
 
   .iva-header-link {
     width: 100%;
-    padding: 10px 6px;
-    font-size: 1.02rem;
-    color: rgba(255,255,255,0.92);
-    line-height: 1.2; /* mobile readability */
+    justify-content: flex-start;
+    padding: 14px 6px;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(31, 42, 68, 0.08);
+  }
+
+  .iva-header-link:last-of-type {
+    border-bottom: 0;
   }
 
   .iva-header-link::after {
     display: none;
   }
 
-  .iva-header-link + .iva-header-link {
-    border-top: 1px solid rgba(255,255,255,0.10);
-  }
-
-  /* Mobile submenu behaves like inline list, not floating dropdown */
-  .iva-header-details {
+  .iva-header-cta {
     width: 100%;
-    display: block;
+    margin: $space-3 0 0;
+    text-align: center;
+    justify-content: center;
   }
-
-  .iva-header-summary {
-    width: 100%;
-    padding: 10px 6px;
-    color: rgba(255,255,255,0.92);
-    position: relative;
-    line-height: 1.2;
-  }
-
-  .iva-header-details .iva-header-summary::after {
-    display: none;
-  }
-
-  .iva-header-submenu {
-    position: static;
-    display: none;
-
-    width: 100%;
-    min-width: 0;
-
-    padding: 6px 0 10px 10px;
-    margin: 0;
-
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-
-    background: transparent;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-
-  .iva-header-details[open] .iva-header-submenu {
-    display: block;
-  }
-
-  .iva-header-sublink {
-    width: 100%;
-    padding: 10px 6px;
-    border-radius: 0;
-    background: transparent;
-  }
-
-  .iva-header-sublink + .iva-header-sublink {
-    border-top: 1px solid rgba(255,255,255,0.10);
-  }
-}
-
-/* ============================================
-   SLIDE-AWAY HEADER
-============================================ */
-
-.iva-identity-bar.header-hidden,
-.iva-header.header-hidden {
-  transform: translateY(-100%);
-  opacity: 0;
 }
