@@ -5,8 +5,8 @@
 .iva-footer {
   background: $iva-surface-dark;
   color: $iva-text-inverse;
-  padding: $space-8 $space-5 $space-6;
-  margin-top: $space-9;
+  padding: $space-6 $space-5 $space-5;
+  margin-top: $space-7;
 }
 
 .iva-footer-wrapper {
@@ -16,42 +16,41 @@
 
 .iva-footer-grid {
   display: grid;
-  grid-template-columns: 1.35fr 0.85fr 0.9fr;
-  gap: $space-7;
-  margin-bottom: $space-7;
+  grid-template-columns: 1.2fr 0.8fr 0.9fr;
+  gap: $space-6;
+  margin-bottom: $space-5;
 }
 
 .iva-footer-col {
   display: flex;
   flex-direction: column;
-  gap: $space-3;
+  gap: $space-2;
   min-width: 0;
 }
 
 .iva-footer-col-brand {
-  padding-right: $space-4;
+  padding-right: $space-3;
 }
 
 .iva-footer-brand {
   display: inline-flex;
   align-items: center;
-  gap: $space-4;
+  gap: $space-3;
   margin-bottom: $space-2;
 }
 
 .iva-footer-logo {
-  height: 42px;
+  height: 36px;
   width: auto;
   display: block;
   background: rgba(255, 255, 255, 0.96);
-  padding: 6px 10px;
+  padding: 5px 8px;
   border-radius: $iva-radius-sm;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow: none;
 }
 
 .iva-footer-title {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 650;
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -59,16 +58,16 @@
 }
 
 .iva-footer-desc {
-  margin: 0;
-  max-width: 34rem;
-  font-size: 1rem;
-  line-height: 1.7;
+  margin: 0 0 $space-3;
+  max-width: 30rem;
+  font-size: 0.98rem;
+  line-height: 1.65;
   color: rgba(255, 255, 255, 0.78);
 }
 
 .iva-footer-heading {
   margin: 0 0 $space-2;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 650;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -77,8 +76,8 @@
 
 .iva-footer-text {
   margin: 0;
-  font-size: 0.98rem;
-  line-height: 1.6;
+  font-size: 0.96rem;
+  line-height: 1.55;
   color: rgba(255, 255, 255, 0.76);
 }
 
@@ -86,42 +85,39 @@
   display: inline-flex;
   align-items: center;
   width: fit-content;
-  font-size: 0.98rem;
-  line-height: 1.5;
+  font-size: 0.96rem;
+  line-height: 1.45;
   color: rgba(255, 255, 255, 0.86);
   text-decoration: none;
-  transition:
-    color $iva-transition-fast,
-    opacity $iva-transition-fast,
-    transform $iva-transition-fast;
+  transition: color $iva-transition-fast, transform $iva-transition-fast;
+}
 
-  &:hover,
-  &:focus {
-    color: $iva-civic-amber;
-    transform: translateX(2px);
-  }
+.iva-footer-link:hover,
+.iva-footer-link:focus {
+  color: $iva-civic-amber;
+  transform: translateX(2px);
 }
 
 .iva-footer-cta {
-  margin-top: $space-3;
+  margin-top: $space-2;
   width: fit-content;
   text-decoration: none;
 }
 
 .iva-footer-bottom {
-  padding-top: $space-5;
+  padding-top: $space-4;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: $space-5;
+  gap: $space-4;
   flex-wrap: wrap;
 }
 
 .iva-footer-legal {
-  max-width: 48rem;
-  font-size: 0.88rem;
-  line-height: 1.7;
+  max-width: 44rem;
+  font-size: 0.84rem;
+  line-height: 1.65;
   color: rgba(255, 255, 255, 0.62);
 }
 
@@ -133,33 +129,29 @@
 .iva-footer-bottom-links {
   display: flex;
   align-items: center;
-  gap: $space-4;
+  gap: $space-3;
   flex-wrap: wrap;
 }
 
 .iva-footer-bottom-links .iva-footer-link {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: rgba(255, 255, 255, 0.68);
-
-  &:hover,
-  &:focus {
-    color: $iva-civic-amber;
-    transform: none;
-  }
 }
 
-/* ============================================
-   TABLET
-============================================ */
+.iva-footer-bottom-links .iva-footer-link:hover,
+.iva-footer-bottom-links .iva-footer-link:focus {
+  color: $iva-civic-amber;
+  transform: none;
+}
 
 @media (max-width: 980px) {
   .iva-footer {
-    padding: $space-7 $space-5 $space-6;
+    padding: $space-6 $space-4 $space-5;
   }
 
   .iva-footer-grid {
     grid-template-columns: 1fr 1fr;
-    gap: $space-6;
+    gap: $space-5;
   }
 
   .iva-footer-col-brand {
@@ -168,48 +160,31 @@
   }
 }
 
-/* ============================================
-   MOBILE
-============================================ */
-
 @media (max-width: 680px) {
   .iva-footer {
-    padding: $space-6 $space-4 $space-5;
-    margin-top: $space-8;
+    padding: $space-5 $space-4 $space-4;
+    margin-top: $space-6;
   }
 
   .iva-footer-grid {
     grid-template-columns: 1fr;
-    gap: $space-5;
-    margin-bottom: $space-6;
-  }
-
-  .iva-footer-brand {
-    gap: $space-3;
-  }
-
-  .iva-footer-logo {
-    height: 38px;
-    padding: 5px 8px;
+    gap: $space-4;
+    margin-bottom: $space-4;
   }
 
   .iva-footer-title {
-    font-size: 1rem;
+    font-size: 0.98rem;
   }
 
   .iva-footer-desc,
   .iva-footer-text,
   .iva-footer-link {
-    font-size: 0.95rem;
+    font-size: 0.94rem;
   }
 
   .iva-footer-bottom {
     flex-direction: column;
-    gap: $space-4;
-    padding-top: $space-4;
-  }
-
-  .iva-footer-bottom-links {
     gap: $space-3;
+    padding-top: $space-3;
   }
 }
