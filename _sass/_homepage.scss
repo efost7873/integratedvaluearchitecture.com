@@ -11,20 +11,20 @@
 ============================================ */
 
 .iva-page main {
-  max-width: 1320px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 22px 32px 36px;
+  padding: 24px 40px 40px;
 }
 
 @media (max-width: 980px) {
   .iva-page main {
-    padding: 18px 24px 32px;
+    padding: 20px 28px 34px;
   }
 }
 
 @media (max-width: 800px) {
   .iva-page main {
-    padding: 14px 18px 28px;
+    padding: 16px 18px 28px;
   }
 }
 
@@ -43,50 +43,49 @@
 }
 
 /* ============================================
-   HERO
+   HERO LAYOUT
 ============================================ */
 
 #homepage-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 760px) minmax(120px, 1fr);
+  column-gap: 72px;
+  align-items: start;
   padding-top: 12px;
-  padding-right: 40px;
 }
 
-@media (max-width: 800px) {
-  #homepage-hero {
-    padding-right: 0;
-  }
-}
-
+/* force all hero content into left column */
 #homepage-hero .section-header,
 #homepage-hero > p,
 #homepage-hero .iva-btn-row,
 #homepage-hero .iva-cta-meta {
-  max-width: 980px;
+  grid-column: 1;
+  max-width: none;
 }
 
 #homepage-hero .section-header {
-  max-width: 980px;
   margin-bottom: 16px;
 }
 
 #homepage-hero h1 {
-  font-size: clamp(3rem, 4.6vw, 4.4rem);
-  line-height: 0.94;
+  font-size: clamp(3.1rem, 4.6vw, 4.6rem);
+  line-height: 0.93;
   letter-spacing: -0.05em;
   margin-bottom: 12px;
-  max-width: 12ch;
+  max-width: 9ch;
 }
 
 #homepage-hero .section-subtitle {
-  font-size: 1.02rem;
+  font-size: 1.04rem;
   line-height: 1.68;
-  max-width: 900px;
+  max-width: 760px;
 }
 
 #homepage-hero > p {
-  font-size: 0.98rem;
+  font-size: 0.99rem;
   line-height: 1.72;
   margin-bottom: 16px;
+  max-width: 760px;
 }
 
 #homepage-hero .iva-btn-row {
@@ -122,12 +121,33 @@
   .grid.grid-3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  #homepage-hero {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+
+  #homepage-hero h1,
+  #homepage-hero .section-subtitle,
+  #homepage-hero > p {
+    max-width: none;
+  }
 }
 
 @media (max-width: 800px) {
   .grid.grid-2,
   .grid.grid-3 {
     grid-template-columns: 1fr;
+  }
+
+  #homepage-hero {
+    padding-top: 8px;
+  }
+
+  #homepage-hero h1 {
+    font-size: clamp(2.6rem, 10vw, 3.4rem);
+    line-height: 0.96;
+    max-width: 10ch;
   }
 }
 
