@@ -32,10 +32,6 @@
    HOMEPAGE SPACING CONTROL
 ============================================ */
 
-.iva-page section {
-  margin-bottom: 0;
-}
-
 .iva-page section + section {
   margin-top: 56px;
 }
@@ -51,33 +47,40 @@
 ============================================ */
 
 #homepage-hero {
-  padding-top: 8px;
+  padding-top: 12px;
+  padding-right: 40px;
+}
+
+@media (max-width: 800px) {
+  #homepage-hero {
+    padding-right: 0;
+  }
 }
 
 #homepage-hero .section-header,
 #homepage-hero > p,
 #homepage-hero .iva-btn-row,
 #homepage-hero .iva-cta-meta {
-  max-width: 760px;
+  max-width: 980px;
 }
 
 #homepage-hero .section-header {
-  max-width: 700px;
+  max-width: 980px;
   margin-bottom: 16px;
 }
 
 #homepage-hero h1 {
-  font-size: clamp(2.9rem, 4.4vw, 4rem);
-  line-height: 0.96;
-  letter-spacing: -0.045em;
-  margin-bottom: 10px;
-  max-width: none;
+  font-size: clamp(3rem, 4.6vw, 4.4rem);
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+  margin-bottom: 12px;
+  max-width: 12ch;
 }
 
 #homepage-hero .section-subtitle {
-  font-size: 1rem;
-  line-height: 1.65;
-  max-width: 760px;
+  font-size: 1.02rem;
+  line-height: 1.68;
+  max-width: 900px;
 }
 
 #homepage-hero > p {
@@ -104,7 +107,7 @@
 }
 
 .section-subtitle {
-  max-width: 760px;
+  max-width: 980px;
 }
 
 /* ============================================
