@@ -1,136 +1,89 @@
 // ======================================================
-// MOBILE MENU TOGGLE
+// HEADER + MOBILE NAV
 // ======================================================
 
-const ivaToggle = document.getElementById('iva-menu-toggle');
-const ivaNav = document.getElementById('iva-nav');
+const ivaHeader = document.querySelector(".iva-header");
+const ivaToggle = document.getElementById("iva-menu-toggle");
+const ivaNav = document.getElementById("iva-nav");
+const ivaNavLinks = ivaNav ? ivaNav.querySelectorAll("a") : [];
 
-const ivaLedgersDetails = document.querySelector('.iva-header-details');
-const ivaLedgersSubLinks = document.querySelectorAll('.iva-header-sublink');
-
-function closeLedgersMenu() {
-  if (ivaLedgersDetails) {
-    ivaLedgersDetails.removeAttribute('open');
-  }
+function closeMobileMenu() {
+  if (!ivaToggle || !ivaNav) return;
+  ivaNav.classList.remove("is-open");
+  ivaToggle.setAttribute("aria-expanded", "false");
+  ivaToggle.setAttribute("aria-label", "Open menu");
 }
 
-function updateMenu() {
+function openMobileMenu() {
+  if (!ivaToggle || !ivaNav) return;
+  ivaNav.classList.add("is-open");
+  ivaToggle.setAttribute("aria-expanded", "true");
+  ivaToggle.setAttribute("aria-label", "Close menu");
+}
+
+function updateMenuState() {
   if (!ivaToggle || !ivaNav) return;
 
-  if (window.innerWidth < 780) {
-    ivaToggle.style.display = 'block';
-    ivaNav.classList.remove('is-open');
-    closeLedgersMenu();
-  } else {
-    ivaToggle.style.display = 'none';
-    ivaNav.classList.remove('is-open');
-    closeLedgersMenu();
+  if (window.innerWidth > 820) {
+    ivaNav.classList.remove("is-open");
+    ivaToggle.setAttribute("aria-expanded", "false");
+    ivaToggle.setAttribute("aria-label", "Open menu");
   }
 }
 
 if (ivaToggle && ivaNav) {
-  ivaToggle.addEventListener('click', () => {
-    ivaNav.classList.toggle('is-open');
-
-    // If the nav is being closed, also close the ledgers submenu
-    if (!ivaNav.classList.contains('is-open')) {
-      closeLedgersMenu();
+  ivaToggle.addEventListener("click", () => {
+    const isOpen = ivaNav.classList.contains("is-open");
+    if (isOpen) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
     }
   });
-}
 
-window.addEventListener('resize', updateMenu);
-updateMenu();
-
-
-// ======================================================
-// LEDGERS SUBMENU CLOSE BEHAVIOR
-// ======================================================
-
-// Close when clicking outside the details/menu area
-document.addEventListener('click', (event) => {
-  if (!ivaLedgersDetails) return;
-
-  if (!ivaLedgersDetails.contains(event.target)) {
-    closeLedgersMenu();
-  }
-});
-
-// Close on Escape key
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape') {
-    closeLedgersMenu();
-
-    // Also close mobile nav if open, because escape should mean "close menus"
-    if (ivaNav && ivaNav.classList.contains('is-open')) {
-      ivaNav.classList.remove('is-open');
-    }
-  }
-});
-
-// Close when a ledger sublink is clicked
-if (ivaLedgersSubLinks && ivaLedgersSubLinks.length > 0) {
-  ivaLedgersSubLinks.forEach((link) => {
-    link.addEventListener('click', () => {
-      closeLedgersMenu();
-
-      // On mobile, collapse the nav after choosing a destination
-      if (ivaNav && window.innerWidth < 780) {
-        ivaNav.classList.remove('is-open');
+  ivaNavLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (window.innerWidth <= 820) {
+        closeMobileMenu();
       }
     });
   });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMobileMenu();
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (window.innerWidth > 820) return;
+    if (!ivaNav.classList.contains("is-open")) return;
+
+    const clickedInsideNav = ivaNav.contains(event.target);
+    const clickedToggle = ivaToggle.contains(event.target);
+
+    if (!clickedInsideNav && !clickedToggle) {
+      closeMobileMenu();
+    }
+  });
+
+  window.addEventListener("resize", updateMenuState);
+  updateMenuState();
 }
 
-// Close when focus moves away (keyboard navigation / accessibility)
-document.addEventListener('focusin', (event) => {
-  if (!ivaLedgersDetails) return;
+// ======================================================
+// HEADER SCROLL STATE
+// ======================================================
 
-  // If details is open and focus moved outside it, close it
-  if (ivaLedgersDetails.hasAttribute('open') && !ivaLedgersDetails.contains(event.target)) {
-    closeLedgersMenu();
+function updateHeaderScrollState() {
+  if (!ivaHeader) return;
+
+  if (window.scrollY > 12) {
+    ivaHeader.classList.add("scrolled");
+  } else {
+    ivaHeader.classList.remove("scrolled");
   }
-});
+}
 
-
-// ======================================================
-// FOOTER OPACITY ON SCROLL
-// ======================================================
-
-const ivaFooter = document.querySelector('.iva-footer');
-
-window.addEventListener('scroll', () => {
-  if (!ivaFooter) return;
-  ivaFooter.style.opacity = window.scrollY > 0 ? '0.96' : '1';
-});
-
-
-// ======================================================
-// HEADER HIDE / SHOW ON SCROLL (SITE-WIDE)
-// ======================================================
-
-(function () {
-  var header = document.querySelector(".iva-header");
-  if (!header) return;
-
-  var lastScrollY = window.scrollY;
-
-  function handleHeaderScroll() {
-    var currentY = window.scrollY;
-
-    if (currentY > lastScrollY && currentY > 120) {
-      header.classList.add("header-hidden");
-      // If header hides, also close ledgers submenu so it never floats open
-      closeLedgersMenu();
-    }
-
-    if (currentY < 80) {
-      header.classList.remove("header-hidden");
-    }
-
-    lastScrollY = currentY;
-  }
-
-  window.addEventListener("scroll", handleHeaderScroll);
-  handleHeaderScroll();
-})();
+window.addEventListener("scroll", updateHeaderScrollState, { passive: true });
+updateHeaderScrollState();
