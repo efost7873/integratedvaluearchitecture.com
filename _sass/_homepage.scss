@@ -49,7 +49,7 @@
 ============================================ */
 
 #homepage-hero {
-  padding-top: $space-3;
+  padding-top: $space-2;
 }
 
 #homepage-hero .section-header,
@@ -64,11 +64,11 @@
 }
 
 #homepage-hero h1 {
-  font-size: clamp(2.6rem, 4.4vw, 3.8rem);
+  font-size: clamp(2.9rem, 4.4vw, 4rem);
   line-height: 0.98;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.04em;
   margin-bottom: $space-2;
-  max-width: 16ch;
+  max-width: 10.5ch;
 }
 
 #homepage-hero .section-subtitle {
@@ -146,6 +146,23 @@
 .iva-cta-section p,
 .iva-cta-section .iva-cta-meta {
   max-width: 860px;
+}
+
+.iva-cta-section .iva-btn-row {
+  margin-top: $space-3;
+}
+
+.iva-cta-section .iva-btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.iva-cta-section .iva-btn-secondary:hover,
+.iva-cta-section .iva-btn-secondary:focus {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.32);
 }
 
 @media (max-width: 800px) {
