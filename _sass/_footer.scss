@@ -5,8 +5,8 @@
 .iva-footer {
   background: $iva-surface-dark;
   color: $iva-text-inverse;
-  padding: $space-5 $space-5 $space-4;
-  margin-top: $space-6;
+  padding: 32px 32px 24px;
+  margin-top: 24px;
 }
 
 .iva-footer-wrapper {
@@ -16,31 +16,27 @@
 
 .iva-footer-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.75fr 0.9fr;
-  gap: $space-5;
-  margin-bottom: $space-4;
+  grid-template-columns: 1.05fr 0.75fr 0.9fr;
+  gap: 28px;
+  margin-bottom: 24px;
 }
 
 .iva-footer-col {
   display: flex;
   flex-direction: column;
-  gap: $space-2;
+  gap: 8px;
   min-width: 0;
-}
-
-.iva-footer-col-brand {
-  padding-right: $space-2;
 }
 
 .iva-footer-brand {
   display: inline-flex;
   align-items: center;
-  gap: $space-3;
-  margin-bottom: $space-2;
+  gap: 12px;
+  margin-bottom: 8px;
 }
 
 .iva-footer-logo {
-  height: 36px;
+  height: 34px;
   width: auto;
   display: block;
   background: rgba(255, 255, 255, 0.96);
@@ -58,16 +54,16 @@
 }
 
 .iva-footer-desc {
-  margin: 0 0 $space-2;
-  max-width: 28rem;
-  font-size: 0.96rem;
-  line-height: 1.6;
+  margin: 0;
+  max-width: 26rem;
+  font-size: 0.94rem;
+  line-height: 1.55;
   color: rgba(255, 255, 255, 0.78);
 }
 
 .iva-footer-heading {
-  margin: 0 0 $space-2;
-  font-size: 0.9rem;
+  margin: 0 0 6px;
+  font-size: 0.88rem;
   font-weight: 650;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -76,8 +72,8 @@
 
 .iva-footer-text {
   margin: 0;
-  font-size: 0.94rem;
-  line-height: 1.5;
+  font-size: 0.92rem;
+  line-height: 1.45;
   color: rgba(255, 255, 255, 0.76);
 }
 
@@ -85,7 +81,7 @@
   display: inline-flex;
   align-items: center;
   width: fit-content;
-  font-size: 0.94rem;
+  font-size: 0.92rem;
   line-height: 1.4;
   color: rgba(255, 255, 255, 0.86);
   text-decoration: none;
@@ -99,19 +95,19 @@
 }
 
 .iva-footer-bottom {
-  padding-top: $space-3;
+  padding-top: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: $space-4;
+  gap: 16px;
   flex-wrap: wrap;
 }
 
 .iva-footer-legal {
-  max-width: 42rem;
-  font-size: 0.82rem;
-  line-height: 1.6;
+  max-width: 40rem;
+  font-size: 0.8rem;
+  line-height: 1.55;
   color: rgba(255, 255, 255, 0.62);
 }
 
@@ -123,12 +119,12 @@
 .iva-footer-bottom-links {
   display: flex;
   align-items: center;
-  gap: $space-3;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
 .iva-footer-bottom-links .iva-footer-link {
-  font-size: 0.86rem;
+  font-size: 0.84rem;
   color: rgba(255, 255, 255, 0.68);
 }
 
@@ -140,45 +136,34 @@
 
 @media (max-width: 980px) {
   .iva-footer {
-    padding: $space-5 $space-4 $space-4;
+    padding: 28px 24px 22px;
   }
 
   .iva-footer-grid {
     grid-template-columns: 1fr 1fr;
-    gap: $space-4;
+    gap: 24px;
   }
 
   .iva-footer-col-brand {
     grid-column: 1 / -1;
-    padding-right: 0;
   }
 }
 
 @media (max-width: 680px) {
   .iva-footer {
-    padding: $space-4 $space-4 $space-4;
-    margin-top: $space-5;
+    padding: 24px 18px 20px;
+    margin-top: 20px;
   }
 
   .iva-footer-grid {
     grid-template-columns: 1fr;
-    gap: $space-3;
-    margin-bottom: $space-3;
-  }
-
-  .iva-footer-title {
-    font-size: 0.98rem;
-  }
-
-  .iva-footer-desc,
-  .iva-footer-text,
-  .iva-footer-link {
-    font-size: 0.92rem;
+    gap: 18px;
+    margin-bottom: 18px;
   }
 
   .iva-footer-bottom {
     flex-direction: column;
-    gap: $space-3;
-    padding-top: $space-3;
+    gap: 12px;
+    padding-top: 14px;
   }
 }
