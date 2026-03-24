@@ -5,8 +5,8 @@
 .iva-footer {
   background: $iva-surface-dark;
   color: $iva-text-inverse;
-  padding: 32px 32px 24px;
-  margin-top: 24px;
+  padding: 26px 28px 18px;
+  margin-top: 20px;
 }
 
 .iva-footer-wrapper {
@@ -16,9 +16,10 @@
 
 .iva-footer-grid {
   display: grid;
-  grid-template-columns: 1.05fr 0.75fr 0.9fr;
-  gap: 28px;
-  margin-bottom: 24px;
+  grid-template-columns: 1.15fr 0.8fr 0.95fr;
+  gap: 24px;
+  margin-bottom: 18px;
+  align-items: start;
 }
 
 .iva-footer-col {
@@ -32,7 +33,7 @@
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .iva-footer-logo {
@@ -55,15 +56,15 @@
 
 .iva-footer-desc {
   margin: 0;
-  max-width: 26rem;
-  font-size: 0.94rem;
-  line-height: 1.55;
+  max-width: 25rem;
+  font-size: 0.93rem;
+  line-height: 1.5;
   color: rgba(255, 255, 255, 0.78);
 }
 
 .iva-footer-heading {
   margin: 0 0 6px;
-  font-size: 0.88rem;
+  font-size: 0.87rem;
   font-weight: 650;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -72,8 +73,8 @@
 
 .iva-footer-text {
   margin: 0;
-  font-size: 0.92rem;
-  line-height: 1.45;
+  font-size: 0.91rem;
+  line-height: 1.4;
   color: rgba(255, 255, 255, 0.76);
 }
 
@@ -81,8 +82,8 @@
   display: inline-flex;
   align-items: center;
   width: fit-content;
-  font-size: 0.92rem;
-  line-height: 1.4;
+  font-size: 0.91rem;
+  line-height: 1.35;
   color: rgba(255, 255, 255, 0.86);
   text-decoration: none;
   transition: color $iva-transition-fast, transform $iva-transition-fast;
@@ -95,19 +96,19 @@
 }
 
 .iva-footer-bottom {
-  padding-top: 16px;
+  padding-top: 14px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 16px;
+  gap: 14px;
   flex-wrap: wrap;
 }
 
 .iva-footer-legal {
-  max-width: 40rem;
-  font-size: 0.8rem;
-  line-height: 1.55;
+  max-width: 39rem;
+  font-size: 0.79rem;
+  line-height: 1.5;
   color: rgba(255, 255, 255, 0.62);
 }
 
@@ -124,7 +125,7 @@
 }
 
 .iva-footer-bottom-links .iva-footer-link {
-  font-size: 0.84rem;
+  font-size: 0.83rem;
   color: rgba(255, 255, 255, 0.68);
 }
 
@@ -134,36 +135,33 @@
   transform: none;
 }
 
-@media (max-width: 980px) {
+/* keep 3 columns longer */
+@media (max-width: 840px) {
   .iva-footer {
-    padding: 28px 24px 22px;
+    padding: 24px 22px 18px;
   }
 
   .iva-footer-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-
-  .iva-footer-col-brand {
-    grid-column: 1 / -1;
+    gap: 20px;
   }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 640px) {
   .iva-footer {
-    padding: 24px 18px 20px;
-    margin-top: 20px;
+    padding: 20px 18px 16px;
+    margin-top: 16px;
   }
 
   .iva-footer-grid {
     grid-template-columns: 1fr;
-    gap: 18px;
-    margin-bottom: 18px;
+    gap: 16px;
+    margin-bottom: 16px;
   }
 
   .iva-footer-bottom {
     flex-direction: column;
-    gap: 12px;
-    padding-top: 14px;
+    gap: 10px;
+    padding-top: 12px;
   }
 }
