@@ -1,194 +1,212 @@
----
-layout: default
-title: Integrated Value Architecture
-seo_title: Integrated Value Architecture LLC | Fix Bottlenecks, Overload, and Slow Decisions
-seo_description: Integrated Value Architecture LLC helps organizations identify why work gets stuck, decisions drag, and overload keeps falling on the same people, then redesigns the structure so things work more cleanly.
----
+/* ============================================
+   PAGE WRAPPER
+============================================ */
 
-<div class="iva-page">
+.iva-page {
+  padding-top: 0;
+}
 
-<main>
+/* ============================================
+   MAIN CONTENT WIDTH
+============================================ */
 
-  <section id="homepage-hero">
-    <div class="section-header">
-      <h1>I help organizations fix stuck work and slow decisions</h1>
-      <p class="section-subtitle">
-        Integrated Value Architecture LLC helps organizations identify where structure is creating bottlenecks, rework, overload, and decision strain, then redesigns it so work and decisions move more cleanly.
-      </p>
-    </div>
+.iva-page main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px 40px 40px;
+}
 
-    <p>
-      Most organizations do not have a people problem.
-    </p>
+@media (max-width: 980px) {
+  .iva-page main {
+    padding: 20px 28px 34px;
+  }
+}
 
-    <p>
-      Work gets pushed into the same places. Decisions slow down. Pressure builds in the same roles. The same issues come back in new forms.
-    </p>
+@media (max-width: 800px) {
+  .iva-page main {
+    padding: 16px 18px 28px;
+  }
+}
 
-    <p>
-      That pattern usually comes from how the organization is structured. I help you see what is actually causing it and fix it.
-    </p>
+/* ============================================
+   HOMEPAGE SPACING CONTROL
+============================================ */
 
-    <div class="iva-btn-row">
-      <a href="https://book.ms/b/IntegratedValueArchitectureLLC@integratedvaluearchitecture.com" class="iva-btn-primary">Book a Paid Advisory Call</a>
-      <a href="{{ site.baseurl }}/services" class="iva-btn-secondary">See Services</a>
-    </div>
+.iva-page section + section {
+  margin-top: 56px;
+}
 
-    <p class="iva-cta-meta">
-      30 minutes. Bring a real problem. You’ll leave with a clear next step.
-    </p>
-  </section>
+@media (max-width: 800px) {
+  .iva-page section + section {
+    margin-top: 44px;
+  }
+}
 
-  <section id="homepage-problems">
-    <div class="section-header">
-      <h2>What usually brings people to this work</h2>
-      <p class="section-subtitle">
-        These problems often look operational or personal on the surface. They are usually structural underneath.
-      </p>
-    </div>
+/* ============================================
+   HERO LAYOUT
+============================================ */
 
-    <div class="grid grid-3">
-      <div class="card"><p>Decisions keep stalling when they should move.</p></div>
-      <div class="card"><p>Work keeps piling up in the same place.</p></div>
-      <div class="card"><p>The same people stay overloaded no matter how hard they work.</p></div>
-      <div class="card"><p>Problems come back even after they were supposedly fixed.</p></div>
-      <div class="card"><p>Rework and handoff failures keep draining usable capacity.</p></div>
-      <div class="card"><p>You can feel the drag but cannot clearly show where it is coming from.</p></div>
-    </div>
-  </section>
+#homepage-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 760px) minmax(120px, 1fr);
+  column-gap: 72px;
+  align-items: start;
+  padding-top: 12px;
+}
 
-  <section id="homepage-what-i-do">
-    <div class="section-header">
-      <h2>What I actually do</h2>
-      <p class="section-subtitle">
-        I review how your organization actually runs, identify where decisions and work are getting stuck, and redesign the structure so the same problems stop repeating.
-      </p>
-    </div>
+/* force all hero content into left column */
+#homepage-hero .section-header,
+#homepage-hero > p,
+#homepage-hero .iva-btn-row,
+#homepage-hero .iva-cta-meta {
+  grid-column: 1;
+  max-width: none;
+}
 
-    <div class="grid grid-3">
-      <div class="card">
-        <h3>Identify</h3>
-        <p>Find where bottlenecks, overload, rework, and decision strain are actually coming from.</p>
-      </div>
+#homepage-hero .section-header {
+  margin-bottom: 16px;
+}
 
-      <div class="card">
-        <h3>Fix</h3>
-        <p>Redesign how authority, work, and responsibility are handled so the structure fits real demand.</p>
-      </div>
+#homepage-hero h1 {
+  font-size: clamp(3.1rem, 4.6vw, 4.6rem);
+  line-height: 0.93;
+  letter-spacing: -0.05em;
+  margin-bottom: 12px;
+  max-width: 9ch;
+}
 
-      <div class="card">
-        <h3>Support</h3>
-        <p>Keep the improved structure working instead of drifting back into the same pattern.</p>
-      </div>
-    </div>
-  </section>
+#homepage-hero .section-subtitle {
+  font-size: 1.04rem;
+  line-height: 1.68;
+  max-width: 760px;
+}
 
-  <section id="homepage-start">
-    <div class="section-header">
-      <h2>How to start</h2>
-      <p class="section-subtitle">
-        Most organizations begin with a focused first step, then expand only if deeper work is needed.
-      </p>
-    </div>
+#homepage-hero > p {
+  font-size: 0.99rem;
+  line-height: 1.72;
+  margin-bottom: 16px;
+  max-width: 760px;
+}
 
-    <div class="grid grid-2">
-      <div class="card">
-        <h3>Paid Advisory Call</h3>
-        <p>Direct guidance on a live problem.</p>
-      </div>
+#homepage-hero .iva-btn-row {
+  margin-top: 20px;
+}
 
-      <div class="card">
-        <h3>Fixed-Fee Review</h3>
-        <p>A focused answer to a specific structural issue.</p>
-      </div>
+#homepage-hero .iva-cta-meta {
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
 
-      <div class="card">
-        <h3>Workshop or Briefing</h3>
-        <p>Shared clarity for leadership teams, executives, or boards.</p>
-      </div>
+/* ============================================
+   SECTION HEADERS
+============================================ */
 
-      <div class="card">
-        <h3>Full Structural Work</h3>
-        <p>Diagnostic, implementation, and ongoing support for larger problems.</p>
-      </div>
-    </div>
+.section-header {
+  margin-bottom: 20px;
+}
 
-    <div class="iva-btn-row">
-      <a href="https://book.ms/b/IntegratedValueArchitectureLLC@integratedvaluearchitecture.com" class="iva-btn-primary">Book a Paid Advisory Call</a>
-      <a href="{{ site.baseurl }}/services" class="iva-btn-secondary">View Services</a>
-    </div>
-  </section>
+.section-subtitle {
+  max-width: 980px;
+}
 
-  <section id="homepage-outcomes">
-    <div class="section-header">
-      <h2>What changes when the structure improves</h2>
-      <p class="section-subtitle">
-        The goal is not a better explanation. The goal is an organization that actually runs better.
-      </p>
-    </div>
+/* ============================================
+   GRID
+============================================ */
 
-    <div class="grid grid-3">
-      <div class="card"><p>You see what is actually causing recurring problems.</p></div>
-      <div class="card"><p>Decisions stop stalling in the same places.</p></div>
-      <div class="card"><p>Work stops piling up where it never should have landed.</p></div>
-      <div class="card"><p>Rework and handoffs start getting cut out.</p></div>
-      <div class="card"><p>Pressure stops concentrating in the same people or teams.</p></div>
-      <div class="card"><p>You gain usable capacity without defaulting to more hiring.</p></div>
-    </div>
-  </section>
+.grid {
+  gap: 16px;
+}
 
-  <section id="homepage-not">
-    <div class="section-header">
-      <h2>What this is not</h2>
-      <p class="section-subtitle">
-        This work gets misunderstood when it is forced into the wrong category.
-      </p>
-    </div>
+@media (max-width: 980px) {
+  .grid.grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 
-    <div class="grid grid-3">
-      <div class="card"><p>Not software.</p></div>
-      <div class="card"><p>Not project management.</p></div>
-      <div class="card"><p>Not workflow automation.</p></div>
-      <div class="card"><p>Not generic consulting.</p></div>
-      <div class="card"><p>Not another strategic plan.</p></div>
-      <div class="card"><p>Not advice that leaves the same structure in place.</p></div>
-    </div>
+  #homepage-hero {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
 
-    <p>
-      If you’re looking for tools to manage the same structure better, this isn’t that. This changes the structure so those tools stop breaking down.
-    </p>
-  </section>
+  #homepage-hero h1,
+  #homepage-hero .section-subtitle,
+  #homepage-hero > p {
+    max-width: none;
+  }
+}
 
-  <section id="homepage-credibility">
-    <div class="section-header">
-      <h2>Why this work is different</h2>
-      <p class="section-subtitle">
-        Integrated Value Architecture is built to identify structural causes, not just describe symptoms.
-      </p>
-    </div>
+@media (max-width: 800px) {
+  .grid.grid-2,
+  .grid.grid-3 {
+    grid-template-columns: 1fr;
+  }
 
-    <div class="grid grid-3">
-      <div class="card"><p>Focused on why problems keep repeating, not just what they look like.</p></div>
-      <div class="card"><p>Built to diagnose, fix, and support instead of stopping at analysis.</p></div>
-      <div class="card"><p>Grounded in real operational and leadership experience.</p></div>
-    </div>
-  </section>
+  #homepage-hero {
+    padding-top: 8px;
+  }
 
-  <section id="homepage-cta" class="iva-cta-section">
-    <h2>Start with the problem you can already see</h2>
-    <p>
-      If work is stuck, decisions keep dragging, or pressure keeps landing in the same place, that is enough to start.
-    </p>
+  #homepage-hero h1 {
+    font-size: clamp(2.6rem, 10vw, 3.4rem);
+    line-height: 0.96;
+    max-width: 10ch;
+  }
+}
 
-    <div class="iva-btn-row">
-      <a href="https://book.ms/b/IntegratedValueArchitectureLLC@integratedvaluearchitecture.com" class="iva-btn-primary">Book a Paid Advisory Call</a>
-      <a href="{{ site.baseurl }}/contact" class="iva-btn-secondary">Request a Fixed-Fee Review</a>
-    </div>
+/* ============================================
+   CARD TUNING
+============================================ */
 
-    <p class="iva-cta-meta">
-      30 minutes. Bring a real problem. You’ll leave with a clear next step.
-    </p>
-  </section>
+.card {
+  padding: 20px;
+}
 
-</main>
-</div>
+/* ============================================
+   CTA SECTION
+============================================ */
+
+.iva-cta-section {
+  text-align: left;
+  padding: 28px;
+  margin-bottom: 0;
+}
+
+.iva-cta-section h2,
+.iva-cta-section p,
+.iva-cta-section .iva-cta-meta {
+  max-width: 760px;
+}
+
+.iva-cta-section .iva-btn-row {
+  margin-top: 18px;
+}
+
+.iva-cta-section .iva-btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.iva-cta-section .iva-btn-secondary:hover,
+.iva-cta-section .iva-btn-secondary:focus {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+@media (max-width: 800px) {
+  .iva-cta-section {
+    padding: 22px;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY
+============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
