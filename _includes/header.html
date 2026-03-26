@@ -1,8 +1,15 @@
 {% assign current_url = page.url | replace:'index.html','' %}
 
+{% assign explore_urls = "/common-problems-we-fix/|/decision-rights-redesign/|/good-governance/|/governance-architecture-organizational-design/|/governance-structure-vs-information-governance/|/iva-vs-grc/|/iva-vs-process-reengineering/|/case-structural-overload-and-decision-bottleneck/|/standard/|/finance/|/operations/|/capacity/|/external/|/learning/|/publications/" | split:"|" %}
+{% assign explore_active = false %}
+{% for url in explore_urls %}
+  {% if current_url == url %}
+    {% assign explore_active = true %}
+  {% endif %}
+{% endfor %}
+
 <header class="iva-header">
   <div class="iva-header-inner">
-
     <div class="iva-header-brand">
       <a class="iva-header-brand-link" href="/">
         <img class="iva-header-logo" src="{{ site.baseurl }}/assets/images/tmlogo.png" alt="Integrated Value Architecture logo">
@@ -23,43 +30,36 @@
     </button>
 
     <nav class="iva-header-nav" id="iva-nav" aria-label="Primary">
-
       <a class="iva-header-link{% if current_url == '/' %} is-active{% endif %}" href="/">Home</a>
       <a class="iva-header-link{% if current_url == '/services/' %} is-active{% endif %}" href="/services/">Services</a>
       <a class="iva-header-link{% if current_url == '/what-clients-get/' %} is-active{% endif %}" href="/what-clients-get/">What Clients Get</a>
 
-      <!-- Concepts -->
-      <div class="iva-header-group">
-        <span class="iva-header-group-label">Concepts</span>
-        <div class="iva-header-group-menu">
-          <a href="/common-problems-we-fix/">Common Problems</a>
-          <a href="/decision-rights-redesign/">Decision Rights</a>
-          <a href="/good-governance/">Good Governance</a>
-          <a href="/governance-architecture-organizational-design/">Governance Architecture</a>
-          <a href="/case-structural-overload-and-decision-bottleneck/">Structural Overload</a>
-        </div>
-      </div>
+      <div class="iva-header-group{% if explore_active %} is-active{% endif %}" data-nav-group>
+        <button
+          class="iva-header-group-trigger"
+          type="button"
+          aria-expanded="false"
+          aria-controls="iva-header-explore">
+          <span>Explore</span>
+          <span class="iva-header-group-caret" aria-hidden="true"></span>
+        </button>
 
-      <!-- Compare -->
-      <div class="iva-header-group">
-        <span class="iva-header-group-label">Compare</span>
-        <div class="iva-header-group-menu">
-          <a href="/governance-structure-vs-information-governance/">Structure vs Info Governance</a>
-          <a href="/iva-vs-grc/">IVA vs GRC</a>
-          <a href="/iva-vs-process-reengineering/">IVA vs Process</a>
-        </div>
-      </div>
-
-      <!-- Ledgers -->
-      <div class="iva-header-group">
-        <span class="iva-header-group-label">Ledgers</span>
-        <div class="iva-header-group-menu">
-          <a href="/standard/">The Standard</a>
-          <a href="/finance/">Financial</a>
-          <a href="/operations/">Operational</a>
-          <a href="/capacity/">Capacity</a>
-          <a href="/external/">Externalities</a>
-          <a href="/learning/">Learning</a>
+        <div class="iva-header-group-menu" id="iva-header-explore">
+          <a class="{% if current_url == '/common-problems-we-fix/' %}is-active{% endif %}" href="/common-problems-we-fix/">Common Problems</a>
+          <a class="{% if current_url == '/decision-rights-redesign/' %}is-active{% endif %}" href="/decision-rights-redesign/">Decision Rights</a>
+          <a class="{% if current_url == '/case-structural-overload-and-decision-bottleneck/' %}is-active{% endif %}" href="/case-structural-overload-and-decision-bottleneck/">Structural Overload</a>
+          <a class="{% if current_url == '/good-governance/' %}is-active{% endif %}" href="/good-governance/">Good Governance</a>
+          <a class="{% if current_url == '/governance-architecture-organizational-design/' %}is-active{% endif %}" href="/governance-architecture-organizational-design/">Governance Architecture</a>
+          <a class="{% if current_url == '/governance-structure-vs-information-governance/' %}is-active{% endif %}" href="/governance-structure-vs-information-governance/">Structure vs Information Governance</a>
+          <a class="{% if current_url == '/iva-vs-grc/' %}is-active{% endif %}" href="/iva-vs-grc/">IVA vs GRC</a>
+          <a class="{% if current_url == '/iva-vs-process-reengineering/' %}is-active{% endif %}" href="/iva-vs-process-reengineering/">IVA vs Process Reengineering</a>
+          <a class="{% if current_url == '/standard/' %}is-active{% endif %}" href="/standard/">The IVA Standard</a>
+          <a class="{% if current_url == '/finance/' %}is-active{% endif %}" href="/finance/">Financial Ledger</a>
+          <a class="{% if current_url == '/operations/' %}is-active{% endif %}" href="/operations/">Operational Ledger</a>
+          <a class="{% if current_url == '/capacity/' %}is-active{% endif %}" href="/capacity/">Capacity Ledger</a>
+          <a class="{% if current_url == '/external/' %}is-active{% endif %}" href="/external/">Externalities and Equity Ledger</a>
+          <a class="{% if current_url == '/learning/' %}is-active{% endif %}" href="/learning/">Learning and Innovation Ledger</a>
+          <a class="{% if current_url == '/publications/' %}is-active{% endif %}" href="/publications/">Publications</a>
         </div>
       </div>
 
@@ -69,7 +69,6 @@
       <a class="iva-btn-primary iva-header-cta{% if current_url == '/fixed-fee-review/' %} is-active{% endif %}" href="/fixed-fee-review/">
         Fixed-Fee Review
       </a>
-
     </nav>
   </div>
 </header>
