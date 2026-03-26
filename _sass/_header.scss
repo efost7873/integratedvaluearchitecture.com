@@ -112,8 +112,7 @@
   background: transparent;
   cursor: pointer;
   gap: 7px;
-  justify-content: center;
-  padding-right: 1px;
+  padding-right: 0;
 }
 
 .iva-header-link:hover,
@@ -179,8 +178,9 @@
 .iva-header-group-menu {
   position: absolute;
   top: calc(100% + 14px);
-  left: 50%;
-  transform: translateX(-50%);
+  right: 0;
+  left: auto;
+  transform: none;
   display: none;
   width: min(360px, calc(100vw - 32px));
   padding: 12px;
@@ -338,12 +338,6 @@
   .iva-header-nav {
     gap: 14px;
   }
-
-  .iva-header-group-menu {
-    left: auto;
-    right: 0;
-    transform: none;
-  }
 }
 
 /* ============================================
@@ -441,8 +435,8 @@
   .iva-header-group-menu {
     position: static;
     top: auto;
-    left: auto;
     right: auto;
+    left: auto;
     transform: none;
     width: 100%;
     margin: 0 0 4px;
