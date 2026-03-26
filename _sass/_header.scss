@@ -111,7 +111,9 @@
   border: 0;
   background: transparent;
   cursor: pointer;
-  gap: 8px;
+  gap: 7px;
+  justify-content: center;
+  padding-right: 1px;
 }
 
 .iva-header-link:hover,
@@ -159,12 +161,15 @@
 }
 
 .iva-header-group-caret {
-  width: 8px;
-  height: 8px;
-  border-right: 2px solid currentColor;
-  border-bottom: 2px solid currentColor;
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-right: 1.8px solid currentColor;
+  border-bottom: 1.8px solid currentColor;
   transform: translateY(-1px) rotate(45deg);
+  transform-origin: center;
   transition: transform $iva-transition-fast;
+  flex-shrink: 0;
 }
 
 .iva-header-group.is-open .iva-header-group-caret {
@@ -421,6 +426,16 @@
 
   .iva-header-group-trigger {
     gap: 10px;
+  }
+
+  .iva-header-group-caret {
+    width: 8px;
+    height: 8px;
+    transform: translateY(-1px) rotate(45deg);
+  }
+
+  .iva-header-group.is-open .iva-header-group-caret {
+    transform: translateY(1px) rotate(-135deg);
   }
 
   .iva-header-group-menu {
