@@ -1,6 +1,9 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 {% assign meta_title = page.title | default: site.title | default: "Integrated Value Architecture" %}
 {% assign meta_description = page.description | default: site.description | default: "Integrated Value Architecture helps organizations identify structural overload, decision bottlenecks, and governance problems, then redesign how decisions, authority, and work are handled." %}
-{% assign meta_image = page.image | default: site.default_image | default: "/assets/img/og-default.jpg" %}
+{% assign meta_image = page.image | default: site.default_image | default: "/assets/images/social-preview.png" %}
 {% assign meta_url = page.url | replace:'index.html','' | absolute_url %}
 {% assign meta_type = page.og_type | default: "website" %}
 {% assign meta_robots = page.robots | default: "index, follow" %}
@@ -8,7 +11,16 @@
 <title>{{ meta_title }}</title>
 <meta name="description" content="{{ meta_description | escape }}">
 <meta name="robots" content="{{ meta_robots }}">
+<meta name="author" content="Integrated Value Architecture LLC">
 <link rel="canonical" href="{{ meta_url }}">
+
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css?v=20260326">
+
+<link rel="shortcut icon" href="{{ site.baseurl }}/assets/images/tmlogo.png?v=20260326" type="image/png">
+<link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/images/tmlogo.png?v=20260326">
+<link rel="apple-touch-icon" href="{{ site.baseurl }}/assets/images/tmlogo.png?v=20260326">
+<link rel="icon" sizes="192x192" href="{{ site.baseurl }}/assets/images/tmlogo.png?v=20260326">
+<link rel="icon" sizes="512x512" href="{{ site.baseurl }}/assets/images/tmlogo.png?v=20260326">
 
 <meta property="og:site_name" content="{{ site.title | default: 'Integrated Value Architecture' }}">
 <meta property="og:title" content="{{ meta_title | escape }}">
@@ -23,6 +35,10 @@
 <meta name="twitter:image" content="{{ meta_image | absolute_url }}">
 
 <meta name="theme-color" content="#1F2A44">
+<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="bingbot" content="index, follow">
+
+<link rel="manifest" href="/manifest.json?v=20260326">
 
 {% if page.noindex == true %}
 <meta name="robots" content="noindex, nofollow">
@@ -50,17 +66,17 @@
   "@type": "Organization",
   "name": "Integrated Value Architecture LLC",
   "url": "{{ site.url | default: 'https://integratedvaluearchitecture.com' }}",
-  "logo": "{{ '/assets/img/logo.png' | absolute_url }}",
+  "logo": "{{ '/assets/images/tmlogo.png' | absolute_url }}",
   "description": "Integrated Value Architecture helps organizations identify structural overload, decision bottlenecks, and governance problems, then redesign how decisions, authority, and work are handled.",
+  "founder": {
+    "@type": "Person",
+    "name": "Evan Foster"
+  },
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Springfield",
     "addressRegion": "IL",
     "addressCountry": "US"
-  },
-  "founder": {
-    "@type": "Person",
-    "name": "Evan Foster"
   }
 }
 </script>
