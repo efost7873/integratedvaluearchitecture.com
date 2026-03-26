@@ -1,61 +1,42 @@
-<header class="iva-header" role="banner">
-  <div class="iva-header-inner">
+<header class="site-header">
+  <div class="container header-inner">
+    
+    <div class="logo">
+      <a href="/">Integrated Value Architecture</a>
+    </div>
 
-    <a class="iva-header-brand iva-header-brand-link" href="{{ site.baseurl }}/" aria-label="Integrated Value Architecture home">
-      <img
-        src="{{ site.baseurl }}/assets/images/tmlogo.png"
-        alt="Integrated Value Architecture logo"
-        class="iva-header-logo"
-      >
-      <div class="iva-header-brand-text">
-        <div class="iva-header-title">Integrated Value Architecture</div>
-      </div>
-    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/what-clients-get/">What Clients Get</a></li>
+        <li><a href="/fixed-fee-review/">Fixed-Fee Review</a></li>
+        <li><a href="/common-problems/">Common Problems</a></li>
 
-    <button
-      class="iva-header-toggle"
-      id="iva-menu-toggle"
-      type="button"
-      aria-label="Open menu"
-      aria-controls="iva-nav"
-      aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+        <li class="dropdown">
+          <a href="#">How It Works</a>
+          <ul class="dropdown-menu">
+            <li><a href="/standard/">The Standard</a></li>
+            <li><a href="/financial/">Financial Ledger</a></li>
+            <li><a href="/operations/">Operational Ledger</a></li>
+            <li><a href="/capacity/">Capacity Ledger</a></li>
+            <li><a href="/external/">Externalities & Equity Ledger</a></li>
+            <li><a href="/learning/">Learning & Innovation Ledger</a></li>
+          </ul>
+        </li>
 
-    <nav class="iva-header-nav" id="iva-nav" aria-label="Primary navigation">
-      <a
-        class="iva-header-link{% if page.url == '/services/' %} is-active{% endif %}"
-        href="{{ site.baseurl }}/services/">
-        Services
-      </a>
+        <li class="dropdown">
+          <a href="#">Compare</a>
+          <ul class="dropdown-menu">
+            <li><a href="/compare-erp/">ERP Systems</a></li>
+            <li><a href="/compare-grc/">GRC</a></li>
+            <li><a href="/compare-information-governance/">Information Governance</a></li>
+            <li><a href="/compare-process-reengineering/">Process Reengineering</a></li>
+          </ul>
+        </li>
 
-      <a
-        class="iva-header-link{% if page.url == '/common-problems-we-fix/' %} is-active{% endif %}"
-        href="{{ site.baseurl }}/common-problems-we-fix/">
-        Common Problems
-      </a>
-
-      <a
-        class="iva-header-link{% if page.url == '/about/' %} is-active{% endif %}"
-        href="{{ site.baseurl }}/about/">
-        About
-      </a>
-
-      <a
-        class="iva-header-link{% if page.url == '/contact/' %} is-active{% endif %}"
-        href="{{ site.baseurl }}/contact/">
-        Contact
-      </a>
-
-      <a
-        class="iva-btn-primary iva-header-cta"
-        href="https://book.ms/b/IntegratedValueArchitectureLLC@integratedvaluearchitecture.com"
-        target="_blank"
-        rel="noopener">
-        Book a Call
-      </a>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
     </nav>
 
   </div>
