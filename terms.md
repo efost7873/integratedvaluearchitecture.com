@@ -1,44 +1,112 @@
 ---
 layout: default
 title: Terms of Use
+permalink: /terms/
 seo_title: Terms of Use | Integrated Value Architecture
-seo_description: Terms governing the use of the Integrated Value Architecture website and its proprietary content.
+seo_description: Terms of use for Integrated Value Architecture LLC website and services.
 ---
 
+<div class="iva-page">
 <main>
 
-<section style="margin-bottom: 48px;">
-  <h1>Terms of Use</h1>
+<section class="iva-band-strong">
+  <div class="section-header">
+    <h1>Terms of Use</h1>
+    <p class="section-subtitle">
+      Using this site means you understand what it is and what it is not.
+    </p>
+  </div>
 
   <p>
-    By accessing this website, you agree to the following terms. If you do not agree, please discontinue use of the site.
+    This website provides general information about Integrated Value Architecture LLC and its services. It is not a contract, and it does not create a client relationship on its own.
   </p>
+</section>
 
-  <h2>Use of Website Content</h2>
+<section class="iva-band-soft">
+  <div class="section-header">
+    <h2>No professional engagement</h2>
+  </div>
+
   <p>
-    All written content on this site — including the IVA Standard, IVA Diagnostic, structural definitions, ledger architecture, and explanatory materials — is proprietary intellectual property of Integrated Value Architecture, LLC. No content may be copied, reproduced, distributed, or used to create derivative works without written permission.
+    Viewing this website, sending a message, or scheduling a call does not establish a formal engagement.
   </p>
 
-  <h2>No Professional Advice</h2>
   <p>
-    The information on this site is provided for general informational purposes. It does not constitute professional, organizational, or governance advice.
+    Work begins only after a defined agreement is in place between Integrated Value Architecture LLC and the client.
   </p>
+</section>
 
-  <h2>Limitation of Liability</h2>
+<section>
+  <div class="section-header">
+    <h2>Use of information</h2>
+  </div>
+
   <p>
-    IVA is not liable for any damages arising from the use or inability to use this website or its content.
+    The content on this site is provided for general informational purposes. It reflects how Integrated Value Architecture approaches governance, decision structure, and organizational design.
   </p>
 
-  <h2>External Links</h2>
   <p>
-    This site may link to external resources. IVA is not responsible for the content or practices of external sites.
+    You can use this information to understand the work. You should not treat it as a substitute for a formal review of your own organization.
   </p>
+</section>
 
-  <h2>Changes to Terms</h2>
+<section class="iva-band-soft">
+  <div class="section-header">
+    <h2>No guarantees</h2>
+  </div>
+
   <p>
-    IVA may update these terms at any time. Continued use of the site indicates acceptance of the updated terms.
+    Outcomes depend on how the work is applied, the condition of the organization, and decisions made during and after engagement.
   </p>
 
+  <p>
+    Nothing on this site guarantees a specific result.
+  </p>
+</section>
+
+<section>
+  <div class="section-header">
+    <h2>Intellectual property</h2>
+  </div>
+
+  <p>
+    The structure, language, and concepts presented as Integrated Value Architecture are proprietary. Public descriptions are provided to explain the work, not to transfer ownership or rights of use.
+  </p>
+
+  <p>
+    Materials may not be reproduced, distributed, or used for commercial purposes without permission.
+  </p>
+</section>
+
+<section class="iva-band-soft">
+  <div class="section-header">
+    <h2>External links</h2>
+  </div>
+
+  <p>
+    This site may link to third-party platforms or services. Those sites operate under their own terms and policies.
+  </p>
+
+  <p>
+    Integrated Value Architecture LLC is not responsible for external content.
+  </p>
+</section>
+
+<section>
+  <div class="section-header">
+    <h2>Changes</h2>
+  </div>
+
+  <p>
+    These terms may be updated as the business and website develop. The current version will appear on this page.
+  </p>
+</section>
+
+<section class="iva-cta-section">
+  <p>
+    Questions can be directed to <a href="mailto:evan.foster@integratedvaluearchitecture.com">evan.foster@integratedvaluearchitecture.com</a>.
+  </p>
 </section>
 
 </main>
+</div>
