@@ -1,8 +1,7 @@
 /* ============================================
    COMPATIBILITY LAYER FOR UPDATED PAGE MARKUP
-   This lets the current page HTML use the repo’s
-   existing visual system without rewriting every
-   page again.
+   Restores layout and visual hierarchy for the
+   revised HTML without forcing a full page rewrite.
 ============================================ */
 
 .iva-content {
@@ -10,11 +9,12 @@
 }
 
 /* ============================================
-   GENERIC PAGE LAYOUT
+   SHARED PAGE WIDTH / SPACING
 ============================================ */
 
 .narrow {
-  max-width: 980px;
+  width: 100%;
+  max-width: 1040px;
   margin: 0 auto;
 }
 
@@ -22,7 +22,7 @@
 .section,
 .final-cta,
 .page-content {
-  margin-bottom: 0;
+  width: 100%;
 }
 
 .page-header {
@@ -32,12 +32,21 @@
 }
 
 .page-header .narrow,
-.page-content .container {
-  max-width: $iva-site-max-width;
+.page-content .container,
+.section > .container,
+.section > .narrow,
+.final-cta > .container,
+.final-cta > .narrow {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .page-header .narrow > *:not(.inline-links):not(.cta-block):not(.related-links),
-.page-content .container > *:not(.inline-links):not(.cta-block):not(.related-links) {
+.page-content .container > *:not(.inline-links):not(.cta-block):not(.related-links),
+.section > .container > *:not(.inline-links):not(.cta-block):not(.card-grid):not(.related-links),
+.section > .narrow > *:not(.inline-links):not(.cta-block):not(.card-grid):not(.related-links),
+.final-cta > .container > *:not(.inline-links):not(.cta-block):not(.card-grid):not(.related-links),
+.final-cta > .narrow > *:not(.inline-links):not(.cta-block):not(.card-grid):not(.related-links) {
   max-width: 980px;
 }
 
@@ -51,23 +60,7 @@
 .page-header + .section,
 .section + .final-cta,
 .page-header + .final-cta {
-  margin-top: 56px;
-}
-
-.section .narrow > *:not(.inline-links):not(.cta-block):not(.card-grid):not(.related-links),
-.final-cta .narrow > *:not(.inline-links):not(.cta-block):not(.card-grid):not(.related-links) {
-  max-width: 980px;
-}
-
-.section.alt .narrow,
-.section.alt > .container,
-.section.alt > .narrow {
-  @extend .iva-band-soft;
-}
-
-.final-cta .narrow,
-.section.final-cta .narrow {
-  @extend .iva-cta-section;
+  margin-top: 48px;
 }
 
 .page-content .container {
@@ -83,66 +76,142 @@
 .hero {
   max-width: $iva-site-max-width;
   margin: 0 auto;
-  padding: 12px $space-6 0;
+  padding: 20px $space-6 0;
 }
 
 .hero .container {
   max-width: 1200px;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
 }
 
 .hero-content {
-  max-width: 1200px;
+  max-width: 1180px;
+  padding: 8px 0 18px;
 }
 
 .hero h1 {
-  font-size: clamp(3.2rem, 4.2vw, 4.6rem);
+  max-width: 980px;
+  margin: 0 0 16px;
+  font-size: clamp(3.5rem, 6vw, 5.4rem);
   line-height: 0.92;
-  letter-spacing: -0.04em;
-  margin-bottom: 14px;
-  max-width: none;
+  letter-spacing: -0.045em;
 }
 
 .hero-intro,
 .hero-content > p:not(.eyebrow) {
-  font-size: 1rem;
-  line-height: 1.72;
-  margin-bottom: 18px;
   max-width: 900px;
+  margin: 0 0 24px;
+  font-size: 1.08rem;
+  line-height: 1.72;
+  color: $iva-governance-slate;
 }
 
 /* ============================================
-   SMALL TEXT / EYEBROW
+   EYEBROW
 ============================================ */
 
 .eyebrow {
   display: inline-block;
   margin: 0 0 14px;
-  font-size: 0.82rem;
-  font-weight: 700;
+  font-size: 0.86rem;
+  font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: $iva-governance-slate;
 }
 
 /* ============================================
-   BUTTONS / CTA ROWS
+   TYPOGRAPHY
+============================================ */
+
+.page-header h1,
+.section h2,
+.final-cta h2,
+.page-content h2 {
+  color: $iva-deep-governance-blue;
+}
+
+.section h2,
+.final-cta h2,
+.page-content h2 {
+  margin-bottom: 18px;
+  font-size: clamp(2.2rem, 4vw, 3.3rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.section h3,
+.page-content h3 {
+  margin-bottom: 12px;
+  font-size: 1.35rem;
+  line-height: 1.15;
+}
+
+.section p,
+.final-cta p,
+.page-content p,
+.page-header p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: $iva-governance-slate;
+}
+
+.section p + p,
+.page-content p + p,
+.final-cta p + p {
+  margin-top: 18px;
+}
+
+/* ============================================
+   BANDS
+============================================ */
+
+.section.alt > .container,
+.section.alt > .narrow {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(31, 42, 68, 0.08);
+  border-radius: 28px;
+  box-shadow: 0 18px 44px rgba(31, 42, 68, 0.05);
+  padding: 44px clamp(24px, 4vw, 48px);
+}
+
+.section:not(.alt):not(.final-cta) > .container,
+.section:not(.alt):not(.final-cta) > .narrow {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.final-cta > .container,
+.final-cta > .narrow,
+.section.final-cta > .container,
+.section.final-cta > .narrow {
+  background: linear-gradient(180deg, rgba(31, 42, 68, 0.04) 0%, rgba(255, 244, 214, 0.75) 100%);
+  border: 1px solid rgba(31, 42, 68, 0.08);
+  border-radius: 28px;
+  box-shadow: 0 18px 44px rgba(31, 42, 68, 0.06);
+  padding: 44px clamp(24px, 4vw, 48px);
+}
+
+/* ============================================
+   BUTTONS / CTA
 ============================================ */
 
 .hero-actions,
-.cta-block,
-.section-links,
-.inline-links {
+.cta-block {
   display: flex;
   align-items: center;
   gap: $space-3;
   flex-wrap: wrap;
+  margin-top: 28px;
 }
 
-.hero-actions,
-.cta-block {
-  margin-top: $space-5;
+.section-links,
+.inline-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 22px;
 }
 
 .button,
@@ -151,10 +220,10 @@ a.button {
   align-items: center;
   justify-content: center;
   min-height: 48px;
-  padding: 0.85rem 1.2rem;
+  padding: 0.9rem 1.3rem;
   border-radius: $iva-radius-pill;
   font-size: 0.96rem;
-  font-weight: 650;
+  font-weight: 700;
   line-height: 1;
   text-decoration: none;
   transition:
@@ -171,7 +240,7 @@ a.button.primary {
   background: $iva-civic-amber;
   color: $iva-deep-governance-blue;
   border: 1px solid transparent;
-  box-shadow: 0 10px 20px rgba(242, 169, 0, 0.22);
+  box-shadow: 0 10px 24px rgba(242, 169, 0, 0.22);
 }
 
 .button.primary:hover,
@@ -185,8 +254,8 @@ a.button.primary:focus {
 
 .button.secondary,
 a.button.secondary {
-  background: transparent;
-  color: $iva-text-soft;
+  background: rgba(255, 255, 255, 0.78);
+  color: $iva-governance-slate;
   border: 1px solid rgba(31, 42, 68, 0.10);
 }
 
@@ -200,20 +269,16 @@ a.button.secondary:focus {
 }
 
 /* ============================================
-   LINK GROUPS
+   TEXT LINKS
 ============================================ */
-
-.inline-links,
-.section-links {
-  margin-top: $space-4;
-}
 
 .inline-links a,
 .section-links a {
   display: inline-flex;
   align-items: center;
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 0.98rem;
+  font-weight: 650;
+  text-decoration: none;
   color: $iva-deep-governance-blue;
 }
 
@@ -222,16 +287,18 @@ a.button.secondary:focus {
 .section-links a:hover,
 .section-links a:focus {
   color: $iva-governance-slate;
+  text-decoration: underline;
+  text-underline-offset: 0.14em;
 }
 
 /* ============================================
-   CARDS / GRIDS
+   GRID / CARD SYSTEM
 ============================================ */
 
 .card-grid {
   display: grid;
-  gap: $space-5;
-  margin-top: $space-5;
+  gap: 24px;
+  margin-top: 26px;
 }
 
 .card-grid.two-up {
@@ -243,12 +310,16 @@ a.button.secondary:focus {
 }
 
 .info-card {
-  @extend .card;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(31, 42, 68, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 14px 30px rgba(31, 42, 68, 0.05);
+  padding: 28px 24px;
 }
 
 .info-card h3,
 .info-card h4 {
-  margin-bottom: $space-3;
+  margin-bottom: 12px;
 }
 
 .info-card p:last-child {
@@ -256,16 +327,20 @@ a.button.secondary:focus {
 }
 
 /* ============================================
-   RELATED LINKS LIST
+   RELATED LINKS BLOCK
 ============================================ */
 
 .related-links {
-  margin-top: $space-6;
   max-width: 980px;
+  margin-top: 30px;
+  padding: 24px 28px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(31, 42, 68, 0.08);
+  border-radius: 22px;
 }
 
 .related-links h3 {
-  margin-bottom: $space-3;
+  margin-bottom: 14px;
 }
 
 .related-links ul {
@@ -273,17 +348,25 @@ a.button.secondary:focus {
   padding-left: 1.1rem;
 }
 
-.related-links li {
-  margin-bottom: $space-2;
+.related-links li + li {
+  margin-top: 10px;
 }
 
 /* ============================================
-   CTA BLOCK INSIDE WHITE PANELS
+   PAGE-SPECIFIC HOMEPAGE TUNING
 ============================================ */
 
-.section .cta-block,
-.page-content .cta-block {
-  margin-top: $space-5;
+body.home .section:first-of-type {
+  margin-top: 6px;
+}
+
+body.home .section:first-of-type h2 {
+  margin-top: 0;
+}
+
+body.home .section.alt + .section,
+body.home .section + .section.alt {
+  margin-top: 34px;
 }
 
 /* ============================================
@@ -302,12 +385,9 @@ a.button.secondary:focus {
   .card-grid.three-up {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-}
 
-@media (max-width: 860px) {
   .hero h1 {
-    font-size: clamp(2.6rem, 10vw, 3.4rem);
-    line-height: 0.96;
+    font-size: clamp(3rem, 8vw, 4.4rem);
   }
 }
 
@@ -324,7 +404,17 @@ a.button.secondary:focus {
   .page-header + .section,
   .section + .final-cta,
   .page-header + .final-cta {
-    margin-top: 44px;
+    margin-top: 34px;
+  }
+
+  .section.alt > .container,
+  .section.alt > .narrow,
+  .final-cta > .container,
+  .final-cta > .narrow,
+  .section.final-cta > .container,
+  .section.final-cta > .narrow {
+    padding: 30px 22px;
+    border-radius: 22px;
   }
 
   .card-grid.two-up,
@@ -333,9 +423,7 @@ a.button.secondary:focus {
   }
 
   .hero-actions,
-  .cta-block,
-  .section-links,
-  .inline-links {
+  .cta-block {
     flex-direction: column;
     align-items: stretch;
   }
@@ -345,7 +433,18 @@ a.button.secondary:focus {
     width: 100%;
   }
 
-  .page-header {
-    padding-top: 20px;
+  .section-links,
+  .inline-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .hero {
+    padding-top: 12px;
+  }
+
+  .hero-content {
+    padding-top: 0;
   }
 }
