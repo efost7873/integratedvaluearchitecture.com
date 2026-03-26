@@ -1,19 +1,20 @@
 ---
 layout: null
+permalink: /sitemap.xml
 ---
-
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://integratedvaluearchitecture.com/</loc>
-    <priority>1.0</priority>
-  </url>
-  {% for page in site.pages %}
-  {% if page.url != "/404.html" %}
-  <url>
-    <loc>https://integratedvaluearchitecture.com{{ page.url }}</loc>
-    <priority>0.8</priority>
-  </url>
-  {% endif %}
+  {% assign pages_for_sitemap = site.pages | where_exp: "item", "item.name != '404.html'" %}
+  {% for page in pages_for_sitemap %}
+    {% unless page.noindex == true %}
+      <url>
+        <loc>{{ page.url | replace:'index.html','' | absolute_url }}</loc>
+        {% if page.updated %}
+        <lastmod>{{ page.updated | date_to_xmlschema }}</lastmod>
+        {% elsif page.date %}
+        <lastmod>{{ page.date | date_to_xmlschema }}</lastmod>
+        {% endif %}
+      </url>
+    {% endunless %}
   {% endfor %}
 </urlset>
