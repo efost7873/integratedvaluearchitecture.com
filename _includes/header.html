@@ -25,10 +25,29 @@
     </button>
 
     <nav class="iva-header-nav" id="iva-nav" aria-label="Primary navigation">
-      <a class="iva-header-link" href="{{ site.baseurl }}/">Home</a>
-      <a class="iva-header-link" href="{{ site.baseurl }}/services">Services</a>
-      <a class="iva-header-link" href="{{ site.baseurl }}/about">About</a>
-      <a class="iva-header-link" href="{{ site.baseurl }}/contact">Contact</a>
+      <a
+        class="iva-header-link{% if page.url == '/services/' %} is-active{% endif %}"
+        href="{{ site.baseurl }}/services/">
+        Services
+      </a>
+
+      <a
+        class="iva-header-link{% if page.url == '/common-problems-we-fix/' %} is-active{% endif %}"
+        href="{{ site.baseurl }}/common-problems-we-fix/">
+        Common Problems
+      </a>
+
+      <a
+        class="iva-header-link{% if page.url == '/about/' %} is-active{% endif %}"
+        href="{{ site.baseurl }}/about/">
+        About
+      </a>
+
+      <a
+        class="iva-header-link{% if page.url == '/contact/' %} is-active{% endif %}"
+        href="{{ site.baseurl }}/contact/">
+        Contact
+      </a>
 
       <a
         class="iva-btn-primary iva-header-cta"
