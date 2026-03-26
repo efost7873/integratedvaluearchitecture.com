@@ -1,0 +1,351 @@
+/* ============================================
+   COMPATIBILITY LAYER FOR UPDATED PAGE MARKUP
+   This lets the current page HTML use the repo’s
+   existing visual system without rewriting every
+   page again.
+============================================ */
+
+.iva-content {
+  min-height: calc(100vh - 220px);
+}
+
+/* ============================================
+   GENERIC PAGE LAYOUT
+============================================ */
+
+.narrow {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.page-header,
+.section,
+.final-cta,
+.page-content {
+  margin-bottom: 0;
+}
+
+.page-header {
+  max-width: $iva-site-max-width;
+  margin: 0 auto;
+  padding: 28px $space-6 0;
+}
+
+.page-header .narrow,
+.page-content .container {
+  max-width: $iva-site-max-width;
+}
+
+.page-header .narrow > *:not(.inline-links):not(.cta-block):not(.related-links),
+.page-content .container > *:not(.inline-links):not(.cta-block):not(.related-links) {
+  max-width: 980px;
+}
+
+.section {
+  max-width: $iva-site-max-width;
+  margin: 0 auto;
+  padding: 0 $space-6;
+}
+
+.section + .section,
+.page-header + .section,
+.section + .final-cta,
+.page-header + .final-cta {
+  margin-top: 56px;
+}
+
+.section .narrow > *:not(.inline-links):not(.cta-block):not(.card-grid):not(.related-links),
+.final-cta .narrow > *:not(.inline-links):not(.cta-block):not(.card-grid):not(.related-links) {
+  max-width: 980px;
+}
+
+.section.alt .narrow,
+.section.alt > .container,
+.section.alt > .narrow {
+  @extend .iva-band-soft;
+}
+
+.final-cta .narrow,
+.section.final-cta .narrow {
+  @extend .iva-cta-section;
+}
+
+.page-content .container {
+  max-width: $iva-site-max-width;
+  margin: 0 auto;
+  padding: 0 $space-6;
+}
+
+/* ============================================
+   HERO
+============================================ */
+
+.hero {
+  max-width: $iva-site-max-width;
+  margin: 0 auto;
+  padding: 12px $space-6 0;
+}
+
+.hero .container {
+  max-width: 1200px;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-content {
+  max-width: 1200px;
+}
+
+.hero h1 {
+  font-size: clamp(3.2rem, 4.2vw, 4.6rem);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  margin-bottom: 14px;
+  max-width: none;
+}
+
+.hero-intro,
+.hero-content > p:not(.eyebrow) {
+  font-size: 1rem;
+  line-height: 1.72;
+  margin-bottom: 18px;
+  max-width: 900px;
+}
+
+/* ============================================
+   SMALL TEXT / EYEBROW
+============================================ */
+
+.eyebrow {
+  display: inline-block;
+  margin: 0 0 14px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $iva-governance-slate;
+}
+
+/* ============================================
+   BUTTONS / CTA ROWS
+============================================ */
+
+.hero-actions,
+.cta-block,
+.section-links,
+.inline-links {
+  display: flex;
+  align-items: center;
+  gap: $space-3;
+  flex-wrap: wrap;
+}
+
+.hero-actions,
+.cta-block {
+  margin-top: $space-5;
+}
+
+.button,
+a.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.85rem 1.2rem;
+  border-radius: $iva-radius-pill;
+  font-size: 0.96rem;
+  font-weight: 650;
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    transform $iva-transition-fast,
+    box-shadow $iva-transition-fast,
+    background $iva-transition-fast,
+    color $iva-transition-fast,
+    border-color $iva-transition-fast;
+  cursor: pointer;
+}
+
+.button.primary,
+a.button.primary {
+  background: $iva-civic-amber;
+  color: $iva-deep-governance-blue;
+  border: 1px solid transparent;
+  box-shadow: 0 10px 20px rgba(242, 169, 0, 0.22);
+}
+
+.button.primary:hover,
+.button.primary:focus,
+a.button.primary:hover,
+a.button.primary:focus {
+  background: $iva-civic-amber-dark;
+  color: $iva-deep-governance-blue;
+  transform: translateY(-1px);
+}
+
+.button.secondary,
+a.button.secondary {
+  background: transparent;
+  color: $iva-text-soft;
+  border: 1px solid rgba(31, 42, 68, 0.10);
+}
+
+.button.secondary:hover,
+.button.secondary:focus,
+a.button.secondary:hover,
+a.button.secondary:focus {
+  background: rgba(31, 42, 68, 0.04);
+  color: $iva-deep-governance-blue;
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   LINK GROUPS
+============================================ */
+
+.inline-links,
+.section-links {
+  margin-top: $space-4;
+}
+
+.inline-links a,
+.section-links a {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: $iva-deep-governance-blue;
+}
+
+.inline-links a:hover,
+.inline-links a:focus,
+.section-links a:hover,
+.section-links a:focus {
+  color: $iva-governance-slate;
+}
+
+/* ============================================
+   CARDS / GRIDS
+============================================ */
+
+.card-grid {
+  display: grid;
+  gap: $space-5;
+  margin-top: $space-5;
+}
+
+.card-grid.two-up {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.card-grid.three-up {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.info-card {
+  @extend .card;
+}
+
+.info-card h3,
+.info-card h4 {
+  margin-bottom: $space-3;
+}
+
+.info-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   RELATED LINKS LIST
+============================================ */
+
+.related-links {
+  margin-top: $space-6;
+  max-width: 980px;
+}
+
+.related-links h3 {
+  margin-bottom: $space-3;
+}
+
+.related-links ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.related-links li {
+  margin-bottom: $space-2;
+}
+
+/* ============================================
+   CTA BLOCK INSIDE WHITE PANELS
+============================================ */
+
+.section .cta-block,
+.page-content .cta-block {
+  margin-top: $space-5;
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+
+@media (max-width: 980px) {
+  .page-header,
+  .section,
+  .page-content .container,
+  .hero {
+    padding-left: $space-5;
+    padding-right: $space-5;
+  }
+
+  .card-grid.three-up {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 860px) {
+  .hero h1 {
+    font-size: clamp(2.6rem, 10vw, 3.4rem);
+    line-height: 0.96;
+  }
+}
+
+@media (max-width: 800px) {
+  .page-header,
+  .section,
+  .page-content .container,
+  .hero {
+    padding-left: $space-4;
+    padding-right: $space-4;
+  }
+
+  .section + .section,
+  .page-header + .section,
+  .section + .final-cta,
+  .page-header + .final-cta {
+    margin-top: 44px;
+  }
+
+  .card-grid.two-up,
+  .card-grid.three-up {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions,
+  .cta-block,
+  .section-links,
+  .inline-links {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .button,
+  a.button {
+    width: 100%;
+  }
+
+  .page-header {
+    padding-top: 20px;
+  }
+}
