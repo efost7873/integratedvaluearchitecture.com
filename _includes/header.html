@@ -33,6 +33,8 @@
       <a class="iva-header-link{% if current_url == '/' %} is-active{% endif %}" href="/">Home</a>
       <a class="iva-header-link{% if current_url == '/services/' %} is-active{% endif %}" href="/services/">Services</a>
       <a class="iva-header-link{% if current_url == '/what-clients-get/' %} is-active{% endif %}" href="/what-clients-get/">What Clients Get</a>
+      <a class="iva-header-link{% if current_url == '/about/' %} is-active{% endif %}" href="/about/">About</a>
+      <a class="iva-header-link{% if current_url == '/contact/' %} is-active{% endif %}" href="/contact/">Contact</a>
 
       <div class="iva-header-group{% if explore_active %} is-active{% endif %}" data-nav-group>
         <button
@@ -62,9 +64,6 @@
           <a class="{% if current_url == '/publications/' %}is-active{% endif %}" href="/publications/">Publications</a>
         </div>
       </div>
-
-      <a class="iva-header-link{% if current_url == '/about/' %} is-active{% endif %}" href="/about/">About</a>
-      <a class="iva-header-link{% if current_url == '/contact/' %} is-active{% endif %}" href="/contact/">Contact</a>
 
       <a class="iva-btn-primary iva-header-cta{% if current_url == '/fixed-fee-review/' %} is-active{% endif %}" href="/fixed-fee-review/">
         Fixed-Fee Review
