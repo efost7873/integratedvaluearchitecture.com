@@ -76,7 +76,7 @@
 .hero {
   max-width: $iva-site-max-width;
   margin: 0 auto;
-  padding: 20px $space-6 0;
+  padding: 48px $space-6 0;
 }
 
 .hero .container {
@@ -87,12 +87,12 @@
 
 .hero-content {
   max-width: 1180px;
-  padding: 8px 0 18px;
+  padding: 0 0 32px;
 }
 
 .hero h1 {
   max-width: 980px;
-  margin: 0 0 16px;
+  margin: 0 0 20px;
   font-size: clamp(3.5rem, 6vw, 5.4rem);
   line-height: 0.92;
   letter-spacing: -0.045em;
@@ -101,7 +101,7 @@
 .hero-intro,
 .hero-content > p:not(.eyebrow) {
   max-width: 900px;
-  margin: 0 0 24px;
+  margin: 0 0 22px;
   font-size: 1.08rem;
   line-height: 1.72;
   color: $iva-governance-slate;
@@ -113,7 +113,7 @@
 
 .eyebrow {
   display: inline-block;
-  margin: 0 0 14px;
+  margin: 0 0 16px;
   font-size: 0.86rem;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -203,7 +203,7 @@
   align-items: center;
   gap: $space-3;
   flex-wrap: wrap;
-  margin-top: 28px;
+  margin-top: 30px;
 }
 
 .section-links,
@@ -497,10 +497,11 @@ body.home .section + .section.alt {
   }
 
   .hero {
-    padding-top: 12px;
+    padding-top: 28px;
   }
 
   .hero-content {
     padding-top: 0;
+    padding-bottom: 20px;
   }
 }
