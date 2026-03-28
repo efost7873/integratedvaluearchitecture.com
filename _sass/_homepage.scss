@@ -68,8 +68,6 @@
   line-height: 0.92;
   letter-spacing: -0.04em;
   margin-bottom: 14px;
-
-  /* THIS was the main issue */
   max-width: none;
 }
 
@@ -88,6 +86,36 @@
   margin-top: 12px;
   font-size: 0.9rem;
   max-width: 900px;
+}
+
+/* ============================================
+   HERO IDENTITY BLOCK (THIS IS YOUR FIX)
+============================================ */
+
+#homepage-hero .hero-identity {
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(31, 42, 68, 0.08);
+  max-width: 640px;
+}
+
+#homepage-hero .hero-identity .identity-name {
+  margin: 0 0 4px;
+  font-weight: 700;
+  color: #1f2a44;
+}
+
+#homepage-hero .hero-identity .identity-title {
+  margin: 0 0 8px;
+  color: #4a5673;
+  font-size: 0.95rem;
+}
+
+#homepage-hero .hero-identity .identity-desc {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(31, 42, 68, 0.9);
 }
 
 /* ============================================
