@@ -2,19 +2,22 @@
 layout: null
 permalink: /book-advisory-call/
 robots: noindex
+disable_ga_page_view: true
 ---
+
+{% assign payment_url = "https://buy.stripe.com/cNi6oI3jm5e854y7ndfrW00" %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=https://buy.stripe.com/cNi6oI3jm5e854y7ndfrW00">
-  <link rel="canonical" href="https://buy.stripe.com/cNi6oI3jm5e854y7ndfrW00">
-  <title>Redirecting to Advisory Call Booking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="{{ payment_url }}">
+  <title>Redirecting to Advisory Call Payment</title>
 
-  <script>
-    window.location.href = "https://buy.stripe.com/cNi6oI3jm5e854y7ndfrW00";
-  </script>
+  {% include analytics-ga4.html %}
+  {% include analytics-clarity.html %}
 
   <style>
     body {
@@ -27,11 +30,13 @@ robots: noindex
       height: 100vh;
       margin: 0;
     }
+
     .container {
       text-align: center;
       max-width: 480px;
       padding: 20px;
     }
+
     a {
       color: #F2A900;
       text-decoration: none;
@@ -39,10 +44,67 @@ robots: noindex
     }
   </style>
 </head>
-<body>
+<body
+  data-page-path="/book-advisory-call/"
+  data-page-id="book-advisory-call"
+  data-page-type="payment_redirect">
   <div class="container">
-    <p>Redirecting you to book your advisory call.</p>
-    <p>If nothing happens, <a href="https://buy.stripe.com/cNi6oI3jm5e854y7ndfrW00">click here</a>.</p>
+    <p>Redirecting you to pay for your advisory call.</p>
+    <p>If nothing happens, <a href="{{ payment_url }}">click here</a>.</p>
   </div>
+
+  <script>
+    (function () {
+      const paymentUrl = "{{ payment_url }}";
+      const searchParams = new URLSearchParams(window.location.search);
+      const sourcePage = searchParams.get("iva_source_page") || document.referrer || "(direct)";
+      const sourcePageType = searchParams.get("iva_source_page_type") || "standard";
+      const sourceProblemId = searchParams.get("iva_source_problem_id") || "";
+      const ctaType = searchParams.get("iva_cta_type") || "payment";
+      const ctaLabel = searchParams.get("iva_cta_label") || "Book an Advisory Call";
+      const paymentOffer = searchParams.get("iva_payment_offer") || "advisory_call";
+      let redirected = false;
+
+      function redirectToPayment() {
+        if (redirected) return;
+        redirected = true;
+        window.location.replace(paymentUrl);
+      }
+
+      const eventParams = {
+        source_page: sourcePage,
+        source_page_type: sourcePageType,
+        source_problem_id: sourceProblemId || undefined,
+        cta_type: ctaType,
+        cta_label: ctaLabel,
+        payment_offer: paymentOffer,
+        destination_url: paymentUrl
+      };
+
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "payment_click", {
+          ...eventParams,
+          transport_type: "beacon"
+        });
+      }
+
+      if (typeof window.clarity === "function") {
+        window.clarity("set", "iva_page_path", "/book-advisory-call/");
+        window.clarity("set", "iva_page_id", "book-advisory-call");
+        window.clarity("set", "iva_page_type", "payment_redirect");
+        window.clarity("set", "iva_source_page", String(sourcePage));
+        window.clarity("set", "iva_source_page_type", String(sourcePageType));
+        window.clarity("set", "iva_payment_offer", String(paymentOffer));
+
+        if (sourceProblemId) {
+          window.clarity("set", "iva_source_problem_id", String(sourceProblemId));
+        }
+
+        window.clarity("event", "payment_click");
+      }
+
+      window.setTimeout(redirectToPayment, 250);
+    })();
+  </script>
 </body>
 </html>
