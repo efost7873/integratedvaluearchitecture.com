@@ -2,10 +2,28 @@
 <html lang="en">
 <head>
   {% include meta.html %}
+  {% include analytics-ga4.html %}
+  {% include analytics-clarity.html %}
   {% include schema-identity.html %}
 </head>
 
-<body>
+{% assign analytics_path = page.url | default: '/' | replace:'index.html','' %}
+{% if analytics_path == '' %}
+  {% assign analytics_path = '/' %}
+{% endif %}
+
+{% assign analytics_page_id = page.analytics_page_id | default: analytics_path | replace:'/',' ' | strip | replace:' ','-' %}
+{% if analytics_page_id == '' %}
+  {% assign analytics_page_id = 'home' %}
+{% endif %}
+
+{% assign analytics_page_type = page.analytics_page_type | default: 'standard' %}
+
+<body
+  data-page-path="{{ analytics_path }}"
+  data-page-id="{{ analytics_page_id }}"
+  data-page-type="{{ analytics_page_type }}"{% if page.analytics_problem_id %}
+  data-problem-id="{{ page.analytics_problem_id }}"{% endif %}>
 
   {% include header.html %}
 
