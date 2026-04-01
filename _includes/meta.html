@@ -14,7 +14,7 @@
 <meta name="author" content="Integrated Value Architecture LLC">
 <link rel="canonical" href="{{ meta_url }}">
 
-<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css?v=20260326">
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css?v=20260401">
 
 <link rel="shortcut icon" href="{{ site.baseurl }}/assets/images/tmlogo.png?v=20260326" type="image/png">
 <link rel="icon" type="image/png" href="{{ site.baseurl }}/assets/images/tmlogo.png?v=20260326">
@@ -37,6 +37,11 @@
 <meta name="theme-color" content="#1F2A44">
 <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="bingbot" content="index, follow">
+
+{% assign google_site_verification = site.verification.google_site_verification | default: '' %}
+{% unless google_site_verification == '' or google_site_verification contains 'REPLACE_WITH_' %}
+<meta name="google-site-verification" content="{{ google_site_verification | escape }}">
+{% endunless %}
 
 <link rel="manifest" href="/manifest.json?v=20260326">
 
