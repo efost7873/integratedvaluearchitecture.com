@@ -1,50 +1,111 @@
 .iva-visual-block {
-  margin: 2rem 0 2.5rem;
+  margin: 1.75rem 0 2.25rem;
 }
 
-.iva-visual-card {
+.iva-visual-frame {
   margin: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 248, 252, 0.96));
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.88);
   border: 1px solid rgba(31, 42, 68, 0.08);
-  border-radius: 24px;
-  box-shadow: 0 18px 42px rgba(20, 28, 48, 0.12);
-  overflow: hidden;
+  border-radius: 22px;
+  box-shadow: 0 12px 28px rgba(20, 28, 48, 0.08);
 }
 
-.iva-visual-card svg {
+.iva-visual-frame svg {
   display: block;
   width: 100%;
   height: auto;
 }
 
-.iva-visual-grid {
-  display: grid;
-  gap: 1.5rem;
-}
-
-.iva-visual-grid--two {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.iva-visual-caption {
+.iva-visual-note {
   margin-top: 0.9rem;
   font-size: 0.96rem;
   line-height: 1.55;
-  color: #5a6278;
+  color: $iva-text-soft;
 }
 
-@media (max-width: 980px) {
-  .iva-visual-block {
-    margin: 1.75rem 0 2.25rem;
-  }
+.iva-stat-visual {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.75rem 0 2.25rem;
 }
 
-@media (max-width: 800px) {
-  .iva-visual-card {
-    border-radius: 16px;
+.iva-stat-card {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(31, 42, 68, 0.08);
+  border-radius: 22px;
+  padding: 1.25rem 1.35rem;
+  box-shadow: 0 12px 28px rgba(20, 28, 48, 0.08);
+}
+
+.iva-stat-card--accent {
+  background: rgba(255, 244, 214, 0.72);
+  border-color: rgba(242, 169, 0, 0.28);
+}
+
+.iva-stat-kicker {
+  margin: 0 0 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $iva-governance-slate;
+}
+
+.iva-stat-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.8rem;
+  line-height: 1.05;
+  color: $iva-deep-governance-blue;
+}
+
+.iva-stat-number {
+  margin: 0 0 0.55rem;
+  font-size: 2.75rem;
+  line-height: 0.98;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: $iva-deep-governance-blue;
+}
+
+.iva-stat-card--accent .iva-stat-number {
+  color: $iva-civic-amber-dark;
+}
+
+.iva-stat-copy,
+.iva-stat-note {
+  margin: 0;
+  color: $iva-text-soft;
+}
+
+.iva-stat-copy {
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.iva-stat-note {
+  margin-top: 0.6rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .iva-visual-frame {
+    padding: 0.95rem;
+    border-radius: 18px;
   }
 
-  .iva-visual-grid--two {
+  .iva-stat-visual {
     grid-template-columns: 1fr;
+  }
+
+  .iva-stat-card {
+    border-radius: 18px;
+    padding: 1.05rem 1.1rem;
+  }
+
+  .iva-stat-number {
+    font-size: 2.25rem;
   }
 }
