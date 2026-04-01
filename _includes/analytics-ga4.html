@@ -1,0 +1,16 @@
+{% assign ga4_measurement_id = site.analytics.ga4_measurement_id | default: '' %}
+{% unless ga4_measurement_id == '' or ga4_measurement_id contains 'REPLACE_WITH_' %}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ ga4_measurement_id }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  gtag("js", new Date());
+  gtag("config", "{{ ga4_measurement_id }}", {
+    send_page_view: {% if page.disable_ga_page_view == true %}false{% else %}true{% endif %}
+  });
+</script>
+{% endunless %}
