@@ -1,8 +1,8 @@
 <div class="iva-visual-block" aria-labelledby="approvalLoopTitle approvalLoopDesc">
   <figure class="iva-visual-frame">
-    <svg viewBox="0 0 920 320" role="img" aria-labelledby="approvalLoopTitle approvalLoopDesc" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 920 290" role="img" aria-labelledby="approvalLoopTitle approvalLoopDesc" xmlns="http://www.w3.org/2000/svg">
       <title id="approvalLoopTitle">Approval bottleneck loop</title>
-      <desc id="approvalLoopDesc">A simple loop showing finished work going up for approval, sitting in review, coming back with edits, and returning to the same person for correction.</desc>
+      <desc id="approvalLoopDesc">Finished work goes up for approval, sits in review, returns with edits, and the same person fixes it before it goes back up again.</desc>
 
       <defs>
         <marker id="ivaArrowHead" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
@@ -12,64 +12,49 @@
           .iva-step { fill: #ffffff; stroke: rgba(31,42,68,0.12); stroke-width: 2; }
           .iva-step-dark { fill: #1F2A44; stroke: #1F2A44; }
           .iva-step-accent { fill: #FFF4D6; stroke: rgba(242,169,0,0.45); stroke-width: 2; }
-          .iva-label { font: 700 18px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; fill: #1F2A44; }
-          .iva-label-dark { font: 700 18px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; fill: #ffffff; }
-          .iva-copy { font: 500 13px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; fill: #5A6278; }
-          .iva-copy-dark { font: 500 13px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; fill: rgba(255,255,255,0.84); }
+          .iva-label { font: 700 20px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; fill: #1F2A44; }
+          .iva-label-dark { font: 700 20px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; fill: #ffffff; }
           .iva-line { fill: none; stroke: #4A5673; stroke-width: 3; marker-end: url(#ivaArrowHead); }
-          .iva-chip { fill: rgba(31,42,68,0.05); stroke: rgba(31,42,68,0.08); stroke-width: 1.5; }
-          .iva-chip-text { font: 600 12px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; fill: #4A5673; letter-spacing: 0.04em; text-transform: uppercase; }
         </style>
       </defs>
 
-      <rect x="44" y="102" width="150" height="72" rx="16" class="iva-step-dark"></rect>
-      <text x="119" y="128" text-anchor="middle" class="iva-label-dark">
-        <tspan x="119" dy="0">Work is</tspan>
-        <tspan x="119" dy="20">finished</tspan>
+      <rect x="48" y="96" width="156" height="72" rx="16" class="iva-step-dark"></rect>
+      <text x="126" y="125" text-anchor="middle" class="iva-label-dark">
+        <tspan x="126" dy="0">Work is</tspan>
+        <tspan x="126" dy="22">finished</tspan>
       </text>
-      <text x="119" y="156" text-anchor="middle" class="iva-copy-dark">Ready to move</text>
 
-      <rect x="242" y="102" width="160" height="72" rx="16" class="iva-step"></rect>
-      <text x="322" y="128" text-anchor="middle" class="iva-label">
-        <tspan x="322" dy="0">Sent up for</tspan>
-        <tspan x="322" dy="20">approval</tspan>
+      <rect x="256" y="96" width="166" height="72" rx="16" class="iva-step"></rect>
+      <text x="339" y="125" text-anchor="middle" class="iva-label">
+        <tspan x="339" dy="0">Sent up for</tspan>
+        <tspan x="339" dy="22">approval</tspan>
       </text>
-      <text x="322" y="156" text-anchor="middle" class="iva-copy">Routine work climbs</text>
 
-      <rect x="450" y="102" width="150" height="72" rx="16" class="iva-step-accent"></rect>
-      <text x="525" y="128" text-anchor="middle" class="iva-label">
-        <tspan x="525" dy="0">Sits in</tspan>
-        <tspan x="525" dy="20">review</tspan>
+      <rect x="474" y="96" width="156" height="72" rx="16" class="iva-step-accent"></rect>
+      <text x="552" y="125" text-anchor="middle" class="iva-label">
+        <tspan x="552" dy="0">Sits in</tspan>
+        <tspan x="552" dy="22">review</tspan>
       </text>
-      <text x="525" y="156" text-anchor="middle" class="iva-copy">Delay starts here</text>
 
-      <rect x="648" y="102" width="160" height="72" rx="16" class="iva-step"></rect>
-      <text x="728" y="128" text-anchor="middle" class="iva-label">
-        <tspan x="728" dy="0">Returns</tspan>
-        <tspan x="728" dy="20">with edits</tspan>
+      <rect x="682" y="96" width="166" height="72" rx="16" class="iva-step"></rect>
+      <text x="765" y="125" text-anchor="middle" class="iva-label">
+        <tspan x="765" dy="0">Returns</tspan>
+        <tspan x="765" dy="22">with edits</tspan>
       </text>
-      <text x="728" y="156" text-anchor="middle" class="iva-copy">Small changes come down</text>
 
-      <rect x="366" y="230" width="188" height="60" rx="16" class="iva-step"></rect>
-      <text x="460" y="255" text-anchor="middle" class="iva-label">Same person fixes it</text>
-      <text x="460" y="275" text-anchor="middle" class="iva-copy">Ownership never left</text>
+      <rect x="362" y="214" width="204" height="58" rx="16" class="iva-step"></rect>
+      <text x="464" y="248" text-anchor="middle" class="iva-label">Same person fixes it</text>
 
-      <path d="M194 138 L242 138" class="iva-line"></path>
-      <path d="M402 138 L450 138" class="iva-line"></path>
-      <path d="M600 138 L648 138" class="iva-line"></path>
+      <path d="M204 132 L256 132" class="iva-line"></path>
+      <path d="M422 132 L474 132" class="iva-line"></path>
+      <path d="M630 132 L682 132" class="iva-line"></path>
 
-      <path d="M728 174 C728 212, 640 232, 554 244" class="iva-line"></path>
-      <path d="M366 260 C286 252, 202 226, 152 178" class="iva-line"></path>
-
-      <rect x="54" y="26" width="154" height="34" rx="17" class="iva-chip"></rect>
-      <text x="131" y="48" text-anchor="middle" class="iva-chip-text">approval moves up</text>
-
-      <rect x="224" y="26" width="188" height="34" rx="17" class="iva-chip"></rect>
-      <text x="318" y="48" text-anchor="middle" class="iva-chip-text">correction work falls back</text>
+      <path d="M765 168 C765 205, 665 223, 566 233" class="iva-line"></path>
+      <path d="M362 243 C274 234, 188 209, 142 172" class="iva-line"></path>
     </svg>
   </figure>
 
   <p class="iva-visual-note">
-    The queue is not the whole problem. The person closest to the work still owns the file while approval travels upward and correction work comes back down.
+    Finished work goes up the chain for approval, sits in review, comes back with edits, and the same person still has to fix it before it goes back up again.
   </p>
 </div>
