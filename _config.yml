@@ -3,6 +3,13 @@ description: Integrated Value Architecture is a five-ledger governance architect
 url: https://integratedvaluearchitecture.com
 baseurl: ""
 
+analytics:
+  ga4_measurement_id: "G-HZFPLJ5K7P"
+  clarity_project_id: "w4wxzj6r77"
+
+verification:
+  google_site_verification: ""
+
 markdown: kramdown
 theme: null
 permalink: pretty
