@@ -1,54 +1,25 @@
-<div class="iva-visual-block iva-visual-block--cost" aria-labelledby="approval-cost-title approval-cost-desc">
-  <figure class="iva-visual-card">
-    <svg viewBox="0 0 1200 760" role="img" aria-labelledby="approval-cost-title approval-cost-desc" xmlns="http://www.w3.org/2000/svg">
-      <title id="approval-cost-title">Illustrative cost examples for approval bottlenecks</title>
-      <desc id="approval-cost-desc">Two example cards showing how review loops can tie up billable hours in a service business and how a small percentage change can matter in a thin-margin grocery business.</desc>
-      <defs>
-        <linearGradient id="costBg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#ffffff"/>
-          <stop offset="100%" stop-color="#f7f8fc"/>
-        </linearGradient>
-        <filter id="costShadow" x="-20%" y="-20%" width="140%" height="160%">
-          <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#14203a" flood-opacity="0.10"/>
-        </filter>
-        <style>
-          .frame { fill: url(#costBg); stroke: rgba(31,42,68,0.08); stroke-width: 1.5; }
-          .eyebrow { font: 700 18px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; letter-spacing: 0.14em; text-transform: uppercase; fill: #4a5673; }
-          .headline { font: 700 44px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; fill: #1f2a44; }
-          .subcopy { font: 500 23px/1.45 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; fill: #5a6278; }
-          .card { fill: #ffffff; stroke: rgba(31,42,68,0.08); stroke-width: 1.5; }
-          .card-accent { fill: rgba(255,244,214,0.56); stroke: rgba(242,169,0,0.32); stroke-width: 1.5; }
-          .card-kicker { font: 700 16px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; letter-spacing: 0.1em; text-transform: uppercase; fill: #4a5673; }
-          .card-title { font: 700 30px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; fill: #1f2a44; }
-          .formula { font: 700 22px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; fill: #1f2a44; }
-          .copy { font: 500 19px/1.5 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; fill: #5a6278; }
-          .big-number { font: 800 70px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; fill: #1f2a44; }
-          .big-number-accent { font: 800 64px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; fill: #d89200; }
-          .small-note { font: 500 16px/1.45 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; fill: #5a6278; }
-        </style>
-      </defs>
+<div class="iva-stat-visual" aria-label="Illustrative approval bottleneck cost examples">
+  <div class="iva-stat-card">
+    <p class="iva-stat-kicker">Service business example</p>
+    <h3 class="iva-stat-title">Review loops can eat a year of capacity.</h3>
+    <p class="iva-stat-number">780 hours</p>
+    <p class="iva-stat-copy">
+      5 client-facing employees × 3 lost billable hours a week × 52 weeks.
+    </p>
+    <p class="iva-stat-note">
+      At $150 an hour, that is about $117,000 tied up in approval laps and rework instead of client work.
+    </p>
+  </div>
 
-      <rect class="frame" x="18" y="18" width="1164" height="724" rx="34" filter="url(#costShadow)"/>
-
-      <text class="eyebrow" x="82" y="94">Illustrative numbers</text>
-      <text class="headline" x="82" y="152">Approval waste turns into real money fast.</text>
-      <text class="subcopy" x="82" y="202">These are planning illustrations, not guarantees. They show how a routine review loop can tie up billable capacity or burn thin-margin sales.</text>
-
-      <rect class="card" x="82" y="270" width="496" height="386" rx="28"/>
-      <text class="card-kicker" x="122" y="324">Service business example</text>
-      <text class="card-title" x="122" y="374">Review loops can eat a year of billable work.</text>
-      <text class="formula" x="122" y="434">5 client-facing staff × 3 lost hours a week × 52 weeks</text>
-      <text class="big-number" x="122" y="520">780 hours</text>
-      <text class="copy" x="122" y="562">At $150 an hour, that is about $117,000 in capacity tied up in approvals instead of client work.</text>
-      <text class="small-note" x="122" y="618">The point is not the exact hourly rate. The point is that routine edits and approval laps are eating work that should already be billed.</text>
-
-      <rect class="card-accent" x="622" y="270" width="496" height="386" rx="28"/>
-      <text class="card-kicker" x="662" y="324">Grocery example</text>
-      <text class="card-title" x="662" y="374">A small structural gain can move real money.</text>
-      <text class="formula" x="662" y="434">0.5% of $8M to $10M annual sales</text>
-      <text class="big-number-accent" x="662" y="520">$40K to $50K</text>
-      <text class="copy" x="662" y="562">In a thin-margin store, that can be the difference between carrying the delay and actually seeing the gain.</text>
-      <text class="small-note" x="662" y="618">In a specialty grocer, the leak can be worse because the shopper who came for a specific item may leave and buy the basket somewhere else.</text>
-    </svg>
-  </figure>
+  <div class="iva-stat-card iva-stat-card--accent">
+    <p class="iva-stat-kicker">Grocery example</p>
+    <h3 class="iva-stat-title">A small structural gain can move real money.</h3>
+    <p class="iva-stat-number">$40K to $50K</p>
+    <p class="iva-stat-copy">
+      Roughly 0.5% of annual sales in an $8 million to $10 million grocery business.
+    </p>
+    <p class="iva-stat-note">
+      In a specialty grocery, the leak can be worse because the shopper who came for a specific item may leave and buy the basket somewhere else.
+    </p>
+  </div>
 </div>
