@@ -1,7 +1,13 @@
 {% assign current_url = page.url | replace:'index.html','' %}
 {% assign problems_active = false %}
+{% assign services_active = false %}
+
 {% if current_url == '/problems/' or current_url == '/approval-bottlenecks/' or current_url == '/slow-decisions-decision-rights/' or current_url == '/stalled-strategy-execution/' or current_url == '/unclear-roles-duplicate-work/' or current_url == '/silos-broken-handoffs/' %}
   {% assign problems_active = true %}
+{% endif %}
+
+{% if current_url == '/services/' or current_url == '/advisory-call/' or current_url == '/book-advisory-call/' or current_url == '/strategic-plan-review/' or current_url == '/fixed-fee-review/' or current_url == '/what-clients-get/' %}
+  {% assign services_active = true %}
 {% endif %}
 
 <header class="iva-header">
@@ -27,7 +33,24 @@
     </button>
 
     <nav class="iva-header-nav" id="iva-nav" aria-label="Primary">
-      <a class="iva-header-link{% if current_url == '/services/' %} is-active{% endif %}" href="/services/">Services</a>
+      <div class="iva-header-group{% if services_active %} is-active{% endif %}" data-nav-group>
+        <button
+          class="iva-header-group-trigger"
+          type="button"
+          aria-expanded="false"
+          aria-controls="iva-services-menu">
+          <span>Services</span>
+          <span class="iva-header-group-caret" aria-hidden="true"></span>
+        </button>
+
+        <div class="iva-header-group-menu" id="iva-services-menu">
+          <a class="{% if current_url == '/services/' %}is-active{% endif %}" href="/services/">Services Overview</a>
+          <a class="{% if current_url == '/advisory-call/' or current_url == '/book-advisory-call/' %}is-active{% endif %}" href="/advisory-call/">60-Minute Advisory Call</a>
+          <a class="{% if current_url == '/strategic-plan-review/' %}is-active{% endif %}" href="/strategic-plan-review/">Strategic Plan Review</a>
+          <a class="{% if current_url == '/fixed-fee-review/' %}is-active{% endif %}" href="/fixed-fee-review/">Structural Diagnostic</a>
+          <a class="{% if current_url == '/what-clients-get/' %}is-active{% endif %}" href="/what-clients-get/">What Clients Get</a>
+        </div>
+      </div>
 
       <div class="iva-header-group{% if problems_active %} is-active{% endif %}" data-nav-group>
         <button
@@ -61,7 +84,7 @@
 
       <a class="iva-header-link{% if current_url == '/contact/' %} is-active{% endif %}" href="/contact/">Contact</a>
 
-      <a class="iva-btn-primary iva-header-cta{% if current_url == '/book-advisory-call/' %} is-active{% endif %}" href="/book-advisory-call/">
+      <a class="iva-btn-primary iva-header-cta{% if current_url == '/book-advisory-call/' or current_url == '/advisory-call/' %} is-active{% endif %}" href="/book-advisory-call/">
         Book an Advisory Call
       </a>
     </nav>
